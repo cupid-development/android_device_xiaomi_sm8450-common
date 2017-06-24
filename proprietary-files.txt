@@ -10,7 +10,6 @@ vendor/lib64/hw/com.dsi.ant@1.0-impl.so
 
 # Audio soundfx
 vendor/lib64/soundfx/libasphere.so
-vendor/lib64/soundfx/libmisoundfx.so
 vendor/lib64/soundfx/libshoebox.so
 
 # Bluetooth

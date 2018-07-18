@@ -286,6 +286,9 @@ PRODUCT_PACKAGES += \
     WifiResTarget \
     WifiResTarget_spf
 
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay-lineage \
+
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 

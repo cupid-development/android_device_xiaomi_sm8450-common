@@ -271,6 +271,7 @@ PRODUCT_PACKAGES += \
     WifiResCommon_Sys
 
 PRODUCT_PACKAGES += \
+    DialerResXiaomi \
     FrameworksResTarget_Vendor \
     FrameworksResXiaomi \
     SettingsProviderResXiaomi \

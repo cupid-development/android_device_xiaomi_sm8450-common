@@ -342,6 +342,9 @@ PRODUCT_PACKAGES += \
     android.hardware.common-V2-ndk_platform.vendor
 
 # Recovery
+PRODUCT_PACKAGES += \
+    fastbootd
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/init.recovery.qcom.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.qcom.rc
 

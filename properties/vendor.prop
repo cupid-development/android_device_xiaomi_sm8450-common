@@ -88,6 +88,9 @@ persist.vendor.vcb.enable=false
 ro.camera.enableCamera1MaxZsl=1
 ro.hardware.camera=xiaomi
 
+# Dex2oat
+dalvik.vm.dex2oat64.enabled=true
+
 # Display
 vendor.display.comp_mask=0
 vendor.display.disable_3d_adaptive_tm=0

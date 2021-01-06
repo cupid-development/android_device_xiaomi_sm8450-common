@@ -87,7 +87,7 @@ public:
     }
     virtual void onServiceStatusChange(int sericeId, int instanceId, ServiceStatus status,
                                        const LocIpcSender& sender) = 0;
-    inline virtual void onClientGone(int nodeId, int portId) {}
+    inline virtual void onClientGone(int nodeId __unused, int portId __unused) {}
     inline const unordered_set<int>& getServicesToWatch() { return mServicesToWatch; }
 };
 
@@ -174,10 +174,10 @@ public:
     inline bool sendData(const uint8_t data[], uint32_t length, int32_t msgId) const {
         return isSendable() && (send(data, length, msgId) > 0);
     }
-    virtual unique_ptr<LocIpcRecver> getRecver(const shared_ptr<ILocIpcListener>& listener) {
+    virtual unique_ptr<LocIpcRecver> getRecver(const shared_ptr<ILocIpcListener>& listener __unused) {
         return nullptr;
     }
-    inline virtual bool copyDestAddrFrom(const LocIpcSender& otherSender) { return true; }
+    inline virtual bool copyDestAddrFrom(const LocIpcSender& otherSender __unused) { return true; }
 };
 
 class LocIpcRecver {

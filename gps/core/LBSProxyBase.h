@@ -61,7 +61,7 @@ public:
     }
     inline virtual bool hasNativeXtraClient() const { return false; }
     inline virtual IzatDevId_t getIzatDevId() const { return 0; }
-    virtual void setIzatFusedProviderOverride(bool izatFused) {}
+    virtual void setIzatFusedProviderOverride(bool izatFused __unused) {}
     virtual bool getIzatFusedProviderOverride() const { return false; }
 };
 

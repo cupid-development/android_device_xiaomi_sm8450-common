@@ -44,11 +44,11 @@ BatchingAdapter::BatchingAdapter() :
     mOngoingTripTBFInterval(0),
     mTripWithOngoingTBFDropped(false),
     mTripWithOngoingTripDistanceDropped(false),
+    mSystemPowerState(POWER_STATE_UNKNOWN),
     mBatchingTimeout(0),
     mBatchingAccuracy(1),
     mBatchSize(0),
-    mTripBatchSize(0),
-    mSystemPowerState(POWER_STATE_UNKNOWN)
+    mTripBatchSize(0)
 {
     LOC_LOGD("%s]: Constructor", __func__);
     readConfigCommand();

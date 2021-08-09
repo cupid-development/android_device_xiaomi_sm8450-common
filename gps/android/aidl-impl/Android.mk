@@ -26,7 +26,7 @@ LOCAL_HEADER_LIBRARIES := \
 LOCAL_SHARED_LIBRARIES := \
     libbase \
     libbinder_ndk \
-    android.hardware.gnss-V1-ndk_platform \
+    android.hardware.gnss-V1-ndk \
     liblog \
     libcutils \
     libqti_vndfwk_detect_vendor \
@@ -74,7 +74,7 @@ LOCAL_SHARED_LIBRARIES += \
     android.hardware.gnss@1.1 \
     android.hardware.gnss@2.0 \
     android.hardware.gnss@2.1 \
-    android.hardware.gnss-V1-ndk_platform \
+    android.hardware.gnss-V1-ndk \
     android.hardware.gnss-aidl-impl-qti
 
 LOCAL_CFLAGS += $(GNSS_CFLAGS)

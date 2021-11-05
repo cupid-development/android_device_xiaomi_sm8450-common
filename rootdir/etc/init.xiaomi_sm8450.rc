@@ -61,6 +61,10 @@ on boot
     chmod 0660 /dev/goodix_fp
     chown system system /dev/goodix_fp
 
+    # Xiaomi touch
+    chown system system /dev/xiaomi-touch
+    chmod 0660 /dev/xiaomi-touch
+
 on post-fs-data
     # Create folder of camera
     mkdir /data/vendor/camera/offlinelog 0777 cameraserver audio

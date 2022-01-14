@@ -70,6 +70,11 @@
      -->
     <bool name="config_wifiAllowMultipleNetworksOnSameAwareNdi" translatable="false">true</bool>
 
+    <!-- A boolean indicate if device supports ser channel on the Aware data-path setup. If the
+    value is false, channel setting on the data-path request will be ignored.
+    -->
+    <bool name="config_wifiSupportChannelOnDataPath" translatable="false">true</bool>
+
     <!-- Indicates whether or not the WLAN driver supports the NL80211_CMD_REG_CHANGE or
          NL80211_CMD_WIPHY_REG_CHANGE events which indicate the current country code which is
          being used by the WLAN driver. If the driver doesn't support these events

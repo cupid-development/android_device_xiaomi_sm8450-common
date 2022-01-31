@@ -402,6 +402,9 @@ subsystem mem_buf_vm
 
 /sys/devices/virtual/hdcp/msm_hdcp  min_level_change 0664    system  graphics
 
+#KGSL
+/sys/class/kgsl/kgsl-3d0    perfcounter              0660    root    shell
+
 # sys-fs display
 /sys/class/graphics/fb*     hpd                      0664    system  graphics
 /sys/class/graphics/fb*     res_info                 0664    system  graphics

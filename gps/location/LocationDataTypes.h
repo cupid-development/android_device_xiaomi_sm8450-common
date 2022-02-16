@@ -1034,6 +1034,12 @@ typedef enum {
     LOC_OUTPUT_ENGINE_COUNT,
 } LocOutputEngineType;
 
+typedef enum {
+    QUALITY_HIGH_ACCU_FIX_ONLY = 0,       /* Only allow valid fix with high accuracy */
+    QUALITY_ANY_VALID_FIX,                /* Allow fix with any accuracy, like intermediate fix */
+    QUALITY_ANY_OR_FAILED_FIX,            /* Allow fix of any type, even failed fix */
+} FixQualityLevel;
+
 struct LocationOptions {
     uint32_t size;          // set to sizeof(LocationOptions)
     uint32_t minInterval; // in milliseconds
@@ -1044,10 +1050,12 @@ struct LocationOptions {
     //  if engine hub is running, this will be fused fix,
     //  if engine hub is not running, this will be SPE fix
     LocReqEngineTypeMask locReqEngTypeMask;
+    FixQualityLevel qualityLevelAccepted; /* Send through position reports with which accuracy. */
 
     inline LocationOptions() :
             size(0), minInterval(0), minDistance(0), mode(GNSS_SUPL_MODE_STANDALONE),
-            locReqEngTypeMask((LocReqEngineTypeMask)0) {}
+            locReqEngTypeMask((LocReqEngineTypeMask)0),
+            qualityLevelAccepted(QUALITY_HIGH_ACCU_FIX_ONLY) {}
 };
 
 typedef enum {
@@ -1059,34 +1067,26 @@ typedef enum {
     GNSS_POWER_MODE_M5   /* Background Mode */
 } GnssPowerMode;
 
-typedef enum {
-    QUALITY_HIGH_ACCU_FIX_ONLY = 0,       /* Only allow valid fix with high accuracy */
-    QUALITY_ANY_VALID_FIX,                /* Allow fix with any accuracy, like intermediate fix */
-    QUALITY_ANY_OR_FAILED_FIX,            /* Allow fix of any type, even failed fix */
-} FixQualityLevel;
-
 struct TrackingOptions : LocationOptions {
     GnssPowerMode powerMode; /* Power Mode to be used for time based tracking
                                 sessions */
     uint32_t tbm;  /* Time interval between measurements specified in millis.
                       Applicable to background power modes */
-    FixQualityLevel qualityLevelAccepted; /* Send through position reports with which accuracy. */
 
     inline TrackingOptions() :
-            LocationOptions(), powerMode(GNSS_POWER_MODE_INVALID), tbm(0),
-            qualityLevelAccepted(QUALITY_HIGH_ACCU_FIX_ONLY) {}
+            LocationOptions(), powerMode(GNSS_POWER_MODE_INVALID), tbm(0) {}
     inline TrackingOptions(uint32_t s, GnssPowerMode m, uint32_t t) :
-            LocationOptions(), powerMode(m), tbm(t),
-            qualityLevelAccepted(QUALITY_HIGH_ACCU_FIX_ONLY) { LocationOptions::size = s; }
+            LocationOptions(), powerMode(m), tbm(t) {
+            LocationOptions::size = s; }
     inline TrackingOptions(const LocationOptions& options) :
-            LocationOptions(options), powerMode(GNSS_POWER_MODE_INVALID), tbm(0),
-            qualityLevelAccepted(QUALITY_HIGH_ACCU_FIX_ONLY) {}
+            LocationOptions(options), powerMode(GNSS_POWER_MODE_INVALID), tbm(0) {}
     inline void setLocationOptions(const LocationOptions& options) {
         size = sizeof(TrackingOptions);
         minInterval = options.minInterval;
         minDistance = options.minDistance;
         mode = options.mode;
         locReqEngTypeMask = options.locReqEngTypeMask;
+        qualityLevelAccepted = options.qualityLevelAccepted;
     }
     inline LocationOptions getLocationOptions() {
         LocationOptions locOption;
@@ -1095,6 +1095,7 @@ struct TrackingOptions : LocationOptions {
         locOption.minInterval = minInterval;
         locOption.mode = mode;
         locOption.locReqEngTypeMask = locReqEngTypeMask;
+        locOption.qualityLevelAccepted = qualityLevelAccepted;
         return locOption;
     }
 };

@@ -29,3 +29,6 @@ $(call inherit-product, vendor/xiaomi/sm8450-common/sm8450-common-vendor.mk)
 # API
 PRODUCT_SHIPPING_API_LEVEL := 31
 BOARD_SHIPPING_API_LEVEL := 31
+
+# Partitions
+PRODUCT_USE_DYNAMIC_PARTITIONS := true

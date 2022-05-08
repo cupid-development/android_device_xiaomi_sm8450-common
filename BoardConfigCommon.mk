@@ -46,6 +46,9 @@ $(call soong_config_set, ufsbsg, ufsframework, bsg)
 TARGET_BOOTLOADER_BOARD_NAME := taro
 TARGET_NO_BOOTLOADER := true
 
+# Filesystem
+TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/configs/config.fs
+
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
 

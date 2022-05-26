@@ -89,6 +89,9 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
 
+# Sepolicy
+include device/qcom/sepolicy_vndr/SEPolicy.mk
+
 # VINTF
 DEVICE_MATRIX_FILE := $(COMMON_PATH)/vintf/compatibility_matrix.xml
 

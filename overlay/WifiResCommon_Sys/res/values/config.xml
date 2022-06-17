@@ -55,9 +55,6 @@
     <!-- Indicates that p2p MAC randomization is supported on this device -->
     <bool name="config_wifi_p2p_mac_randomization_supported" translatable="false">true</bool>
 
-    <!-- Indicates that bridged AP mode is supported on this device -->
-    <bool name="config_wifiBridgedSoftApSupported" translatable="false">false</bool>
-
     <!-- Wifi driver Automatic channel selection (ACS) for softap to include DFS channels -->
     <bool name="config_wifiSoftapAcsIncludeDfs" translatable="false">true</bool>
 

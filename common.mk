@@ -77,7 +77,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     FrameworksResTarget_Vendor \
-    WifiResTarget
+    WifiResTarget \
+    WifiResTarget_spf
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true

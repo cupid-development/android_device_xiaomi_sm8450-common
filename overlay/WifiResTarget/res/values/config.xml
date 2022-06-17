@@ -4,49 +4,18 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- boolean indicating whether the WiFi chipset has 5GHz band support.
-         Note: This config is replacing the config_wifi_dual_band_support
-         since more bands may now be supported (such as 6GHz), the naming dual_band
-         is no longer indicative, and a separate config now exists for each band -->
-    <bool name="config_wifi5ghzSupport" translatable="false">true</bool>
-
-    <!-- boolean indicating whether the WiFi chipset has 6GHz band support -->
-    <bool name="config_wifi6ghzSupport" translatable="false">true</bool>
-
-    <!-- Boolean indicating performing a partial initial scan is enabled -->
-    <bool name="config_wifiEnablePartialInitialScan" translatable="false">true</bool>
-
-    <!-- Wifi driver supports IEEE80211AX for softap -->
-    <bool name="config_wifiSoftapIeee80211axSupported" translatable="false">true</bool>
-
-    <!-- Wifi driver supports IEEE80211AX single user beamformer for softap -->
-    <bool name="config_wifiSoftapHeSuBeamformerSupported" translatable="false">true</bool>
-
-    <!-- Wifi driver supports IEEE80211AX single user beamformee for softap -->
-    <bool name="config_wifiSoftapHeSuBeamformeeSupported" translatable="false">true</bool>
-
-    <!-- Wifi driver supports 6GHz band for softap when chip support 6GHz -->
-    <bool name="config_wifiSoftap6ghzSupported" translatable="false">true</bool>
-
     <!-- Indicates that bridged AP mode is supported on this device -->
-    <bool name="config_wifiBridgedSoftApSupported" translatable="false">false</bool>
-
-    <!-- Configure wifi tcp buffersizes in the form:
-         rmem_min,rmem_def,rmem_max,wmem_min,wmem_def,wmem_max -->
-    <string name="config_wifi_tcp_buffers" translatable="false">524288,1048576,2097152,524288,1048576,4194304</string>
+    <bool name="config_wifiBridgedSoftApSupported" translatable="false">true</bool>
 
     <!-- Enable Make-Before-Break Wifi network switching.
          Note: this is conditional on the device supporting dual concurrent STAs. -->
-    <bool name="config_wifiMultiStaNetworkSwitchingMakeBeforeBreakEnabled" translatable="false">false</bool>
+    <bool name="config_wifiMultiStaNetworkSwitchingMakeBeforeBreakEnabled" translatable="false">true</bool>
 
     <!-- Enable concurrent peer to peer + internet connectivity
          Note: this is conditional on the device supporting dual concurrent STAs. -->
-    <bool name="config_wifiMultiStaLocalOnlyConcurrencyEnabled" translatable="false">false</bool>
+    <bool name="config_wifiMultiStaLocalOnlyConcurrencyEnabled" translatable="false">true</bool>
 
     <!-- Enable concurrent restricted connectivity + internet connectivity
          Note: this is conditional on the device supporting dual concurrent STAs. -->
-    <bool name="config_wifiMultiStaRestrictedConcurrencyEnabled" translatable="false">false</bool>
-
-    <!-- Indicates that SAE Hash-to-Element is supported on this device -->
-    <bool name="config_wifiSaeH2eSupported" translatable="false">true</bool>
+    <bool name="config_wifiMultiStaRestrictedConcurrencyEnabled" translatable="false">true</bool>
 </resources>

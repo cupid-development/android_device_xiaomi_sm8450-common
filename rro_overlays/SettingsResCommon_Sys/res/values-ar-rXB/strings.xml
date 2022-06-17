@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2022 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="backup_calling_settings_title">‏‮Voice‬‏ ‏‮Over‬‏ ‏‮Cellular‬‏ ‏‮Internet‬‏</string>
+    <string name="backup_calling_setting_summary">"‏‮Extended‬‏ ‏‮voice‬‏ ‏‮coverage‬‏ ‏‮over‬‏ ‏‮cellular‬‏ ‏‮internet.‬‏
+    <string name="keywords_backup_calling">‏‮Voice‬‏ ‏‮Over‬‏ ‏‮Cellular‬‏ ‏‮Internet‬‏</string>
+‏‮Disclaimer:‬‏ ‏‮Charges‬‏ ‏‮associated‬‏ ‏‮with‬‏ ‏‮data‬‏ ‏‮plan‬‏ ‏‮usage‬‏ ‏‮may‬‏ ‏‮ensue‬‏"</string>
+</resources>

@@ -13,19 +13,20 @@ dump_path=${1}
 
 # List of rros in product without a theme
 product_rros=" \
-    CarrierConfigResCommon \
-    FrameworksResCommon \
-    SettingsResCommon \
-    SystemUIResCommon \
-    TelecommResCommon \
-    TelephonyResCommon \
-    WifiResCommon \
+    CarrierConfigResCommon_Sys \
+    FrameworksResCommon_Sys \
+    SettingsResCommon_Sys \
+    SystemUIResCommon_Sys \
+    TelecommResCommon_Sys \
+    TelephonyResCommon_Sys \
+    WifiResCommon_Sys \
 "
 
 # List of rros in vendor without a theme
 vendor_rros=" \
     FrameworksResTarget_Vendor \
     WifiResTarget \
+    WifiResTarget_spf \
 "
 
 function generate_rro () {

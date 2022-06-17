@@ -5,6 +5,6 @@
 //
 
 runtime_resource_overlay {
-    name: "SettingsResCommon",
+    name: "TelephonyResCommon_Sys",
     product_specific: true,
 }

@@ -5,6 +5,6 @@
 //
 
 runtime_resource_overlay {
-    name: "TelecommResCommon",
+    name: "SystemUIResCommon_Sys",
     product_specific: true,
 }

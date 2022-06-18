@@ -77,6 +77,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     FrameworksResTarget_Vendor \
+    FrameworksResXiaomi \
     WifiResTarget \
     WifiResTarget_spf
 

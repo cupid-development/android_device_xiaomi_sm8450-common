@@ -1,0 +1,48 @@
+# Charger
+ro.charger.enable_suspend=1
+
+# Graphics
+debug.sf.disable_backpressure=1
+
+# Media
+media.aac_51_output_enabled=true
+media.settings.xml=/vendor/etc/media_profiles_vendor.xml
+media.stagefright.enable-aac=true
+media.stagefright.enable-fma2dp=true
+media.stagefright.enable-http=true
+media.stagefright.enable-player=true
+media.stagefright.enable-qcp=true
+media.stagefright.enable-scan=true
+media.stagefright.thumbnail.prefer_hw_codecs=true
+
+# NFC
+ro.nfc.port=I2C
+
+# QTI
+ro.vendor.qti.va_aosp.support=1
+
+# Radio
+DEVICE_PROVISIONED=1
+persist.vendor.data.mode=concurrent
+ril.subscription.types=NV,RUIM
+ro.telephony.default_network=33,33
+telephony.lteOnCdmaDevice=1
+
+# Sensors
+persist.vendor.sensors.enable.mag_filter=true
+
+# SSR
+persist.vendor.ssr.enable_ramdumps=1
+
+# WiFi display
+persist.debug.wfd.enable=1
+persist.sys.wfd.virtual=0
+
+# WLAN
+ro.hardware.wlan.chip=qca6490
+ro.hardware.wlan.dbs=2
+ro.hardware.wlan.mimo=1
+ro.hardware.wlan.vendor=qcom
+
+# Xiaomi
+ro.product.mod_device=cupid_global

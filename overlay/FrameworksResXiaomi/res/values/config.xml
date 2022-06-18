@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2024 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Minimum screen brightness setting allowed by power manager.
+         -2 is invalid so setting will resort to int value specified above.
+         Set this to 0.0 to allow screen to go to minimal brightness.
+         The user is forbidden from setting the brightness below this level. -->
+    <item format="float" name="config_screenBrightnessSettingMinimumFloat" type="dimen">0</item>
+
+    <!-- Maximum screen brightness allowed by the power manager.
+         -2 is invalid so setting will resort to int value specified above.
+         Set this to 1.0 for maximum brightness range.
+         The user is forbidden from setting the brightness above this level. -->
+    <item format="float" name="config_screenBrightnessSettingMaximumFloat" type="dimen">1</item>
+
+    <!-- Default screen brightness setting set.
+         -2 is invalid so setting will resort to int value specified above.
+         Must be in the range specified by minimum and maximum. -->
+    <item format="float" name="config_screenBrightnessSettingDefaultFloat" type="dimen">0.5</item>
+</resources>

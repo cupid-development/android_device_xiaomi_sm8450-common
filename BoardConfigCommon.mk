@@ -118,6 +118,28 @@ TARGET_KERNEL_ADDITIONAL_FLAGS := \
     DTC_EXT=$(shell pwd)/prebuilts/misc/linux-x86/dtc/dtc \
     LLVM=1
 
+# Kernel modules
+KERNEL_MODULE_DIR := device/xiaomi/cupid-kernel
+
+BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/dlkm/vendor_dlkm.modules.load))
+ifndef BOARD_VENDOR_KERNEL_MODULES_LOAD
+$(error vendor_dlkm.modules.load not found or empty)
+endif
+BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(COMMON_PATH)/dlkm/vendor_dlkm.blocklist
+BOARD_VENDOR_KERNEL_MODULES := $(wildcard $(KERNEL_MODULE_DIR)/vendor_dlkm/*.ko)
+
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/dlkm/vendor_boot.modules.load))
+ifndef BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD
+$(error vendor_boot.modules.load not found or empty)
+endif
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(COMMON_PATH)/dlkm/vendor_boot.blocklist
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(wildcard $(KERNEL_MODULE_DIR)/vendor_boot/*.ko)
+
+BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/dlkm/vendor_boot.modules.load.recovery))
+ifndef BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD
+$(error vendor_boot.modules.load.recovery not found or empty)
+endif
+
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
 
@@ -185,25 +207,3 @@ BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
 # Vendor ramdisk
 BOARD_VENDOR_RAMDISK_FRAGMENTS := dlkm
 BOARD_VENDOR_RAMDISK_FRAGMENT.dlkm.KERNEL_MODULE_DIRS := top
-
-# Kernel modules
-KERNEL_MODULE_DIR := device/xiaomi/cupid-kernel
-
-BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/dlkm/vendor_dlkm.modules.load))
-ifndef BOARD_VENDOR_KERNEL_MODULES_LOAD
-$(error vendor_dlkm.modules.load not found or empty)
-endif
-BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(COMMON_PATH)/dlkm/vendor_dlkm.blocklist
-BOARD_VENDOR_KERNEL_MODULES := $(wildcard $(KERNEL_MODULE_DIR)/vendor_dlkm/*.ko)
-
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/dlkm/vendor_boot.modules.load))
-ifndef BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD
-$(error vendor_boot.modules.load not found or empty)
-endif
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(COMMON_PATH)/dlkm/vendor_boot.blocklist
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(wildcard $(KERNEL_MODULE_DIR)/vendor_boot/*.ko)
-
-BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/dlkm/vendor_boot.modules.load.recovery))
-ifndef BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD
-$(error vendor_boot.modules.load.recovery not found or empty)
-endif

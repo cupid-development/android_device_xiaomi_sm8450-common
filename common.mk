@@ -29,6 +29,9 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 # Inherit from the proprietary version
 $(call inherit-product, vendor/xiaomi/sm8450-common/sm8450-common-vendor.mk)
 
+# Kernel
+$(call inherit-product, $(LOCAL_PATH)/kernel/kernel-platform-product.mk)
+
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \

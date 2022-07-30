@@ -8,6 +8,10 @@ else
 TARGET_BOARD_KERNEL_HEADERS := $(KERNEL_PREBUILT_DIR)/kernel-headers
 
 ################################################################################
+# Path to unsigned abl image
+TARGET_BOARD_UNSIGNED_ABL_DIR := $(KERNEL_PREBUILT_DIR)/kernel-abl/abl-$(TARGET_BUILD_VARIANT)
+
+################################################################################
 # DTBs
 ifneq (,$(wildcard $(KERNEL_PREBUILT_DIR)/dtbs/))
 BOARD_PREBUILT_DTBOIMAGE := $(KERNEL_PREBUILT_DIR)/dtbs/dtbo.img
@@ -45,36 +49,6 @@ $(call prepend-kernel-modules,BOARD_VENDOR_KERNEL_MODULES,$(second_stage_modules
 BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(wildcard $(KERNEL_PREBUILT_DIR)/vendor_dlkm/modules.blocklist)
 # vendor ramdisk has second-stage modules for recovery
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(wildcard $(KERNEL_PREBUILT_DIR)/vendor_dlkm/modules.blocklist)
-
-
-#BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/dlkm/modules.load))
-#BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE
-#BOARD_VENDOR_KERNEL_MODULES
-
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(KERNEL_PREBUILT_DIR)/modules.load))
-#BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(wildcard $(KERNEL_PREBUILT_DIR)/*.ko)
-
-#BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(KERNEL_PREBUILT_DIR)/modules.load)) $(strip $(shell cat $(KERNEL_PREBUILT_DIR)/dlkm/modules.load))
-
-KERNEL_MODULE_DIR := device/xiaomi/cupid-kernel
-
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/dlkm/vendor_boot.modules.load))
-ifndef BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD
-$(error vendor_boot.modules.load not found or empty)
-endif
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(COMMON_PATH)/dlkm/vendor_boot.blocklist
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(wildcard $(KERNEL_MODULE_DIR)/vendor_boot/*.ko)
-
-BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/dlkm/vendor_dlkm.modules.load))
-ifndef BOARD_VENDOR_KERNEL_MODULES_LOAD
-$(error vendor_dlkm.modules.load not found or empty)
-endif
-BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(COMMON_PATH)/dlkm/vendor_dlkm.blocklist
-BOARD_VENDOR_KERNEL_MODULES := $(wildcard $(KERNEL_MODULE_DIR)/vendor_dlkm/*.ko)
-
-$(warning BOARD_VENDOR_RAMDISK_KERNEL_MODULES: $(BOARD_VENDOR_RAMDISK_KERNEL_MODULES))
-$(warning BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD: $(BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD))
 
 endif # ($(wildcard $(KERNEL_PREBUILT_DIR)/),)
 

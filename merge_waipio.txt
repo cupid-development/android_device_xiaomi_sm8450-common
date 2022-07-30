@@ -1,0 +1,8 @@
+fdtoverlay -i /home/arian/ssd/waipio_kernel/device/qcom/cupid-kernel/kp-dtbs/waipio.dtb \
+/home/arian/ssd/waipio_kernel/out/target/product/cupid/obj/DLKM_OBJ/vendor/qcom/proprietary/display-devicetree/display/waipio-sde.dtbo \
+/home/arian/ssd/waipio_kernel/out/target/product/cupid/obj/DLKM_OBJ/vendor/qcom/proprietary/audio-devicetree/waipio-audio.dtbo \
+/home/arian/ssd/waipio_kernel/out/target/product/cupid/obj/DLKM_OBJ/vendor/qcom/proprietary/camera-devicetree/waipio-camera.dtbo \
+-o /home/arian/ssd/waipio_kernel/device/qcom/cupid-kernel/dtbs/waipio_new.dtb
+
+fdtput -t i /home/arian/ssd/waipio_kernel/device/qcom/cupid-kernel/dtbs/waipio_new.dtb / qcom,msm-id 457 65536
+fdtput -t i /home/arian/ssd/waipio_kernel/device/qcom/cupid-kernel/dtbs/waipio_new.dtb / qcom,board-id 0 0

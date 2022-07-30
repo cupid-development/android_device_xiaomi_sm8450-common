@@ -217,6 +217,10 @@ on boot
     chown system system /dev/xiaomi-touch
     chmod 0660 /dev/xiaomi-touch
 
+    # FOD
+    chown system system /sys/devices/platform/soc/990000.spi/spi_master/spi0/spi0.0/fod_down
+    chown system system /sys/devices/platform/soc/990000.spi/spi_master/spi0/spi0.0/fod_status
+
     # Create persist for camera calibration data
     mkdir /mnt/vendor/persist/camera 0755 system cameraserver
 

@@ -101,8 +101,8 @@ BOARD_MKBOOTIMG_ARGS := --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_KERNEL_CMDLINE := \
     video=vfb:640x400,bpp=32,memsize=3072000 \
     disable_dma32=on \
-    bootinfo.fingerprint=cupid_eea:12/V13.0.16.0.SLCEUXM:user \
-    mtdoops.fingerprint=cupid_eea:12/V13.0.16.0.SLCEUXM:user
+    bootinfo.fingerprint=$(LINEAGE_VERSION) \
+    mtdoops.fingerprint=$(LINEAGE_VERSION)
 BOARD_BOOTCONFIG := \
     androidboot.hardware=qcom \
     androidboot.memcg=1 \

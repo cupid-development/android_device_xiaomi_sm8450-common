@@ -741,6 +741,10 @@ vendor/etc/camera/st_license.lic
 vendor/etc/camera/superiq_model
 vendor/etc/camera/vidhance_calibration
 vendor/etc/init/vendor.qti.camera.provider@2.7-service_64.rc
+vendor/etc/permissions/android.hardware.camera.flash-autofocus.xml
+vendor/etc/permissions/android.hardware.camera.front.xml
+vendor/etc/permissions/android.hardware.camera.full.xml
+vendor/etc/permissions/android.hardware.camera.raw.xml
 vendor/lib/camera/com.qti.sensormodule.cupid_ofilm_ov32b40_front.bin
 vendor/lib/camera/com.qti.sensormodule.cupid_semco_imx700_wide.bin
 vendor/lib/camera/com.qti.sensormodule.cupid_semco_imx707_wide.bin
@@ -1119,7 +1123,7 @@ vendor/lib64/libmialgo_video_colourkeeping.so
 vendor/lib64/libmialgo_video_enhance.so
 vendor/lib64/libmialgo_video_seg_depth.so
 vendor/lib64/libmialgoengine.so
--vendor/lib64/libmibokeh_845_video.so
+vendor/lib64/libmibokeh_845_video.so
 vendor/lib64/libmibokeh_855.so
 vendor/lib64/libmibokeh_mask_dsp.so
 vendor/lib64/libmiphone_capture_ldc.so
@@ -3196,6 +3200,7 @@ vendor/etc/init/android.hardware.drm@1.4-service.widevine.rc
 -vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.4-service.clearkey.xml
 -vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.4-service.widevine.xml
 vendor/lib/mediadrm/libwvdrmengine.so
+vendor/lib/liboemcrypto.so
 vendor/lib/libtrustedapploader.so
 vendor/lib/libwvkeybox.so
 vendor/lib64/mediadrm/libwvdrmengine.so

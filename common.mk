@@ -169,6 +169,11 @@ PRODUCT_PACKAGES += \
     libhidltransport.vendor \
     libhwbinder.vendor
 
+# IPACM
+PRODUCT_PACKAGES += \
+    ipacm \
+    IPACM_cfg.xml
+
 # IR
 PRODUCT_PACKAGES += \
     android.hardware.ir@1.0-impl \
@@ -362,15 +367,20 @@ PRODUCT_COPY_FILES += \
 
 # WiFi
 PRODUCT_PACKAGES += \
-    android.hardware.tetheroffload.config@1.0.vendor \
-    android.hardware.tetheroffload.control@1.1.vendor \
     android.hardware.wifi@1.0-service \
     hostapd \
     hostapd_cli \
+    libwifi-hal-qcom \
     libwpa_client \
     wpa_cli \
     wpa_supplicant \
     wpa_supplicant.conf
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/wlan/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
+    $(LOCAL_PATH)/wlan/vendor_cmd.xml:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/vendor_cmd.xml \
+    $(LOCAL_PATH)/wlan/WCNSS_qcom_cfg_qca6490.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/qca6490/WCNSS_qcom_cfg.ini \
+    $(LOCAL_PATH)/wlan/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.aware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.aware.xml \

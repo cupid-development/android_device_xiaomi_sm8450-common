@@ -63,6 +63,11 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.service \
     android.hardware.soundtrigger@2.3-impl
 
+PRODUCT_PACKAGES += \
+    audio.bluetooth.default \
+    audio.r_submix.default \
+    audio.usb.default
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_taro/audio_effects.xml \
     $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_taro/audio_policy_configuration.xml \
@@ -153,7 +158,10 @@ PRODUCT_COPY_FILES += \
 
 # Graphics
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.composer@2.4.vendor
+    android.hardware.graphics.composer@2.4.vendor \
+    libdisplayconfig.qti.vendor \
+    libgralloc.qti.vendor \
+    libqdMetaData.vendor
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml \
@@ -197,10 +205,16 @@ PRODUCT_PACKAGES += \
 
 # Media
 PRODUCT_PACKAGES += \
+    libcodec2_hidl@1.0.vendor
+
+PRODUCT_PACKAGES += \
     init.qti.media.rc \
     init.qti.media.sh
 
 # Network
+PRODUCT_PACKAGES += \
+    android.system.net.netd@1.1.vendor
+
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.ipsec_tunnels.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnels.xml
 

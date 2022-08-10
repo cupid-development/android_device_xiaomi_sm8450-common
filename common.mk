@@ -43,6 +43,10 @@ PRODUCT_PACKAGES += \
     checkpoint_gc \
     otapreopt_script
 
+# ANT+
+PRODUCT_PACKAGES += \
+    com.dsi.ant@1.0.vendor
+
 # API
 PRODUCT_SHIPPING_API_LEVEL := 31
 BOARD_SHIPPING_API_LEVEL := 31

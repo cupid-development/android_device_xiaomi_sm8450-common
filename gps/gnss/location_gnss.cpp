@@ -87,7 +87,6 @@ static uint32_t setConstrainedTunc (bool enable, float tuncConstraint,
 static uint32_t setPositionAssistedClockEstimator(bool enable);
 static uint32_t gnssUpdateSvConfig(const GnssSvTypeConfig& constellationEnablementConfig,
                                    const GnssSvIdConfig& blacklistSvConfig);
-static uint32_t gnssResetSvConfig();
 static uint32_t configLeverArm(const LeverArmConfigInfo& configInfo);
 static uint32_t configRobustLocation(bool enable, bool enableForE911);
 static uint32_t configMinGpsWeek(uint16_t minGpsWeek);

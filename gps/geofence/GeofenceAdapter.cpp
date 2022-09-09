@@ -919,8 +919,6 @@ GeofenceAdapter::updateSystemPowerStateCommand(PowerStateType powerState)
 void
 GeofenceAdapter::pauseOrResumeGeofences(bool pauseOrResume /*false - pause, true - resume*/)
 {
-    LocationError error;
-
     for (auto it = mGeofenceIds.begin(); it != mGeofenceIds.end(); ++it) {
 
         uint32_t hwId = it->second;

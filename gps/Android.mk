@@ -3,6 +3,13 @@ ifneq ($(BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE),)
 # Set required flags
 GNSS_CFLAGS := \
     -Werror \
+    -Wformat \
+    -Wformat-extra-args \
+    -Wunused-label \
+    -Wunused-variable \
+    -Wunused-function \
+    -Wimplicit-fallthrough \
+    -Wno-unused-parameter \
     -Wno-error=unused-parameter \
     -Wno-error=macro-redefined \
     -Wno-error=reorder \

@@ -237,7 +237,9 @@ void TimeZoneChangeDataItem::stringify(string& valueStr) {
         valueStr.clear ();
         valueStr = TIMEZONECHANGE_FIELD_ENABLED;
         valueStr += ": ";
-        valueStr += "true";
+        char time [30];
+        snprintf (time, 30, "%" PRIi64, d->mCurrTimeMillis);
+        valueStr += string (time);
     } while (0);
     EXIT_LOG_WITH_ERROR("%d", result);
 }
@@ -249,7 +251,9 @@ void TimeChangeDataItem::stringify(string& valueStr) {
         valueStr.clear ();
         valueStr = TIMECHANGE_FIELD_ENABLED;
         valueStr += ": ";
-        valueStr += "true";
+        char time [30];
+        snprintf (time, 30, "%" PRIi64, d->mCurrTimeMillis);
+        valueStr += string (time);
     } while (0);
     EXIT_LOG_WITH_ERROR("%d", result);
 }

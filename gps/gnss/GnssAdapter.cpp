@@ -1157,7 +1157,6 @@ GnssAdapter::setConfig()
 std::vector<LocationError> GnssAdapter::gnssUpdateConfig(const std::string& oldMoServerUrl,
         const std::string& moServerUrl, const std::string& serverUrl,
         GnssConfig& gnssConfigRequested, GnssConfig& gnssConfigNeedEngineUpdate, size_t count) {
-    loc_gps_cfg_s gpsConf = ContextBase::mGps_conf;
     size_t index = 0;
     LocationError err = LOCATION_ERROR_SUCCESS;
     std::vector<LocationError> errsList = {err};

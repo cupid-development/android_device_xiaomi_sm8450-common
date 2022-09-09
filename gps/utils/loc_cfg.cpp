@@ -584,11 +584,10 @@ int loc_read_process_conf(const char* conf_file_name, uint32_t * process_count_p
     loc_process_info_s_type *child_proc = nullptr;
     volatile int i=0;
     unsigned int j=0;
-    gid_t gid_list[LOC_PROCESS_MAX_NUM_GROUPS];
     char *split_strings[MAX_NUM_STRINGS];
     int name_length=0, group_list_length=0, platform_length=0, baseband_length=0, ngroups=0, ret=0;
     int auto_platform_length = 0, soc_id_list_length=0;
-    int group_index=0, nstrings=0, status_length=0;
+    int nstrings=0, status_length=0;
     FILE* conf_fp = nullptr;
     char platform_name[PROPERTY_VALUE_MAX], baseband_name[PROPERTY_VALUE_MAX];
     int low_ram_target=0;
@@ -596,7 +595,6 @@ int loc_read_process_conf(const char* conf_file_name, uint32_t * process_count_p
     unsigned int loc_service_mask=0;
     unsigned char config_mask = 0;
     unsigned char proc_list_length=0;
-    int gtp_cell_ap_enabled = 0;
     char arg_gtp_waa[LOC_PROCESS_MAX_ARG_STR_LENGTH] = "--";
     char arg_gtp_modem_cell[LOC_PROCESS_MAX_ARG_STR_LENGTH] = "--";
     char arg_gtp_wifi[LOC_PROCESS_MAX_ARG_STR_LENGTH] = "--";

@@ -538,7 +538,7 @@ void GnssMeasurementInterface::convertElapsedRealtimeNanos(
         elapsedRealtime.flags |= elapsedRealtime.HAS_TIME_UNCERTAINTY_NS;
         elapsedRealtime.timeUncertaintyNs = in.clock.elapsedRealTimeUnc;
         LOC_LOGd("elapsedRealtime.timestampNs=%" PRIi64 ""
-                 " elapsedRealtime.timeUncertaintyNs=%" PRIi64 " elapsedRealtime.flags=0x%X",
+                 " elapsedRealtime.timeUncertaintyNs=%lf elapsedRealtime.flags=0x%X",
                  elapsedRealtime.timestampNs,
                  elapsedRealtime.timeUncertaintyNs, elapsedRealtime.flags);
     }

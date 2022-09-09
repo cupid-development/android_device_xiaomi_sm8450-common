@@ -175,7 +175,7 @@ uint64_t getQTimerDeltaNanos()
     char qtimer_val_string[100];
     char *temp;
     uint64_t local_qtimer = 0, remote_qtimer = 0;
-    int mdm_fd = -1, wlan_fd = -1, ret = 0;
+    int mdm_fd = -1, ret = 0;
     uint64_t delta = 0;
 
     memset(qtimer_val_string, '\0', sizeof(qtimer_val_string));

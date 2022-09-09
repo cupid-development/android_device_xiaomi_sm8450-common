@@ -141,7 +141,6 @@ RETURN VALUE
 ===========================================================================*/
 const char *loc_get_target_name(unsigned int target)
 {
-    int64_t index = 0;
     static char ret[BUFFER_SIZE];
 
     snprintf(ret, sizeof(ret), " %s with%s SSC",

@@ -4,26 +4,6 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Note: This config is deprecated, use BluetoothProperties instead.
-         Idle current for bluetooth controller. 0 by default
-    -->
-    <integer name="config_bluetooth_idle_cur_ma" translatable="false">6</integer>
-
-    <!-- Note: This config is deprecated, use BluetoothProperties instead.
-         Rx current for bluetooth controller. 0 by default
-    -->
-    <integer name="config_bluetooth_rx_cur_ma" translatable="false">28</integer>
-
-    <!-- Note: This config is deprecated, use BluetoothProperties instead.
-         Tx current for bluetooth controller. 0 by default
-    -->
-    <integer name="config_bluetooth_tx_cur_ma" translatable="false">36</integer>
-
-    <!-- Note: This config is deprecated, use BluetoothProperties instead.
-         Operating volatage for bluetooth controller. 0 by default
-    -->
-    <integer name="config_bluetooth_operating_voltage_mv" translatable="false">3700</integer>
-
     <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
          autodetected from the Configuration. -->
     <bool name="config_showNavigationBar">true</bool>

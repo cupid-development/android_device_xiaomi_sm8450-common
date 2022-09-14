@@ -27,6 +27,10 @@ vendor.audio_hal.period_size=192
 vendor.voice.path.for.pcm.voip=true
 
 # Bluetooth
+bluetooth.hardware.power.idle_cur_ma=6
+bluetooth.hardware.power.operating_voltage_mv=3700
+bluetooth.hardware.power.rx_cur_ma=28
+bluetooth.hardware.power.tx_cur_ma=36
 bluetooth.profile.a2dp.source.enabled=true
 bluetooth.profile.asha.central.enabled=true
 bluetooth.profile.avrcp.controller.enabled=false

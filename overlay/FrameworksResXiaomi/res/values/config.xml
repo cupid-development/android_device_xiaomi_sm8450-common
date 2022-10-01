@@ -57,4 +57,20 @@
 
     <!-- Whether device supports double tap to wake -->
     <bool name="config_supportDoubleTapWake">true</bool>
+
+    <!-- Low zone brightness thresholds in the range [0, 255] -->
+    <integer-array name="config_brightnessThresholdsOfPeakRefreshRate" translatable="false">
+        <item>3</item>
+        <item>4</item>
+    </integer-array>
+
+    <!-- Low zone lux thresholds -->
+    <integer-array name="config_ambientThresholdsOfPeakRefreshRate" translatable="false">
+        <item>-1</item>
+        <item>5</item>
+    </integer-array>
+
+    <!-- Default refresh rate in the zone defined by brightness and ambient thresholds.
+         If non-positive, then the refresh rate is unchanged even if thresholds are configured. -->
+    <integer name="config_defaultRefreshRateInZone">120</integer>
 </resources>

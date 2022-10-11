@@ -43,7 +43,7 @@
         <library name="shoebox" path="libshoebox.so"/>
         <library name="misoundfx" path="libmisoundfx.so"/>
         <!--DOLBY DAP-->
-        <library name="dap" path="libswdap.so"/>
+        <library name="dap" path="libhwdap.so"/>
         <!--DOLBY END-->
         <!--DOLBY GAME-->
         <library name="gamedap" path="libswgamedap.so"/>

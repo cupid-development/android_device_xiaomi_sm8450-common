@@ -41,6 +41,8 @@ service qti-media /vendor/bin/init.qti.media.sh
 
 on early-init
     setprop vendor.media.system.build_codename ${ro.build.version.release_or_codename}
+
+on post-fs
     start qti-media
 
 on post-fs-data

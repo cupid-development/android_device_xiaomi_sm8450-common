@@ -2,7 +2,7 @@
 #==============================================================================
 #       init.qti.media.sh
 #
-# Copyright (c) 2020-2021, Qualcomm Technologies, Inc.
+# Copyright (c) 2020-2022, Qualcomm Technologies, Inc.
 # All Rights Reserved.
 # Confidential and Proprietary - Qualcomm Technologies, Inc.
 #
@@ -44,17 +44,38 @@ fi
 
 target=`getprop ro.board.platform`
 case "$target" in
-    "taro")
-        setprop vendor.mm.target.enable.qcom_parser 4186207
+    "neo")
+        setprop vendor.mm.target.enable.qcom_parser 0
         case "$soc_hwid" in
+            *)
+                setprop vendor.media.target_variant "_neo"
+                ;;
+        esac
+        ;;
+    "taro")
+        setprop vendor.mm.target.enable.qcom_parser 4112471
+        case "$soc_hwid" in
+            506|547|564)
+                setprop vendor.media.target_variant "_diwali_v2"
+                setprop vendor.netflix.bsp_rev ""
+                sku_ver=`cat /sys/devices/platform/soc/aa00000.qcom,vidc/sku_version` 2> /dev/null
+                if [ $sku_ver -eq 0 ]; then
+                    setprop vendor.media.target_variant "_diwali_v0"
+                elif [ $sku_ver -eq 1 ]; then
+                    setprop vendor.media.target_variant "_diwali_v1"
+                fi
+                ;;
             530|531|540)
                 setprop vendor.media.target_variant "_cape"
+                if [ $build_codename -le "12" ]; then
+                    setprop vendor.netflix.bsp_rev "Q8450-34634-1"
+                fi
                 ;;
             *)
                 setprop vendor.media.target_variant "_taro"
-                 if [ $build_codename -le "12" ]; then
-                 setprop vendor.netflix.bsp_rev "Q8450-34634-1"
-                 fi 
+                if [ $build_codename -le "12" ]; then
+                    setprop vendor.netflix.bsp_rev "Q8450-34634-1"
+                fi
                 ;;
         esac
         ;;

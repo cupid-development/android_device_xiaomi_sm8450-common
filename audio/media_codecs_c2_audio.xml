@@ -44,21 +44,9 @@
             <Limit name="bitrate" range="1-9600" />
             <Limit name="concurrent-instances" max="2" />
         </MediaCodec>
-        <MediaCodec name="c2.qti.flac.sw.decoder" type="audio/flac">
-            <Limit name="channel-count" max="8" />
-            <Limit name="sample-rate" ranges="8000-192000" />
-            <Limit name="bitrate" range="1-9216000" />
-            <Limit name="concurrent-instances" max="2" />
-        </MediaCodec>
         <MediaCodec name="c2.qti.dsd.sw.decoder" type="audio/dsd" rank="0">
             <Limit name="channel-count" max="6" />
             <Limit name="sample-rate" ranges="8000-22579200" />
-            <Limit name="concurrent-instances" max="2" />
-        </MediaCodec>
-        <MediaCodec name="c2.qti.aac.hw.decoder" type="audio/mp4a-latm">
-            <Limit name="channel-count" max="6" />
-            <Limit name="sample-rate" ranges="8000-96000" />
-            <Limit name="bitrate" range="8000-1536000" />
             <Limit name="concurrent-instances" max="2" />
         </MediaCodec>
         <MediaCodec name="c2.qti.alac.hw.decoder" type="audio/alac" rank="1">
@@ -93,30 +81,35 @@
             <Limit name="sample-rate" ranges="8000" />
             <Limit name="bitrate" range="4750-12200" />
             <Limit name="concurrent-instances" max="2" />
+            <Feature name="special-codec" required="true" />
         </MediaCodec>
         <MediaCodec name="c2.qti.amrwb.hw.encoder" type="audio/amr-wb">
             <Limit name="channel-count" max="1" />
             <Limit name="sample-rate" ranges="16000" />
             <Limit name="bitrate" range="6600-23850" />
             <Limit name="concurrent-instances" max="2" />
+            <Feature name="special-codec" required="true" />
         </MediaCodec>
         <MediaCodec name="c2.qti.aac.hw.encoder" type="audio/mp4a-latm">
             <Limit name="channel-count" max="2" />
             <Limit name="sample-rate" ranges="8000-48000" />
             <Limit name="bitrate" range="4000-192000" />
             <Limit name="concurrent-instances" max="2" />
+            <Feature name="special-codec" required="true" />
         </MediaCodec>
         <MediaCodec name="c2.qti.evrc.hw.encoder" type="audio/evrc" rank="0">
             <Limit name="channel-count" max="1" />
             <Limit name="sample-rate" ranges="8000" />
             <Limit name="bitrate" range="1-9600" />
             <Limit name="concurrent-instances" max="2" />
+            <Feature name="special-codec" required="true" />
         </MediaCodec>
         <MediaCodec name="c2.qti.qcelp.hw.encoder" type="audio/qcelp" rank="0">
             <Limit name="channel-count" max="1" />
             <Limit name="sample-rate" ranges="8000" />
             <Limit name="bitrate" range="1-13600" />
             <Limit name="concurrent-instances" max="2" />
+            <Feature name="special-codec" required="true" />
         </MediaCodec>
     </Encoders>
 </Included>

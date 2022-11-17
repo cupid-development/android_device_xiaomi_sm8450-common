@@ -258,16 +258,16 @@ PRODUCT_PACKAGES += \
 
 # Kernel
 $(call inherit-product, $(LOCAL_PATH)/kernel/kernel-platform-product.mk)
-$(call inherit-product, vendor/qcom/opensource/audio-kernel/audio_kernel_product_board.mk)
-$(call inherit-product, vendor/qcom/opensource/camera-kernel/config/waipio.mk)
-$(call inherit-product, vendor/qcom/opensource/camera-kernel/product.mk)
-$(call inherit-product, vendor/qcom/opensource/dataipa/dataipa_dlkm_vendor_product.mk)
-$(call inherit-product, vendor/qcom/opensource/datarmnet-ext/datarmnet_ext_dlkm_vendor_product.mk)
-$(call inherit-product, vendor/qcom/opensource/datarmnet/datarmnet_dlkm_vendor_product.mk)
-$(call inherit-product, vendor/qcom/opensource/display-drivers/display_driver_product.mk)
-$(call inherit-product, vendor/qcom/opensource/eva-kernel/eva_kernel_product.mk)
-$(call inherit-product, vendor/qcom/opensource/mmrm-driver/mmrm_kernel_board.mk)
-$(call inherit-product, vendor/qcom/opensource/video-driver/video_kernel_board.mk)
+#$(call inherit-product, vendor/qcom/opensource/audio-kernel/audio_kernel_product_board.mk)
+#$(call inherit-product, vendor/qcom/opensource/camera-kernel/config/waipio.mk)
+#$(call inherit-product, vendor/qcom/opensource/camera-kernel/product.mk)
+#$(call inherit-product, vendor/qcom/opensource/dataipa/dataipa_dlkm_vendor_product.mk)
+#$(call inherit-product, vendor/qcom/opensource/datarmnet-ext/datarmnet_ext_dlkm_vendor_product.mk)
+#$(call inherit-product, vendor/qcom/opensource/datarmnet/datarmnet_dlkm_vendor_product.mk)
+#$(call inherit-product, vendor/qcom/opensource/display-drivers/display_driver_product.mk)
+#$(call inherit-product, vendor/qcom/opensource/eva-kernel/eva_kernel_product.mk)
+#$(call inherit-product, vendor/qcom/opensource/mmrm-driver/mmrm_kernel_board.mk)
+#$(call inherit-product, vendor/qcom/opensource/video-driver/video_kernel_board.mk)
 
 # Keymaster
 PRODUCT_PACKAGES += \
@@ -523,11 +523,11 @@ TARGET_MULTI_WLAN := true
 WPA := wpa_cli
 
 # Package chip specific ko files if TARGET_WLAN_CHIP is defined.
-ifneq ($(TARGET_WLAN_CHIP),)
-	PRODUCT_PACKAGES += $(foreach chip, $(TARGET_WLAN_CHIP), $(WLAN_CHIPSET)_$(chip).ko)
-else
-	PRODUCT_PACKAGES += $(WLAN_CHIPSET)_wlan.ko
-endif
+#ifneq ($(TARGET_WLAN_CHIP),)
+#	PRODUCT_PACKAGES += $(foreach chip, $(TARGET_WLAN_CHIP), $(WLAN_CHIPSET)_$(chip).ko)
+#else
+#	PRODUCT_PACKAGES += $(WLAN_CHIPSET)_wlan.ko
+#endif
 
 # WiFi Display
 PRODUCT_PACKAGES += \

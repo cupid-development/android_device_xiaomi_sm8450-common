@@ -1,10 +1,17 @@
 # ACDBs
 vendor/etc/acdbdata/Forte/Forte_acdb_cal.acdb
 vendor/etc/acdbdata/Forte/Forte_workspaceFileXml.qwsp
-vendor/etc/acdbdata/Forte_elus/Forte_elus_acdb_cal.acdb
-vendor/etc/acdbdata/Forte_elus/Forte_elus_workspaceFileXml.qwsp
 vendor/etc/acdbdata/IDP_UPD/IDP_UPD_acdb_cal.acdb
 vendor/etc/acdbdata/IDP_UPD/IDP_UPD_workspaceFileXml.qwsp
+vendor/etc/acdbdata/IDP_UPD_diwali/IDP_UPD_diwali_acdb_cal.acdb
+vendor/etc/acdbdata/IDP_UPD_diwali/IDP_UPD_diwali_workspaceFileXml.qwsp
+vendor/etc/acdbdata/diwali_idp/IDP_diwali_acdb_cal.acdb
+vendor/etc/acdbdata/diwali_idp/IDP_diwali_workspaceFileXml.qwsp
+vendor/etc/acdbdata/diwali_idp_sku1/IDP_diwali_sku1_acdb_cal.acdb
+vendor/etc/acdbdata/diwali_idp_sku1/IDP_diwali_sku1_workspaceFileXml.qwsp
+vendor/etc/acdbdata/diwali_qrd/QRD_diwali_acdb_cal.acdb
+vendor/etc/acdbdata/diwali_qrd/QRD_diwali_workspaceFileXml.qwsp
+vendor/etc/acdbdata/diwali_qrd_sku1/QRD_diwali_sku1_acdb_cal.acdb
 vendor/etc/acdbdata/nn_ns_models/fai__2.0.0_0.1__3.0.0_0.0__eai_1.36_enpu2.pmd
 vendor/etc/acdbdata/nn_ns_models/fai__2.3.0_0.1__3.0.0_0.0__eai_1.10.pmd
 vendor/etc/acdbdata/nn_ns_models/fai__2.3.0_0.1__3.0.0_0.0__eai_1.36_enpu2_comp.pmd
@@ -38,8 +45,6 @@ vendor/lib/rfsa/adsp/bm2n08.bin
 vendor/lib/rfsa/adsp/bm2n09.bin
 vendor/lib/rfsa/adsp/bm2n10.bin
 vendor/lib/rfsa/adsp/bm2n11.bin
-vendor/lib/rfsa/adsp/capi_elus_rx.so
-vendor/lib/rfsa/adsp/capi_elus_tx.so
 vendor/lib/rfsa/adsp/hrtf5c.bin
 vendor/lib/rfsa/adsp/libCalculator_skel.so
 vendor/lib/rfsa/adsp/libDspIOProxy_skel.so
@@ -223,9 +228,9 @@ vendor/lib64/libpalclient.so
 vendor/lib64/libqtigefar.so
 vendor/lib64/libresampler.so
 vendor/lib64/libsndcardparser.so
-vendor/lib64/libxlog_vendor.so
 vendor/lib64/vendor.qti.hardware.pal@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.pal@1.0.so
+vendor/lib64/libxlog.so
 
 # Audio test
 vendor/bin/audio-factory-test
@@ -2113,8 +2118,8 @@ vendor/etc/permissions/android.hardware.hardware_keystore.xml
 vendor/lib64/vendor.qti.hardware.wifi.keystore@1.0.so
 
 # libvolumelistener - from taro
-vendor/lib/soundfx/libvolumelistener.so|e98e11f69afb8969b1d11e4f6e077d420d5dbeb0
-vendor/lib64/soundfx/libvolumelistener.so|679e1432d75e1b31c17658cd10fa68a3a188b73c
+vendor/lib/soundfx/libvolumelistener.so|0406e8305197c39792206007ded497c2c4aceeca
+vendor/lib64/soundfx/libvolumelistener.so|41c0b27fd76683add32371be11828ff01e3d86f8
 
 # Lights
 vendor/bin/hw/vendor.qti.hardware.lights.service
@@ -2432,6 +2437,7 @@ vendor/lib64/libUnnhalAccCommon.so
 vendor/lib64/libUnnhalAccGpu.so
 vendor/lib64/libUnnhalAccHtp.so
 vendor/lib64/libnnapi_sl_driver.so
+vendor/lib64/libQnnGpu.so
 
 # NFC
 vendor/bin/hw/vendor.nxp.hardware.nfc@2.0-service
@@ -2623,6 +2629,7 @@ vendor/lib64/libpowercore.so
 # Psiclient
 vendor/bin/hw/vendor.qti.psiclient@1.0-service
 vendor/etc/init/vendor.qti.psiclient@1.0-service.rc
+vendor/lib64/libpsi.so
 
 # QCC
 vendor/lib/vendor.qti.hardware.qccsyshal@1.0.so
@@ -3246,6 +3253,8 @@ system_ext/etc/permissions/vendor.qti.ims.rcsservice.xml
 system_ext/etc/sysconfig/qti_telephony_system_packages_config.xml
 system_ext/etc/sysconfig/qti_whitelist_system_ext.xml
 system_ext/framework/vendor.qti.ims.factory-V2.0-java.jar
+system_ext/framework/vendor.qti.ims.factory-V2.1-java.jar
+system_ext/framework/vendor.qti.ims.factory-V2.2-java.jar
 system_ext/lib64/lib-imsvideocodec.so
 system_ext/lib64/lib-imsvt.so
 system_ext/lib64/lib-imsvtextutils.so
@@ -3254,7 +3263,9 @@ system_ext/lib64/libdiag_system.so
 system_ext/lib64/libimscamera_jni.so
 system_ext/lib64/libimsmedia_jni.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.0.so
-system_ext/priv-app/ims/ims.apk
+
+# Telephony - from taro
+system_ext/priv-app/ims/ims.apk|0fd42e657e272d6ea2b2c21b451d4a49c94287ea
 
 # Thermal
 vendor/bin/hw/android.hardware.thermal@2.0-service.qti-v2

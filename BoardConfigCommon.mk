@@ -89,15 +89,15 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
 include $(COMMON_PATH)/build/utils.mk
 
 include $(COMMON_PATH)/kernel/kernel-platform-board.mk
-#include vendor/qcom/opensource/audio-kernel/audio_kernel_vendor_board.mk
-#include vendor/qcom/opensource/camera-kernel/board.mk
-#include vendor/qcom/opensource/dataipa/dataipa_dlkm_vendor_board.mk
-#include vendor/qcom/opensource/datarmnet-ext/datarmnet_ext_dlkm_vendor_board.mk
-#include vendor/qcom/opensource/datarmnet/datarmnet_dlkm_vendor_board.mk
-#include vendor/qcom/opensource/display-drivers/display_driver_board.mk
-#include vendor/qcom/opensource/eva-kernel/eva_kernel_board.mk
-#include vendor/qcom/opensource/mmrm-driver/mmrm_kernel_board.mk
-#include vendor/qcom/opensource/video-driver/video_kernel_board.mk
+include vendor/qcom/opensource/audio-kernel/audio_kernel_vendor_board.mk
+include vendor/qcom/opensource/camera-kernel/board.mk
+include vendor/qcom/opensource/dataipa/dataipa_dlkm_vendor_board.mk
+include vendor/qcom/opensource/datarmnet-ext/datarmnet_ext_dlkm_vendor_board.mk
+include vendor/qcom/opensource/datarmnet/datarmnet_dlkm_vendor_board.mk
+include vendor/qcom/opensource/display-drivers/display_driver_board.mk
+include vendor/qcom/opensource/eva-kernel/eva_kernel_board.mk
+include vendor/qcom/opensource/mmrm-driver/mmrm_kernel_board.mk
+include vendor/qcom/opensource/video-driver/video_kernel_board.mk
 
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_RAMDISK_USE_LZ4 := true
@@ -207,11 +207,11 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 PRODUCT_VENDOR_MOVE_ENABLED := true
 WIFI_DRIVER_INSTALL_TO_KERNEL_OUT := true
-#ifneq ($(TARGET_WLAN_CHIP),)
-#	BOARD_VENDOR_KERNEL_MODULES += $(foreach chip, $(TARGET_WLAN_CHIP), $(KERNEL_MODULES_OUT)/$(WLAN_CHIPSET)_$(chip).ko)
-#else
-#	BOARD_VENDOR_KERNEL_MODULES += $(KERNEL_MODULES_OUT)/qca_cld3_wlan.ko
-#endif
+ifneq ($(TARGET_WLAN_CHIP),)
+	BOARD_VENDOR_KERNEL_MODULES += $(foreach chip, $(TARGET_WLAN_CHIP), $(KERNEL_MODULES_OUT)/$(WLAN_CHIPSET)_$(chip).ko)
+else
+	BOARD_VENDOR_KERNEL_MODULES += $(KERNEL_MODULES_OUT)/qca_cld3_wlan.ko
+endif
 
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB_EVENT := "ON"
 BOARD_HOSTAPD_PRIVATE_LIB_EVENT := "ON"

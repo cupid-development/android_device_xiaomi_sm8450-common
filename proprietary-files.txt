@@ -3246,12 +3246,15 @@ vendor/lib64/libsxrcryptoimpl.so
 vendor/lib64/libsxrservice.so
 
 # Telephony
-system_ext/app/ImsRcsService/ImsRcsService.apk
-system_ext/app/QtiTelephony/QtiTelephony.apk
+#system_ext/app/ImsRcsService/ImsRcsService.apk
+#system_ext/app/QtiTelephony/QtiTelephony.apk
 system_ext/etc/permissions/telephony_system-ext_privapp-permissions-qti.xml
 system_ext/etc/permissions/vendor.qti.ims.rcsservice.xml
 system_ext/etc/sysconfig/qti_telephony_system_packages_config.xml
 system_ext/etc/sysconfig/qti_whitelist_system_ext.xml
+system_ext/framework/vendor.qti.ims.connection-V1.0-java.jar
+system_ext/framework/vendor.qti.ims.factory-V1.0-java.jar
+system_ext/framework/vendor.qti.ims.factory-V1.1-java.jar
 system_ext/framework/vendor.qti.ims.factory-V2.0-java.jar
 system_ext/framework/vendor.qti.ims.factory-V2.1-java.jar
 system_ext/framework/vendor.qti.ims.factory-V2.2-java.jar
@@ -3265,7 +3268,7 @@ system_ext/lib64/libimsmedia_jni.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.0.so
 
 # Telephony - from taro
-system_ext/priv-app/ims/ims.apk|0fd42e657e272d6ea2b2c21b451d4a49c94287ea
+#system_ext/priv-app/ims/ims.apk|0fd42e657e272d6ea2b2c21b451d4a49c94287ea
 
 # Thermal
 vendor/bin/hw/android.hardware.thermal@2.0-service.qti-v2

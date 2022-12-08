@@ -30,7 +30,7 @@
 /*
 Changes from Qualcomm Innovation Center are provided under the following license:
 
-Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
+Copyright (c) 2022, 2023 Qualcomm Innovation Center, Inc. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted (subject to the limitations in the
@@ -206,6 +206,7 @@ public:
     static bool sGnssMeasurementSupported;
     static GnssNMEARptRate sNmeaReportRate;
     static LocationCapabilitiesMask sQwesFeatureMask;
+    static LocationHwCapabilitiesMask sHwCapabilitiesMask;
 
     void readConfig();
     static uint32_t getCarrierCapabilities();
@@ -319,6 +320,20 @@ public:
                        sQwesFeatureMask &= ~LOCATION_CAPABILITIES_QWES_DGNSS;
                    }
                break;
+               case LOCATION_QWES_FEATURE_TYPE_RSSI_POSITIONING:
+                   if (itr->second) {
+                       sQwesFeatureMask |= LOCATION_CAPABILITIES_QWES_WIFI_RSSI_POSITIONING;
+                   } else {
+                       sQwesFeatureMask &= ~LOCATION_CAPABILITIES_QWES_WIFI_RSSI_POSITIONING;
+                   }
+               break;
+               case LOCATION_QWES_FEATURE_TYPE_RTT_POSITIONING:
+                   if (itr->second) {
+                       sQwesFeatureMask |= LOCATION_CAPABILITIES_QWES_WIFI_RTT_POSITIONING;
+                   } else {
+                       sQwesFeatureMask &= ~LOCATION_CAPABILITIES_QWES_WIFI_RTT_POSITIONING;
+                   }
+               break;
            }
        }
 
@@ -356,7 +371,19 @@ public:
         return (ContextBase::sQwesFeatureMask);
     }
 
+    /*
+        set HW feature status info
+    */
+    static inline void setHwCapabilities(const LocationHwCapabilitiesMask& mask) {
+        sHwCapabilitiesMask |= mask;
+    }
 
+    /*
+        get HW feature status info
+    */
+    static inline LocationHwCapabilitiesMask getHwCapabilitiesMask() {
+        return (ContextBase::sHwCapabilitiesMask);
+    }
 };
 
 struct LocApiResponse: LocMsg {

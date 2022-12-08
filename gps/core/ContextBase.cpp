@@ -30,7 +30,7 @@
 /*
 Changes from Qualcomm Innovation Center are provided under the following license:
 
-Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
+Copyright (c) 2022, 2023 Qualcomm Innovation Center, Inc. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted (subject to the limitations in the
@@ -88,6 +88,7 @@ bool ContextBase::sGnssMeasurementSupported = false;
 uint8_t ContextBase::sFeaturesSupported[MAX_FEATURE_LENGTH];
 GnssNMEARptRate ContextBase::sNmeaReportRate = GNSS_NMEA_REPORT_RATE_NHZ;
 LocationCapabilitiesMask ContextBase::sQwesFeatureMask = 0;
+LocationCapabilitiesMask ContextBase::sHwCapabilitiesMask = 0;
 
 const loc_param_s_type ContextBase::mGps_conf_table[] =
 {

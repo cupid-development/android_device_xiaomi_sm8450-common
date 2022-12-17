@@ -1,16 +1,10 @@
-q6_notifier_dlkm.ko
-spf_core_dlkm.ko
 audpkt_ion_dlkm.ko
-gpr_dlkm.ko
 audio_pkt_dlkm.ko
 q6_dlkm.ko
-adsp_loader_dlkm.ko
 audio_prm_dlkm.ko
-q6_pdr_dlkm.ko
 pinctrl_lpi_dlkm.ko
 swr_dlkm.ko
 swr_ctrl_dlkm.ko
-snd_event_dlkm.ko
 wcd_core_dlkm.ko
 mbhc_dlkm.ko
 swr_dmic_dlkm.ko

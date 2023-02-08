@@ -2366,9 +2366,16 @@ typedef std::function<void(const OdcpiRequestInfo& request)> OdcpiRequestCallbac
 
 /* ODCPI callback priorities*/
 enum OdcpiPrioritytype {
+    //ODCPI callback registered by AFW via IGNSS AIDL has LOW priority
     ODCPI_HANDLER_PRIORITY_LOW,
+    ODCPI_HANDLER_PRIORITY_DEFAULT = ODCPI_HANDLER_PRIORITY_LOW,
+    //ODCPI callback registered by IzatProvider on LE/KaiOS has medium priority
+    ODCPI_HANDLER_PRIORITY_MEDIUM,
+    //Non emergency ODCPI callback registered by IzatManager for RTT position injection
+    //has high priority
     ODCPI_HANDLER_PRIORITY_HIGH
 };
+
 
 /*
  * Callback with AGNSS(IpV4) status information.

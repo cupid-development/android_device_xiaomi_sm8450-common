@@ -545,9 +545,9 @@ void GnssMeasurementInterface::convertElapsedRealtimeNanos(
 }
 
 void GnssMeasurementInterface::printGnssData(GnssData& data) {
-    LOC_LOGd(" Measurements Info for %d satellites", data.measurements.size());
+    LOC_LOGd(" Measurements Info for %zu satellites", data.measurements.size());
     for (size_t i = 0; i < data.measurements.size(); i++) {
-        LOC_LOGd("%02d : flags: 0x%08x,"
+        LOC_LOGd("%zu : flags: 0x%08x,"
                  " svid: %d,"
                  " signalType.constellation: %u,"
                  " signalType.carrierFrequencyHz: %.2f,"

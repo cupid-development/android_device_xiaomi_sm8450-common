@@ -662,6 +662,17 @@ class LocFeatureStatusDataItem: public IDataItemCore {
         std::unordered_set<int> mFids;
 };
 
+class NlpSessionStartedDataItem: public IDataItemCore {
+    public:
+        NlpSessionStartedDataItem(bool nlpStarted = false) :
+            mNlpStarted(nlpStarted) {mId = NETWORK_POSITIONING_STARTED_DATA_ITEM_ID;}
+        virtual ~NlpSessionStartedDataItem() {}
+        virtual void stringify(string& /*valueStr*/) override;
+        virtual int32_t copyFrom(IDataItemCore* /*src*/) override;
+        // Data members
+        bool mNlpStarted;
+};
+
 } // namespace loc_core
 
 #endif //DATAITEM_CONCRETETYPES_H

@@ -128,6 +128,7 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
 #define BATTERYLEVEL_FIELD_BATTERY_PCT "BATTERY_PCT"
 
 #define IN_EMERGENCY_CALL_FIELD_NAME "IS_EMERGENCY"
+#define NLP_STARTED_FIELD_NAME "NLP_SESSION_STARTED"
 #define LOC_FEATURE_STATUS_FIELD_NAME "LOC_FEATURE_STATUS"
 
 namespace loc_core
@@ -985,6 +986,33 @@ int32_t LocFeatureStatusDataItem::copyFrom(IDataItemCore* src) {
         COPIER_ERROR_CHECK_AND_DOWN_CAST(
                 LocFeatureStatusDataItem, LOC_FEATURE_STATUS_DATA_ITEM_ID);
         s->mFids = d->mFids;
+        result = 0;
+    } while (0);
+    EXIT_LOG("%d", result);
+    return result;
+}
+
+void NlpSessionStartedDataItem::stringify(string& valueStr) {
+    int32_t result = 0;
+    ENTRY_LOG();
+    do {
+        STRINGIFY_ERROR_CHECK_AND_DOWN_CAST(
+                NlpSessionStartedDataItem, NETWORK_POSITIONING_STARTED_DATA_ITEM_ID);
+        valueStr.clear ();
+        valueStr += NLP_STARTED_FIELD_NAME;
+        valueStr += ": ";
+        valueStr += (d->mNlpStarted) ? ("true") : ("false");
+    } while (0);
+    EXIT_LOG_WITH_ERROR("%d", result);
+}
+
+int32_t NlpSessionStartedDataItem::copyFrom(IDataItemCore* src) {
+    int32_t result = -1;
+    ENTRY_LOG();
+    do {
+        COPIER_ERROR_CHECK_AND_DOWN_CAST(
+                NlpSessionStartedDataItem, NETWORK_POSITIONING_STARTED_DATA_ITEM_ID);
+        s->mNlpStarted = d->mNlpStarted;
         result = 0;
     } while (0);
     EXIT_LOG("%d", result);

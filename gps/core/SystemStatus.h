@@ -858,6 +858,22 @@ public:
         LOC_LOGd("Location feature qwes status: %s", str.c_str());
     }
 };
+
+class SystemStatusNlpSessionStarted : public SystemStatusItemBase {
+public:
+    NlpSessionStartedDataItem mDataItem;
+    inline SystemStatusNlpSessionStarted(bool value = false): mDataItem(value) {}
+    inline SystemStatusNlpSessionStarted(const NlpSessionStartedDataItem& itemBase):
+        mDataItem(itemBase) {}
+    inline bool equals(const SystemStatusItemBase& peer) override {
+        return mDataItem.mNlpStarted ==
+            ((const SystemStatusNlpSessionStarted&)peer).mDataItem.mNlpStarted;
+    }
+    inline void dump(void) override {
+        LOC_LOGd("NLP Session started: %d", mDataItem.mNlpStarted);
+    }
+};
+
 /******************************************************************************
  SystemStatusReports
 ******************************************************************************/
@@ -910,6 +926,7 @@ public:
     std::vector<SystemStatusBtDeviceScanDetail> mBtDeviceScanDetail;
     std::vector<SystemStatusBtleDeviceScanDetail> mBtLeDeviceScanDetail;
     std::vector<SystemStatusLocFeatureStatus>  mLocFeatureStatus;
+    std::vector<SystemStatusNlpSessionStarted>  mNlpSessionStarted;
 };
 
 /******************************************************************************
@@ -963,6 +980,7 @@ public:
     bool eventInEmergencyCall(bool isEmergency);
     void setTracking(bool tracking);
     bool eventLocFeatureStatus(std::unordered_set<int> fids);
+    bool eventNlpSessionStatus(bool nlpStarted);
 };
 
 } // namespace loc_core

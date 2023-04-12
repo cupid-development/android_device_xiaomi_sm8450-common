@@ -119,6 +119,9 @@ IDataItemCore* DataItemsFactoryProxy::createNewDataItem(IDataItemCore* dataItem)
     case LOC_FEATURE_STATUS_DATA_ITEM_ID:
         mydi = new LocFeatureStatusDataItem(*((LocFeatureStatusDataItem*)dataItem));
         break;
+    case NETWORK_POSITIONING_STARTED_DATA_ITEM_ID:
+        mydi = new NlpSessionStartedDataItem(*((NlpSessionStartedDataItem*)dataItem));
+        break;
     case INVALID_DATA_ITEM_ID:
     case MAX_DATA_ITEM_ID:
     default:

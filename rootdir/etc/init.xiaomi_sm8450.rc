@@ -153,6 +153,9 @@ on post-fs-data
 on property:sys.boot_completed=1
     start qrtr-lookup
 
+    # Set thermal mode to mgame
+    write /sys/devices/virtual/thermal/thermal_message/sconfig 20
+
 on charger
     chown system system /sys/class/backlight/panel0-backlight/brightness
     chown system system /sys/class/backlight/panel1-backlight/brightness

@@ -223,6 +223,9 @@ on property:vendor.audio.cit.spkcal.copy=true
     chmod 666 /mnt/vendor/persist/audio/aw_calr.bin
     chmod 666 /mnt/vendor/persist/audio/aw_calr.txt
 
+on property:persist.sys.xtra-daemon.enabled=*
+    restart loc_launcher
+
 service vendor.nv_mac /vendor/bin/nv_mac
     class late_start
     user system

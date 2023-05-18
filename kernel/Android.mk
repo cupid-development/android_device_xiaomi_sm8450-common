@@ -1,4 +1,4 @@
-KERNEL_PREBUILT_DEBUG := device/qcom/cupid-kernel/debug
+KERNEL_PREBUILT_DEBUG := device/qcom/zeus-kernel/debug
 LOCAL_PATH := $(KERNEL_PREBUILT_DEBUG)
 KERNEL_DEBUG_FILES := $(if $(wildcard $(LOCAL_PATH)/),$(call find-subdir-files,-type f))
 

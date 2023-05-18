@@ -39,14 +39,14 @@
         <param key="dual_mono" value ="false" />
         <param key="signal_handler" value ="true" />
     </config_params>
-    <config_volume>
-        <use_volume_set_param>1</use_volume_set_param>
-        <supported_streams>
-            <supported_stream>PAL_STREAM_COMPRESSED</supported_stream>
-            <supported_stream>PAL_STREAM_PCM_OFFLOAD</supported_stream>
-            <supported_stream>PAL_STREAM_VOIP_RX</supported_stream>
-        </supported_streams>
-    </config_volume>
+        <config_volume>
+                <use_volume_set_param>1</use_volume_set_param>
+                <supported_streams>
+                    <supported_stream>PAL_STREAM_COMPRESSED</supported_stream>
+                    <supported_stream>PAL_STREAM_PCM_OFFLOAD</supported_stream>
+                    <supported_stream>PAL_STREAM_VOIP_RX</supported_stream>
+                </supported_streams>
+        </config_volume>
     <config_lpm>
         <use_disable_lpm>1</use_disable_lpm>
         <lpm_supported_streams>
@@ -87,7 +87,6 @@
     <low_power_vote_streams>
         <stream_type>PAL_STREAM_VOICE_UI</stream_type>
         <stream_type>PAL_STREAM_ACD</stream_type>
-        <stream_type>PAL_STREAM_ULTRASOUND</stream_type>
     </low_power_vote_streams>
     <group_device_cfg>
         <upd_rx>
@@ -348,7 +347,6 @@
             <ec_rx_device>
                 <id>PAL_DEVICE_OUT_SPEAKER</id>
                 <id>PAL_DEVICE_OUT_HANDSET</id>
-                <id>PAL_DEVICE_OUT_BLUETOOTH_A2DP</id>
             </ec_rx_device>
         </in-device>
         <in-device>
@@ -360,9 +358,6 @@
             <samplerate>48000</samplerate>
             <bit_width>16</bit_width>
             <ec_rx_device>
-                <id>PAL_DEVICE_OUT_WIRED_HEADSET</id>
-                <id>PAL_DEVICE_OUT_WIRED_HEADPHONE</id>
-                <id>PAL_DEVICE_OUT_BLUETOOTH_A2DP</id>
             </ec_rx_device>
         </in-device>
         <in-device>
@@ -515,13 +510,21 @@
                 <channels>2</channels>
                 <sidetone_mode>HW</sidetone_mode>
                 <channels>2</channels>
-                <custom-config key="speaker-top">
+                <custom-config key="speaker-tl">
                     <channels>2</channels>
-                    <snd_device_name>speaker-top</snd_device_name>
+                    <snd_device_name>speaker-tl</snd_device_name>
                 </custom-config>
-                <custom-config key="speaker-bot">
+                <custom-config key="speaker-th">
                     <channels>2</channels>
-                    <snd_device_name>speaker-bot</snd_device_name>
+                    <snd_device_name>speaker-th</snd_device_name>
+                </custom-config>
+                <custom-config key="speaker-bl">
+                    <channels>2</channels>
+                    <snd_device_name>speaker-bl</snd_device_name>
+                </custom-config>
+                <custom-config key="speaker-bh">
+                    <channels>2</channels>
+                    <snd_device_name>speaker-bh</snd_device_name>
                 </custom-config>
                 <custom-config key="speaker-default">
                     <channels>2</channels>

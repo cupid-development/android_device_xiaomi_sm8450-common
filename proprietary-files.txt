@@ -2446,6 +2446,20 @@ vendor/etc/init/init.time_daemon.rc
 vendor/lib/libtime_genoff.so
 vendor/lib64/libtime_genoff.so
 
+# Touchfeature
+vendor/bin/hw/vendor.xiaomi.hw.touchfeature@1.0-service
+vendor/bin/touch_report
+vendor/bin/toucheventcheck
+vendor/bin/touchsensor
+vendor/etc/init.panel_info.sh
+vendor/etc/init/vendor.xiaomi.hw.touchfeature@1.0-service.rc
+vendor/etc/vintf/manifest/vendor.xiaomi.hw.touchfeature@1.0-service.xml
+vendor/lib/hw/vendor.xiaomi.hw.touchfeature@1.0-impl.so
+vendor/lib/vendor.xiaomi.hw.touchfeature@1.0.so
+vendor/lib64/hw/vendor.xiaomi.hw.touchfeature@1.0-impl.so
+vendor/lib64/libtensorflowlite.so
+vendor/lib64/vendor.xiaomi.hw.touchfeature@1.0.so
+
 # Trusted Execution Environment connector
 vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service
 vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc

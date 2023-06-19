@@ -90,14 +90,20 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
     }
 
     void setFingerDown(bool pressed) {
-        mDevice->extCmd(mDevice, COMMAND_NIT, pressed ? PARAM_NIT_FOD : PARAM_NIT_NONE);
-
         int buf[MAX_BUF_SIZE] = {TOUCH_ID, THP_FOD_DOWNUP_CTL, pressed ? 1 : 0};
         ioctl(touch_fd_.get(), TOUCH_IOC_SET_CUR_VALUE, &buf);
 
         set(DISP_PARAM_PATH,
             std::string(DISP_PARAM_LOCAL_HBM_MODE) + " " +
                     (pressed ? DISP_PARAM_LOCAL_HBM_ON : DISP_PARAM_LOCAL_HBM_OFF));
+
+        mDevice->extCmd(mDevice, 2, pressed ? 540 : 0);
+        mDevice->extCmd(mDevice, 3, pressed ? 2163 : 0);
+        mDevice->extCmd(mDevice, 1, pressed);
+
+        mDevice->extCmd(mDevice, 2, pressed ? 540 : 0);
+        mDevice->extCmd(mDevice, 3, pressed ? 2163 : 0);
+        mDevice->extCmd(mDevice, COMMAND_NIT, pressed ? PARAM_NIT_FOD : PARAM_NIT_NONE);
     }
 };
 

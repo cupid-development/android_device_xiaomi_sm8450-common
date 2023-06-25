@@ -45,6 +45,3 @@ ro.hardware.wlan.chip=qca6490
 ro.hardware.wlan.dbs=2
 ro.hardware.wlan.mimo=1
 ro.hardware.wlan.vendor=qcom
-
-# Xiaomi
-ro.product.mod_device=cupid_global

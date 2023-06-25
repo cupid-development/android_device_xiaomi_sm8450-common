@@ -11,5 +11,33 @@ genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-00/c42d000.qcom,
 genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-00/c42d000.qcom,spmi:qcom,pmk8350@0:pon_hlos@1300/c42d000.qcom,spmi:qcom,pmk8350@0:pon_hlos@1300:pwrkey-resin-bark/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:fingerprint_goodix/wakeup u:object_r:sysfs_wakeup:s0
 
-# Touchfeature
+# Touchscreen
+genfscon proc /tp_hal_version u:object_r:proc_tp_file:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/clicktouch_raw u:object_r:sysfs_touch_hostprocess:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/ear_sensor u:object_r:sysfs_tp_virtual_prox:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/ear_sensor_data u:object_r:sysfs_tp_virtual_prox:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/enable_touch_delta u:object_r:sysfs_touch_hostprocess:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/enable_touch_raw u:object_r:sysfs_touch_hostprocess:s0
 genfscon sysfs /devices/virtual/touch/touch_dev/fod_press_status u:object_r:sysfs_tp_fodstatus:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/hold_sensor u:object_r:sysfs_tp_virtual_prox:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/palm_sensor u:object_r:sysfs_tp_virtual_prox:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/palm_sensor_data u:object_r:sysfs_tp_virtual_prox:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/suspend_state u:object_r:sysfs_touch_suspend:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/touch_active_status u:object_r:sysfs_touch_hostprocess:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/touch_doze_analysis u:object_r:sysfs_touch_hostprocess:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/touch_finger_status u:object_r:sysfs_touch_hostprocess:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/touch_irq_no u:object_r:sysfs_touch_hostprocess:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/touch_thp_cmd u:object_r:sysfs_touch_hostprocess:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/touch_thp_downthd u:object_r:sysfs_touch_hostprocess:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/touch_thp_dump u:object_r:sysfs_touch_hostprocess:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/touch_thp_dump_data u:object_r:sysfs_touch_hostprocess:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/touch_thp_islandthd u:object_r:sysfs_touch_hostprocess:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/touch_thp_movethd u:object_r:sysfs_touch_hostprocess:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/touch_thp_noisefilter u:object_r:sysfs_touch_hostprocess:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/touch_thp_rx_num u:object_r:sysfs_touch_hostprocess:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/touch_thp_smooth u:object_r:sysfs_touch_hostprocess:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/touch_thp_tx_num u:object_r:sysfs_touch_hostprocess:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/touch_thp_upthd u:object_r:sysfs_touch_hostprocess:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/touch_thp_x_resolution u:object_r:sysfs_touch_hostprocess:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/touch_thp_y_resolution u:object_r:sysfs_touch_hostprocess:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/update_rawdata u:object_r:sysfs_touch_hostprocess:s0

@@ -428,11 +428,15 @@ void GnssAdapter::fillElapsedRealTime(const GpsLocationExtended& locationExtende
         else if (out.timestamp > 0) {
             int64_t locationTimeNanos = (int64_t)out.timestamp * 1000000;
             bool isCurDataTimeTrustable = (out.timestamp % mLocPositionMode.min_interval == 0);
-            out.flags |= LOCATION_HAS_ELAPSED_REAL_TIME_BIT;
-            out.elapsedRealTime = mPositionElapsedRealTimeCal.getElapsedRealtimeEstimateNanos(
+            int64_t elapsedRealTime = mPositionElapsedRealTimeCal.getElapsedRealtimeEstimateNanos(
                     locationTimeNanos, isCurDataTimeTrustable,
                     (int64_t)mLocPositionMode.min_interval * 1000000);
-            out.elapsedRealTimeUnc = mPositionElapsedRealTimeCal.getElapsedRealtimeUncNanos();
+
+            if (elapsedRealTime != -1) {
+                out.flags |= LOCATION_HAS_ELAPSED_REAL_TIME_BIT;
+                out.elapsedRealTime = elapsedRealTime;
+                out.elapsedRealTimeUnc = mPositionElapsedRealTimeCal.getElapsedRealtimeUncNanos();
+            }
         }
 #endif //FEATURE_AUTOMOTIVE
     }

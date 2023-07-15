@@ -71,6 +71,9 @@
 # Modem
 /dev/smd8 u:object_r:vendor_radio_smd_device:s0
 
+# Powershare
+/vendor/bin/hw/vendor\.lineage\.powershare@1\.0-service\.xiaomi u:object_r:hal_lineage_powershare_default_exec:s0
+
 # Sensors
 /(vendor|system/vendor)/bin/hw/android\.hardware\.sensors@2.1-service\.xiaomi-multihal u:object_r:hal_sensors_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor.xiaomi.sensor.communicate@1.0-service u:object_r:vendor_hal_sensorcommunicate_default_exec:s0

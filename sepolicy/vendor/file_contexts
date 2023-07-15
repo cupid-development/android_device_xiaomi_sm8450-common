@@ -92,6 +92,9 @@
 # QRTR
 /(vendor|system/vendor)/bin/qrtr-lookup u:object_r:vendor_qrtr_exec:s0
 
+# Powershare
+/vendor/bin/hw/vendor\.lineage\.powershare@1\.0-service\.xiaomi u:object_r:hal_lineage_powershare_default_exec:s0
+
 # RIL
 /data/vendor/diag(/.*)? u:object_r:minidump_data_file:s0
 

@@ -197,7 +197,10 @@ public:
         return mLBSProxy->getIzatDevId();
     }
     inline void sendMsg(const LocMsg *msg) { getMsgTask()->sendMsg(msg); }
-
+    inline bool checkFeatureStatus(int* fids,
+            LocFeatureStatus* status, uint32_t idCount, bool directQwesCall = false) const {
+        return mLocApiProxy->checkFeatureStatus(fids, status, idCount, directQwesCall);
+    }
     static loc_gps_cfg_s_type mGps_conf;
     static loc_sap_cfg_s_type mSap_conf;
     static bool sIsEngineCapabilitiesKnown;

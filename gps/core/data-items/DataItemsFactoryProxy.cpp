@@ -116,6 +116,9 @@ IDataItemCore* DataItemsFactoryProxy::createNewDataItem(IDataItemCore* dataItem)
     case BATTERY_LEVEL_DATA_ITEM_ID:
         mydi = new BatteryLevelDataItem(*((BatteryLevelDataItem*)dataItem));
         break;
+    case LOC_FEATURE_STATUS_DATA_ITEM_ID:
+        mydi = new LocFeatureStatusDataItem(*((LocFeatureStatusDataItem*)dataItem));
+        break;
     case INVALID_DATA_ITEM_ID:
     case MAX_DATA_ITEM_ID:
     default:

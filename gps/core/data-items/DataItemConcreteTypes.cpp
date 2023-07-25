@@ -128,6 +128,7 @@ SPDX-License-Identifier: BSD-3-Clause-Clear
 #define BATTERYLEVEL_FIELD_BATTERY_PCT "BATTERY_PCT"
 
 #define IN_EMERGENCY_CALL_FIELD_NAME "IS_EMERGENCY"
+#define LOC_FEATURE_STATUS_FIELD_NAME "LOC_FEATURE_STATUS"
 
 namespace loc_core
 {
@@ -959,4 +960,35 @@ int32_t InEmergencyCallDataItem::copyFrom(IDataItemCore* src) {
     EXIT_LOG("%d", result);
     return result;
 }
+
+void LocFeatureStatusDataItem::stringify(string& valueStr) {
+    int32_t result = 0;
+    ENTRY_LOG();
+    do {
+        STRINGIFY_ERROR_CHECK_AND_DOWN_CAST(
+                LocFeatureStatusDataItem, LOC_FEATURE_STATUS_DATA_ITEM_ID);
+        valueStr.clear ();
+        valueStr += LOC_FEATURE_STATUS_FIELD_NAME;
+        valueStr += ": {";
+        for (int item : d->mFids) {
+            valueStr += std::to_string(item) + ", ";
+        }
+        valueStr += "}";
+    } while (0);
+    EXIT_LOG_WITH_ERROR("%d", result);
+}
+
+int32_t LocFeatureStatusDataItem::copyFrom(IDataItemCore* src) {
+    int32_t result = -1;
+    ENTRY_LOG();
+    do {
+        COPIER_ERROR_CHECK_AND_DOWN_CAST(
+                LocFeatureStatusDataItem, LOC_FEATURE_STATUS_DATA_ITEM_ID);
+        s->mFids = d->mFids;
+        result = 0;
+    } while (0);
+    EXIT_LOG("%d", result);
+    return result;
+}
+
 } //namespace loc_core

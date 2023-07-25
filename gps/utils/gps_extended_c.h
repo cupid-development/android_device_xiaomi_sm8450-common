@@ -2460,6 +2460,13 @@ typedef uint64_t NetworkHandle;
 #define NETWORK_HANDLE_UNKNOWN  ~0
 #define MAX_NETWORK_HANDLES 10
 
+typedef enum {
+    LOC_FEATURE_STATUS_UNKNOWN = 0,
+    LOC_FEATURE_STATUS_NONE = 1,
+    LOC_FEATURE_STATUS_OK = 2,
+    LOC_FEATURE_STATUS_EXPIRED = 3
+} LocFeatureStatus;
+
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */

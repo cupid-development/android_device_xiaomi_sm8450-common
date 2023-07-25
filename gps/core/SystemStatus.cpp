@@ -1809,6 +1809,11 @@ bool SystemStatus::eventDataItemNotify(IDataItemCore* dataitem)
             ret = setIteminReport(mCache.mBtLeDeviceScanDetail, SystemStatusBtleDeviceScanDetail(
                         *(static_cast<BtLeDeviceScanDetailsDataItem*>(dataitem))));
             break;
+        case LOC_FEATURE_STATUS_DATA_ITEM_ID:
+            ret = setIteminReport(mCache.mLocFeatureStatus,
+                    SystemStatusLocFeatureStatus(
+                        *(static_cast<LocFeatureStatusDataItem*>(dataitem))));
+            break;
         default:
             break;
     }
@@ -2037,6 +2042,19 @@ void SystemStatus::setTracking(bool tracking) {
     pthread_mutex_lock(&mMutexSystemStatus);
     mTracking = tracking;
     pthread_mutex_unlock(&mMutexSystemStatus);
+}
+
+/******************************************************************************
+@brief      API to update Location feature QWES status
+
+@param[In]  Location feature QWES status
+
+@return     true when successfully done
+******************************************************************************/
+bool SystemStatus::eventLocFeatureStatus(std::unordered_set<int> fids) {
+    SystemStatusLocFeatureStatus  s(fids);
+    mSysStatusObsvr.notify({&s.mDataItem});
+    return true;
 }
 } // namespace loc_core
 

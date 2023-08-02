@@ -95,32 +95,33 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
                     LOG(ERROR) << "failed to poll fd, err: " << rc;
                     continue;
                 }
-
+                bool pressed = readBool(fd);
                 mDevice->extCmd(mDevice, COMMAND_FOD_PRESS_STATUS,
-                                readBool(fd) ? PARAM_FOD_PRESSED : PARAM_FOD_RELEASED);
+                                pressed ? PARAM_FOD_PRESSED : PARAM_FOD_RELEASED);
+                setFingerDown(pressed);
             }
         }).detach();
     }
 
     void onFingerDown(uint32_t /*x*/, uint32_t /*y*/, float /*minor*/, float /*major*/) {
         LOG(INFO) << __func__;
-        setFingerDown(true);
+        // Ensure HBM is enabled if fod_press_status was called before display was powered on
+        set(DISP_PARAM_PATH,
+            std::string(DISP_PARAM_LOCAL_HBM_MODE) + " " + DISP_PARAM_LOCAL_HBM_ON);
     }
 
-    void onFingerUp() {
-        LOG(INFO) << __func__;
-        setFingerDown(false);
-    }
+    void onFingerUp() { LOG(INFO) << __func__; }
 
     void onAcquired(int32_t result, int32_t vendorCode) {
         LOG(INFO) << __func__ << " result: " << result << " vendorCode: " << vendorCode;
         if (result == FINGERPRINT_ACQUIRED_GOOD) {
             setFingerDown(false);
-            setFodStatus(FOD_STATUS_OFF);
-        } else if (vendorCode == 21 || vendorCode == 23) {
+            if (!enrolling) {
+                setFodStatus(FOD_STATUS_OFF);
+            }
+        } else if (vendorCode == 21) {
             /*
              * vendorCode = 21 waiting for fingerprint authentication
-             * vendorCode = 23 waiting for fingerprint enroll
              */
             setFodStatus(FOD_STATUS_ON);
         }
@@ -128,13 +129,32 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
 
     void cancel() {
         LOG(INFO) << __func__;
+        enrolling = false;
+
         setFingerDown(false);
+        setFodStatus(FOD_STATUS_OFF);
+    }
+
+    void preEnroll() {
+        LOG(INFO) << __func__;
+        enrolling = true;
+    }
+
+    void enroll() {
+        LOG(INFO) << __func__;
+        enrolling = true;
+    }
+
+    void postEnroll() {
+        LOG(INFO) << __func__;
+        enrolling = false;
         setFodStatus(FOD_STATUS_OFF);
     }
 
   private:
     fingerprint_device_t* mDevice;
     android::base::unique_fd touch_fd_;
+    bool enrolling = false;
 
     void setFodStatus(int value) {
         int buf[MAX_BUF_SIZE] = {TOUCH_ID, Touch_Fod_Enable, value};
@@ -142,7 +162,7 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
     }
 
     void setFingerDown(bool pressed) {
-        mDevice->extCmd(mDevice, COMMAND_NIT, pressed ? PARAM_NIT_FOD : PARAM_NIT_NONE);
+        LOG(INFO) << __func__ << " pressed: " << pressed;
 
         int buf[MAX_BUF_SIZE] = {TOUCH_ID, THP_FOD_DOWNUP_CTL, pressed ? 1 : 0};
         ioctl(touch_fd_.get(), TOUCH_IOC_SET_CUR_VALUE, &buf);
@@ -150,6 +170,8 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
         set(DISP_PARAM_PATH,
             std::string(DISP_PARAM_LOCAL_HBM_MODE) + " " +
                     (pressed ? DISP_PARAM_LOCAL_HBM_ON : DISP_PARAM_LOCAL_HBM_OFF));
+
+        mDevice->extCmd(mDevice, COMMAND_NIT, pressed ? PARAM_NIT_FOD : PARAM_NIT_NONE);
     }
 };
 

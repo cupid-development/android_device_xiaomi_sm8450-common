@@ -521,6 +521,7 @@ service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
 #   after setting up the capabilities required for WEXT
 #   user wifi
 #   group wifi inet keystore
+    interface aidl android.hardware.wifi.supplicant.ISupplicant/default
     interface android.hardware.wifi.supplicant@1.0::ISupplicant default
     interface android.hardware.wifi.supplicant@1.1::ISupplicant default
     class main

@@ -129,3 +129,6 @@ service vendor.sensors-hal-2-1-multihal /vendor/bin/hw/android.hardware.sensors@
     capabilities BLOCK_SUSPEND
     rlimit rtprio 10 10
     socket audio_us_socket_1 seqpacket 0666 system system
+
+on property:ro.boot.hwversion=*
+    setprop ro.boot.hardware.revision ${ro.boot.hwversion}

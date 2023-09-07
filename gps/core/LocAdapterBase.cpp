@@ -362,6 +362,9 @@ LocAdapterBase::getCapabilities()
         if ((ContextBase::getQwesFeatureStatus() & LOCATION_CAPABILITIES_QWES_PPE)) {
             mask |= LOCATION_CAPABILITIES_QWES_PPE;
         }
+        if (ContextBase::isFeatureSupported(LOC_SUPPORTED_FEATURE_ENGINE_DEBUG_DATA)) {
+            mask |= LOCATION_CAPABILITIES_ENGINE_DEBUG_DATA_BIT;
+        }
         //Get QWES feature status mask
         mask |= ContextBase::getQwesFeatureStatus();
         //Get HW feature status mask

@@ -352,20 +352,22 @@ typedef uint64_t LocationCapabilitiesMask;
 #define   LOCATION_CAPABILITIES_QWES_QDR3                        (1<<26)
 // This mask indicates DGNSS license bundle is enabled.
 #define   LOCATION_CAPABILITIES_QWES_DGNSS                       (1<<27)
+// This mask indicates engine debug data enabled.
+#define LOCATION_CAPABILITIES_ENGINE_DEBUG_DATA_BIT              (1<<28)
 // This mask indicates Antenna info is enabled.
-#define   LOCATION_CAPABILITIES_ANTENNA_INFO                     (1<<28)
+#define   LOCATION_CAPABILITIES_ANTENNA_INFO                     (1<<29)
 // This mask indicates qppe or qfe library is presented.
-#define   LOCATION_CAPABILITIES_PRECISE_LIB_PRESENT              (1<<29)
+#define   LOCATION_CAPABILITIES_PRECISE_LIB_PRESENT              (1<<30)
 // This mask indicates wifi RSSI positioning is
 // enabled by QWES license.
-#define   LOCATION_CAPABILITIES_QWES_WIFI_RSSI_POSITIONING            (1ULL<<30)
+#define   LOCATION_CAPABILITIES_QWES_WIFI_RSSI_POSITIONING            (1ULL<<31)
 // This mask indicates wifi RTT positioning is
 // enabled by QWES license.
-#define   LOCATION_CAPABILITIES_QWES_WIFI_RTT_POSITIONING             (1ULL<<31)
+#define   LOCATION_CAPABILITIES_QWES_WIFI_RTT_POSITIONING             (1ULL<<32)
 // This mask indicates wifi RSSI positioning is supported.
-#define   LOCATION_CAPABILITIES_WIFI_RSSI_POSITIONING                          (1ULL<<32)
+#define   LOCATION_CAPABILITIES_WIFI_RSSI_POSITIONING                          (1ULL<<33)
 // This mask indicates wifi RTT positioning is supported.
-#define   LOCATION_CAPABILITIES_WIFI_RTT_POSITIONING                           (1ULL<<33)
+#define   LOCATION_CAPABILITIES_WIFI_RTT_POSITIONING                           (1ULL<<34)
 
 typedef uint8_t LocationQwesFeatureType;
 typedef enum {

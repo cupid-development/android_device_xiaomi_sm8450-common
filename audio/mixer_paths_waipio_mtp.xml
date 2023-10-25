@@ -2020,6 +2020,10 @@
     <path name="back-mic">
         <path name="amic4" />
     </path>
+
+    <path name="front-mic">
+        <path name="amic3" />
+    </path>
     <!-- add new controls end -->
     <path name="haptics-dev">
         <ctl name="SWR DAC_Port Switch" value="1" />
@@ -2495,9 +2499,11 @@
          <ctl name="ADC2 MUX" value="INP2" />
          <ctl name="ADC2 ChMap" value="SWRM_TX2_CH2" />
          <ctl name="HDR12 MUX" value="NO_HDR12" />
-         <ctl name="ADC2_BCS Disable" value="1" />
          <ctl name="ADC2_MIXER Switch" value="1" />
          <ctl name="AMIC2_MIXER Switch" value="1" />
+         <ctl name="DEC0_BCS Switch" value="1" />
+         <ctl name="MBHC ChMap" value="SWRM_TX1_CH3" />
+         <ctl name="BCS Channel" value="CH2" />
     </path>
 
     <path name="va-mic-mono">

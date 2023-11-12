@@ -47,6 +47,8 @@
 /(vendor|system/vendor)/bin/hw/vendor\.xiaomi\.hardware\.displayfeature@1\.0-service u:object_r:vendor_hal_displayfeature_xiaomi_default_exec:s0
 /dev/mi_display/disp_feature u:object_r:vendor_displayfeature_device:s0
 /sys/devices/virtual/mi_display/disp_feature/disp-DSI-+[0-1](/.*)? u:object_r:vendor_sysfs_displayfeature:s0
+/sys/devices/platform/soc/990000\.spi/spi_master/spi0/spi0\.0/fod_pressed u:object_r:sysfs_tp_fodstatus:s0
+/sys/devices/platform/soc/990000\.spi/spi_master/spi0/spi0\.0/fod_status u:object_r:sysfs_tp_fodstatus:s0
 
 # Dolby
 /data/vendor/dolby(/.*)? u:object_r:vendor_data_file:s0

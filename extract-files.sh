@@ -60,6 +60,9 @@ fi
 
 function blob_fixup() {
     case "${1}" in
+        vendor/etc/init/hw/init.mi_thermald.rc|vendor/etc/init/hw/init.qcom.usb.rc|vendor/etc/init/hw/init.qti.kernel.rc)
+            sed -i 's/on charger/on property:init.svc.vendor.charger=running/g' "${2}"
+            ;;
         vendor/etc/init/init.embmssl_server.rc)
             sed -i -n '/interface/!p' "${2}"
             ;;

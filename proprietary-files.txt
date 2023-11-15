@@ -1,4 +1,4 @@
-# All unpinned blobs below are extracted from zeus V14.0.8.0.TLBMIXM
+# All unpinned blobs below are extracted from mondrian V14.0.5.0.TMNMIXM
 
 # ADSP
 vendor/bin/adsprpcd
@@ -21,15 +21,34 @@ vendor/lib/rfsa/adsp/bm2n08.bin
 vendor/lib/rfsa/adsp/bm2n09.bin
 vendor/lib/rfsa/adsp/bm2n10.bin
 vendor/lib/rfsa/adsp/bm2n11.bin
+vendor/lib/rfsa/adsp/bm2n12.bin
+vendor/lib/rfsa/adsp/bm2n13.bin
+vendor/lib/rfsa/adsp/bm2n14.bin
+vendor/lib/rfsa/adsp/bm2n15.bin
+vendor/lib/rfsa/adsp/bm2n16.bin
+vendor/lib/rfsa/adsp/bm2n17.bin
+vendor/lib/rfsa/adsp/bm2n18.bin
+vendor/lib/rfsa/adsp/bm2n19.bin
+vendor/lib/rfsa/adsp/bm2n20.bin
+vendor/lib/rfsa/adsp/bm2n21.bin
+vendor/lib/rfsa/adsp/bm2n22.bin
+vendor/lib/rfsa/adsp/bm2n23.bin
+vendor/lib/rfsa/adsp/bm2n24.bin
+vendor/lib/rfsa/adsp/bm2n25.bin
+vendor/lib/rfsa/adsp/bm2n26.bin
+vendor/lib/rfsa/adsp/bm2n27.bin
+vendor/lib/rfsa/adsp/bm2n32.bin
+vendor/lib/rfsa/adsp/bm2n33.bin
+vendor/lib/rfsa/adsp/bm2n34.bin
+vendor/lib/rfsa/adsp/bm2n35.bin
+vendor/lib/rfsa/adsp/bm2n36.bin
 vendor/lib/rfsa/adsp/hrtf5c.bin
-vendor/lib/rfsa/adsp/libCalculator_skel.so
 vendor/lib/rfsa/adsp/libDspIOProxy_skel.so
 vendor/lib/rfsa/adsp/libMIAIHDR_skel.so
 vendor/lib/rfsa/adsp/libQ6MSFR_manager_skel.so
-vendor/lib/rfsa/adsp/libQnnHtpAltPrepSkel.so
 vendor/lib/rfsa/adsp/libQnnHtpAltPrepV69Skel.so
-vendor/lib/rfsa/adsp/libQnnHtpV69.so
 vendor/lib/rfsa/adsp/libQnnHtpV69Skel.so
+vendor/lib/rfsa/adsp/libSnpeHtpV68Skel.so
 vendor/lib/rfsa/adsp/libSnpeHtpV69Skel.so
 vendor/lib/rfsa/adsp/libVppFrcQnnHtp.so
 vendor/lib/rfsa/adsp/libVppQnnHtp.so
@@ -45,31 +64,33 @@ vendor/lib/rfsa/adsp/libeye_tracking_dsp_sample_skel.so
 vendor/lib/rfsa/adsp/libfastcvadsp.so
 vendor/lib/rfsa/adsp/libfastcvdsp_skel.so
 vendor/lib/rfsa/adsp/libhalide_hexagon_remote_skel.so
-vendor/lib/rfsa/adsp/libhdr_cdsp_skel.so
+vendor/lib/rfsa/adsp/libhvxopr_skel.so
 vendor/lib/rfsa/adsp/libmialgo_basic_cdsp_skel.so
-vendor/lib/rfsa/adsp/libmialgo_ldc_cdsp_skel.so
 vendor/lib/rfsa/adsp/libmialgo_low_light_align_cdsp_skel.so
 vendor/lib/rfsa/adsp/libmialgo_mc_bokeh_cdsp_skel.so
-vendor/lib/rfsa/adsp/libmialgo_mfnr_cdsp_skel.so
-vendor/lib/rfsa/adsp/libmialgo_pureview_cdsp_skel.so
 vendor/lib/rfsa/adsp/libmialgo_rfs_cdsp_skel.so
-vendor/lib/rfsa/adsp/libmialgo_sfnr_cdsp_skel.so
+vendor/lib/rfsa/adsp/libmialgo_slow_motion_cdsp_skel.so
 vendor/lib/rfsa/adsp/libmobilenet_dsp_frc.so
 vendor/lib/rfsa/adsp/libmobilenet_dsp_frc_networks.so
-vendor/lib/rfsa/adsp/libproxy_skel.so
 vendor/lib/rfsa/adsp/libqvr_cam_dsp_driver_skel.so
 vendor/lib/rfsa/adsp/libqvr_dsp_driver_skel.so
 vendor/lib/rfsa/adsp/libscveObjectSegmentation_skel.so
 vendor/lib/rfsa/adsp/libscveT2T_skel.so
+vendor/lib/rfsa/adsp/libsnpe_dsp_v65_domains_v2_skel.so
+vendor/lib/rfsa/adsp/libsnpe_dsp_v66_domains_v2_skel.so
+vendor/lib/rfsa/adsp/libsnpe_dsp_v68_domains_v3_skel.so
 vendor/lib/rfsa/adsp/libtracker_6dof_skel_8250.so
 vendor/lib/rfsa/adsp/libtracker_6dof_skel_8350.so
 vendor/lib/rfsa/adsp/libvpp_ais_networks.so
 vendor/lib/rfsa/adsp/libvpp_vqa_networks.so
 vendor/lib/rfsa/adsp/libvpt_action_recognition.so
+vendor/lib/rfsa/adsp/libworker_pool.so
 vendor/lib/rfsa/adsp/misound_karaoke_res.bin
 vendor/lib/rfsa/adsp/misound_karaokemix_res.bin
 vendor/lib/rfsa/adsp/misound_res_headphone.bin
+vendor/lib/rfsa/adsp/misound_res_spk.bin
 vendor/lib/rfsa/adsp/misound_res_spk4ch.bin
+vendor/lib/rfsa/adsp/weak_refs.so
 
 # ANT+
 vendor/lib/hw/com.dsi.ant@1.0-impl.so
@@ -102,7 +123,6 @@ vendor/etc/audio_cloud_control_white_list.xml
 vendor/etc/models/acd/event.eai
 vendor/etc/models/acd/music.eai
 vendor/etc/models/acd/speech.eai
-vendor/etc/silent-3sec.wav
 vendor/lib/hw/audio.primary.taro.so
 vendor/lib/hw/gyro_fusion_interface.so
 vendor/lib/libadm.so
@@ -149,7 +169,7 @@ vendor/lib64/libbatterylistener.so
 vendor/lib64/libcapiv2svacnnvendor.so
 vendor/lib64/libcapiv2svarnnvendor.so
 vendor/lib64/libcapiv2uvvendor.so
-vendor/lib64/libcrussp.so
+#vendor/lib64/libcrussp.so
 vendor/lib64/libdapparamstorage.so
 vendor/lib64/libfmpal.so
 vendor/lib64/libkaraokepal.so
@@ -746,7 +766,7 @@ vendor/lib/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 
 # GMS
-product/etc/permissions/com.google.android.feature.PREMIER_TIER.xml
+#product/etc/permissions/com.google.android.feature.PREMIER_TIER.xml
 
 # GNSS
 vendor/app/CACertService/CACertService.apk
@@ -970,7 +990,7 @@ vendor/lib64/libqtikeymaster4.so
 vendor/bin/hw/android.hardware.security.keymint-service-qti
 vendor/etc/init/android.hardware.security.keymint-service-qti.rc
 vendor/etc/permissions/android.hardware.hardware_keystore.xml
-vendor/etc/vintf/manifest/android.hardware.security.keymint-service-qti.xml
+vendor/etc/vintf/manifest/android.hardware.security.keymint-service-support-rkp-qti.xml
 vendor/lib/libqtikeymint.so
 vendor/lib64/libqtikeymint.so
 
@@ -1132,32 +1152,10 @@ vendor/etc/public.libraries.txt
 vendor/bin/hw/android.hardware.neuralnetworks-shim-service-qti
 vendor/etc/init/android.hardware.neuralnetworks-shim-service-qti.rc
 vendor/etc/vintf/manifest/android.hardware.neuralnetworks-shim-service-qti.xml
-vendor/lib/libQnnDspNetRunExtensions.so
-vendor/lib/libQnnGpuNetRunExtensions.so
-vendor/lib/libQnnGpuProfilingReader.so
-vendor/lib/libQnnHta.so
-vendor/lib/libQnnHtaNetRunExtensions.so
-vendor/lib/libQnnHtpAltPrepStub.so
-vendor/lib/libQnnHtpCalculatorStub.so
-vendor/lib/libQnnHtpNetRunExtensions.so
-vendor/lib/libQnnHtpProfilingReader.so
-vendor/lib/libQnnHtpStub.so
-vendor/lib/libQnnHtpV69CalculatorStub.so
-vendor/lib64/libQnnDspNetRunExtensions.so
 vendor/lib64/libQnnGpu.so
-vendor/lib64/libQnnGpuNetRunExtensions.so
-vendor/lib64/libQnnGpuProfilingReader.so
-vendor/lib64/libQnnHta.so
-vendor/lib64/libQnnHtaNetRunExtensions.so
 vendor/lib64/libQnnHtp.so
-vendor/lib64/libQnnHtpAltPrepStub.so
 vendor/lib64/libQnnHtpAltPrepV69Stub.so
-vendor/lib64/libQnnHtpCalculatorStub.so
-vendor/lib64/libQnnHtpNetRunExtensions.so
 vendor/lib64/libQnnHtpPrepare.so
-vendor/lib64/libQnnHtpProfilingReader.so
-vendor/lib64/libQnnHtpStub.so
-vendor/lib64/libQnnHtpV69CalculatorStub.so
 vendor/lib64/libQnnHtpV69Stub.so
 vendor/lib64/libUnnhalAccCommon.so
 vendor/lib64/libUnnhalAccGpu.so
@@ -1254,11 +1252,9 @@ vendor/lib64/libskewknob.so
 
 # Perf LM
 vendor/bin/hw/vendor.qti.hardware.iop@2.0-service
-vendor/bin/hw/vendor.qti.memory.pasrmanager@1.0-service
 vendor/bin/perf_qesdk_client
 vendor/etc/init/qapeservice.rc
 vendor/etc/init/vendor.qti.hardware.iop@2.0-service.rc
-vendor/etc/init/vendor.qti.memory.pasrmanager@1.0-service.rc
 vendor/etc/lm/AdaptLaunchFeature.xml
 vendor/etc/lm/AppClassifierFeature.xml
 vendor/etc/lm/LightningLaunchesFeature.xml
@@ -1272,8 +1268,6 @@ vendor/etc/lm/prekill/prekill_2GB.data
 vendor/etc/lm/prekill/prekill_4GB.data
 vendor/etc/lm/prekill/prekill_6GB.data
 vendor/etc/lm/sPLHFeature.xml
-vendor/etc/vintf/manifest/vendor.qti.memory.pasrmanager@1.0-service.xml
-vendor/lib/hw/vendor.qti.memory.pasrmanager@1.0-impl.so
 vendor/lib/libpasrutils.so
 vendor/lib/libqti-iopd-client.so
 vendor/lib/libqti-iopd.so
@@ -1282,7 +1276,6 @@ vendor/lib/vendor.qti.hardware.iop@2.0.so
 vendor/lib/vendor.qti.memory.pasrmanager@1.0.so
 vendor/lib/vendor.qti.memory.pasrmanager@1.1.so
 vendor/lib/vendor.qti.power.pasrmanager@1.0.so
-vendor/lib64/hw/vendor.qti.memory.pasrmanager@1.0-impl.so
 vendor/lib64/libadaptlaunch.so
 vendor/lib64/libapengine.so
 vendor/lib64/libappclassifier.so
@@ -1897,9 +1890,10 @@ vendor/bin/hw/vendor.qti.secure_element@1.2-service
 vendor/etc/init/vendor.qti.secure_element@1.2-service.rc
 vendor/lib/android.hardware.secure_element@1.0-impl.so
 vendor/lib64/android.hardware.secure_element@1.0-impl.so
-vendor/lib64/jcos_nq_client-v1.so
-vendor/lib64/ls_nq_client-v1.so
+vendor/lib64/jcos_nq_client.so
+vendor/lib64/ls_nq_client.so
 vendor/lib64/se_nq_extn_client-v1.so
+vendor/lib64/se_nq_extn_client.so
 
 # Sensor communicate
 vendor/bin/hw/vendor.xiaomi.sensor.communicate@1.0-service
@@ -1919,21 +1913,19 @@ vendor/etc/init/vendor.qti.hardware.sensorscalibrate@1.0-service.rc
 vendor/etc/init/vendor.sensors.qti.rc
 vendor/etc/init/vendor.sensors.sscrpcd.rc
 vendor/etc/permissions/vendor-qti-hardware-sensorscalibrate.xml
-vendor/etc/sensors/calibratedCheck.json
-vendor/etc/sensors/config/ak991x_dri_0.json
-vendor/etc/sensors/config/bu27030_0_back.json
 vendor/etc/sensors/config/lsm6dso_0.json
+vendor/etc/sensors/config/qmc6308_0.json
 vendor/etc/sensors/config/qsh_camera.json
-vendor/etc/sensors/config/sm8450_ak991x_0.json
-vendor/etc/sensors/config/sm8450_bu27030_0_back.json
+vendor/etc/sensors/config/sm8450_default_sensors.json
 vendor/etc/sensors/config/sm8450_dynamic_sensors.json
 vendor/etc/sensors/config/sm8450_irq.json
 vendor/etc/sensors/config/sm8450_lsm6dso_0.json
 vendor/etc/sensors/config/sm8450_power_0.json
-vendor/etc/sensors/config/sm8450_sx932x_0.json
+vendor/etc/sensors/config/sm8450_qmc6308_0.json
+vendor/etc/sensors/config/sm8450_stk3bcx_0.json
 vendor/etc/sensors/config/sm8450_sx933x_0.json
-vendor/etc/sensors/config/sm8450_tcs3408.json
-vendor/etc/sensors/config/sm8450_tmd3719.json
+vendor/etc/sensors/config/sm8450_tsl2522_0.json
+vendor/etc/sensors/config/sns_akm_fusion.json
 vendor/etc/sensors/config/sns_amd.json
 vendor/etc/sensors/config/sns_amd_sw_disabled.json
 vendor/etc/sensors/config/sns_amd_sw_enabled.json
@@ -1942,9 +1934,10 @@ vendor/etc/sensors/config/sns_aont.json
 vendor/etc/sensors/config/sns_basic_gestures.json
 vendor/etc/sensors/config/sns_bring_to_ear.json
 vendor/etc/sensors/config/sns_ccd_v1_0_amd.json
-vendor/etc/sensors/config/sns_ccd_v2_walk.json
+vendor/etc/sensors/config/sns_ccd_v1_0_ttw.json
+vendor/etc/sensors/config/sns_ccd_v2_0_walk.json
+vendor/etc/sensors/config/sns_ccd_v3_0_walk.json
 vendor/etc/sensors/config/sns_ccd_v3_1_walk.json
-vendor/etc/sensors/config/sns_ccd_v3_walk.json
 vendor/etc/sensors/config/sns_ccd_v4_0_sensors.json
 vendor/etc/sensors/config/sns_ccd_v4_0_te_cd_regs.json
 vendor/etc/sensors/config/sns_cm.json
@@ -1952,10 +1945,12 @@ vendor/etc/sensors/config/sns_dae.json
 vendor/etc/sensors/config/sns_dbtap.json
 vendor/etc/sensors/config/sns_device_orient.json
 vendor/etc/sensors/config/sns_diag_filter.json
+vendor/etc/sensors/config/sns_direct_channel.json
 vendor/etc/sensors/config/sns_distance_bound.json
 vendor/etc/sensors/config/sns_dpc.json
 vendor/etc/sensors/config/sns_facing.json
 vendor/etc/sensors/config/sns_fmv.json
+vendor/etc/sensors/config/sns_fmv_legacy.json
 vendor/etc/sensors/config/sns_geomag_rv.json
 vendor/etc/sensors/config/sns_gyro_cal.json
 vendor/etc/sensors/config/sns_hand_detect.json
@@ -1970,17 +1965,16 @@ vendor/etc/sensors/config/sns_rmd.json
 vendor/etc/sensors/config/sns_rotv.json
 vendor/etc/sensors/config/sns_sar_algo.json
 vendor/etc/sensors/config/sns_sar_algo_1.json
+vendor/etc/sensors/config/sns_screen_down.json
 vendor/etc/sensors/config/sns_smd.json
 vendor/etc/sensors/config/sns_tilt.json
 vendor/etc/sensors/config/sns_tilt_sw_disabled.json
 vendor/etc/sensors/config/sns_tilt_sw_enabled.json
 vendor/etc/sensors/config/sns_tilt_to_wake.json
 vendor/etc/sensors/config/sns_wrist_pedo.json
-vendor/etc/sensors/config/sx932x_0.json
+vendor/etc/sensors/config/stk3bcx_0.json
 vendor/etc/sensors/config/sx933x_0.json
-vendor/etc/sensors/config/tcs3408.json
-vendor/etc/sensors/config/tmd3719.json
-vendor/etc/sensors/sensorDisplayMap.json
+vendor/etc/sensors/judge_calibrated.json
 vendor/etc/sensors/sns_reg_config
 vendor/lib/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so
 vendor/lib/libsensor_cal@2.0.so

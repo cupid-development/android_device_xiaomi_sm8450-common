@@ -116,6 +116,7 @@ include $(COMMON_PATH)/build/utils.mk
 include $(COMMON_PATH)/kernel/kernel-platform-board.mk
 include vendor/qcom/opensource/audio-kernel/audio_kernel_vendor_board.mk
 include vendor/qcom/opensource/camera-kernel/board.mk
+include vendor/qcom/opensource/cvp-kernel/cvp_kernel_board.mk
 include vendor/qcom/opensource/dataipa/dataipa_dlkm_vendor_board.mk
 include vendor/qcom/opensource/datarmnet-ext/datarmnet_ext_dlkm_vendor_board.mk
 include vendor/qcom/opensource/datarmnet/datarmnet_dlkm_vendor_board.mk

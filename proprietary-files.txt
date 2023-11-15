@@ -209,7 +209,7 @@ vendor/lib/libfastcvopt.so
 vendor/lib/libscveCommon.so
 vendor/lib/libscveCommon_stub.so
 vendor/lib/libscveObjectSegmentation.so
-vendor/lib/libscveObjectSegmentation_stub.so
+#vendor/lib/libscveObjectSegmentation_stub.so
 vendor/lib/libscveObjectTracker.so
 vendor/lib/libscveObjectTracker_stub.so
 vendor/lib/libvideoutils.so
@@ -228,7 +228,7 @@ vendor/lib64/libfastcvopt.so
 vendor/lib64/libscveCommon.so
 vendor/lib64/libscveCommon_stub.so
 vendor/lib64/libscveObjectSegmentation.so
-vendor/lib64/libscveObjectSegmentation_stub.so
+#vendor/lib64/libscveObjectSegmentation_stub.so
 vendor/lib64/libscveObjectTracker.so
 vendor/lib64/libscveObjectTracker_stub.so
 vendor/lib64/libvideoutils.so
@@ -525,7 +525,7 @@ vendor/lib64/vendor.qti.gnss-V1-ndk_platform.so
 vendor/lib64/vendor.qti.gnss-service.so
 
 # Graphics (Adreno)
-vendor/app/com.qualcomm.qti.gpudrivers.taro.api31/com.qualcomm.qti.gpudrivers.taro.api31.apk
+vendor/app/com.qualcomm.qti.gpudrivers.taro.api32/com.qualcomm.qti.gpudrivers.taro.api32.apk
 vendor/gpu/kbc/sequence_manifest.bin
 vendor/gpu/kbc/unified_kbcs_32.bin
 vendor/gpu/kbc/unified_kbcs_64.bin
@@ -625,7 +625,7 @@ vendor/lib64/libspcom.so
 vendor/bin/hw/android.hardware.security.keymint-service-qti
 vendor/etc/init/android.hardware.security.keymint-service-qti.rc
 vendor/etc/permissions/android.hardware.hardware_keystore.xml
-vendor/etc/vintf/manifest/android.hardware.security.keymint-service-qti.xml
+vendor/etc/vintf/manifest/android.hardware.security.keymint-service-qti-rkp.xml
 vendor/lib/libqtikeymint.so
 vendor/lib64/libqtikeymint.so
 
@@ -653,10 +653,14 @@ vendor/etc/media_cape/video_system_specs.json
 vendor/etc/media_codecs_cape.xml
 vendor/etc/media_codecs_performance_cape.xml
 vendor/etc/media_codecs_performance_taro.xml
+vendor/etc/media_codecs_performance_ukee.xml
 vendor/etc/media_codecs_taro.xml
+vendor/etc/media_codecs_ukee.xml
 vendor/etc/media_profiles_cape.xml
 vendor/etc/media_profiles_taro.xml
+vendor/etc/media_profiles_ukee.xml
 vendor/etc/media_taro/video_system_specs.json
+vendor/etc/media_ukee/video_system_specs.json
 vendor/etc/seccomp_policy/c2audio.vendor.base-arm.policy
 vendor/etc/seccomp_policy/c2audio.vendor.base-arm64.policy
 vendor/etc/seccomp_policy/c2audio.vendor.ext-arm.policy
@@ -748,18 +752,18 @@ vendor/etc/seccomp_policy/modemManager.policy
 vendor/etc/public.libraries.txt
 
 # Neural networks
-vendor/bin/hw/android.hardware.neuralnetworks-shim-service-qti
-vendor/etc/init/android.hardware.neuralnetworks-shim-service-qti.rc
-vendor/etc/vintf/manifest/android.hardware.neuralnetworks-shim-service-qti.xml
-vendor/lib64/libQnnGpu.so
-vendor/lib64/libQnnHtp.so
+#vendor/bin/hw/android.hardware.neuralnetworks-shim-service-qti
+#vendor/etc/init/android.hardware.neuralnetworks-shim-service-qti.rc
+#vendor/etc/vintf/manifest/android.hardware.neuralnetworks-shim-service-qti.xml
+#vendor/lib64/libQnnGpu.so
+#vendor/lib64/libQnnHtp.so
 vendor/lib64/libQnnHtpAltPrepV69Stub.so
-vendor/lib64/libQnnHtpPrepare.so
-vendor/lib64/libQnnHtpV69Stub.so
-vendor/lib64/libUnnhalAccCommon.so
-vendor/lib64/libUnnhalAccGpu.so
-vendor/lib64/libUnnhalAccHtp.so
-vendor/lib64/libnnapi_sl_driver.so
+#vendor/lib64/libQnnHtpPrepare.so
+#vendor/lib64/libQnnHtpV69Stub.so
+#vendor/lib64/libUnnhalAccCommon.so
+#vendor/lib64/libUnnhalAccGpu.so
+#vendor/lib64/libUnnhalAccHtp.so
+#vendor/lib64/libnnapi_sl_driver.so
 
 # NFC
 vendor/bin/hw/vendor.nxp.hardware.nfc@2.0-service
@@ -1073,9 +1077,9 @@ vendor/lib/libStereoRectifyWrapper.so
 vendor/lib/libhalide_hexagon_host.so
 vendor/lib/libqvrcamera_client.qti.so
 vendor/lib/libqvrservice_client.qti.so
-vendor/lib/libqvrservice_ov7251_hvx_tuning.so
-vendor/lib/libqvrservice_ov9282_hvx_tuning.so
-vendor/lib/libqvrservice_v4l_ov7251_hvx_tuning.so
+#vendor/lib/libqvrservice_ov7251_hvx_tuning.so
+#vendor/lib/libqvrservice_ov9282_hvx_tuning.so
+#vendor/lib/libqvrservice_v4l_ov7251_hvx_tuning.so
 vendor/lib64/libDspIOProxy_stub.so
 vendor/lib64/libMapService.so
 vendor/lib64/libScenescape.so
@@ -1089,9 +1093,9 @@ vendor/lib64/libqvr_hostcontroller_plugin.so
 vendor/lib64/libqvrcamera_client.qti.so
 vendor/lib64/libqvrservice.so
 vendor/lib64/libqvrservice_client.qti.so
-vendor/lib64/libqvrservice_ov7251_hvx_tuning.so
-vendor/lib64/libqvrservice_ov9282_hvx_tuning.so
-vendor/lib64/libqvrservice_v4l_ov7251_hvx_tuning.so
+#vendor/lib64/libqvrservice_ov7251_hvx_tuning.so
+#vendor/lib64/libqvrservice_ov9282_hvx_tuning.so
+#vendor/lib64/libqvrservice_v4l_ov7251_hvx_tuning.so
 vendor/lib64/libtracker_6dof_impl.so
 vendor/lib64/vendor.qti.hardware.qxr-V1-ndk_platform.so
 
@@ -1270,7 +1274,7 @@ vendor/lib/vendor.qti.hardware.data.ka-V1-ndk_platform.so
 vendor/lib/vendor.qti.hardware.mwqemadapter@1.0.so
 vendor/lib/vendor.qti.hardware.radio.am@1.0.so
 vendor/lib/vendor.qti.hardware.radio.atcmdfwd@1.0.so
-vendor/lib/vendor.qti.hardware.radio.ims-V6-ndk_platform.so
+vendor/lib/vendor.qti.hardware.radio.ims-V7-ndk_platform.so
 vendor/lib/vendor.qti.hardware.radio.ims@1.0.so
 vendor/lib/vendor.qti.hardware.radio.ims@1.1.so
 vendor/lib/vendor.qti.hardware.radio.ims@1.2.so
@@ -1310,14 +1314,17 @@ vendor/lib/vendor.qti.ims.factory@1.0.so
 vendor/lib/vendor.qti.ims.factory@1.1.so
 vendor/lib/vendor.qti.ims.factory@2.0.so
 vendor/lib/vendor.qti.ims.factory@2.1.so
+vendor/lib/vendor.qti.ims.factory@2.2.so
 vendor/lib/vendor.qti.ims.rcsconfig@1.0.so
 vendor/lib/vendor.qti.ims.rcsconfig@1.1.so
 vendor/lib/vendor.qti.ims.rcsconfig@2.0.so
 vendor/lib/vendor.qti.ims.rcsconfig@2.1.so
 vendor/lib/vendor.qti.ims.rcssip@1.0.so
 vendor/lib/vendor.qti.ims.rcssip@1.1.so
+vendor/lib/vendor.qti.ims.rcssip@1.2.so
 vendor/lib/vendor.qti.ims.rcsuce@1.0.so
 vendor/lib/vendor.qti.ims.rcsuce@1.1.so
+vendor/lib/vendor.qti.ims.rcsuce@1.2.so
 vendor/lib/vendor.qti.imsrtpservice@3.0-service-Impl.so
 vendor/lib/vendor.qti.imsrtpservice@3.0.so
 vendor/lib64/com.qualcomm.qti.imscmservice@1.0.so
@@ -1404,7 +1411,7 @@ vendor/lib64/vendor.qti.hardware.data.ka-V1-ndk_platform.so
 vendor/lib64/vendor.qti.hardware.mwqemadapter@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.am@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.atcmdfwd@1.0.so
-vendor/lib64/vendor.qti.hardware.radio.ims-V6-ndk_platform.so
+vendor/lib64/vendor.qti.hardware.radio.ims-V7-ndk_platform.so
 vendor/lib64/vendor.qti.hardware.radio.ims@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.ims@1.1.so
 vendor/lib64/vendor.qti.hardware.radio.ims@1.2.so
@@ -1444,14 +1451,17 @@ vendor/lib64/vendor.qti.ims.factory@1.0.so
 vendor/lib64/vendor.qti.ims.factory@1.1.so
 vendor/lib64/vendor.qti.ims.factory@2.0.so
 vendor/lib64/vendor.qti.ims.factory@2.1.so
+vendor/lib64/vendor.qti.ims.factory@2.2.so
 vendor/lib64/vendor.qti.ims.rcsconfig@1.0.so
 vendor/lib64/vendor.qti.ims.rcsconfig@1.1.so
 vendor/lib64/vendor.qti.ims.rcsconfig@2.0.so
 vendor/lib64/vendor.qti.ims.rcsconfig@2.1.so
 vendor/lib64/vendor.qti.ims.rcssip@1.0.so
 vendor/lib64/vendor.qti.ims.rcssip@1.1.so
+vendor/lib64/vendor.qti.ims.rcssip@1.2.so
 vendor/lib64/vendor.qti.ims.rcsuce@1.0.so
 vendor/lib64/vendor.qti.ims.rcsuce@1.1.so
+vendor/lib64/vendor.qti.ims.rcsuce@1.2.so
 vendor/lib64/vendor.qti.imsrtpservice@3.0-service-Impl.so
 vendor/lib64/vendor.qti.imsrtpservice@3.0.so
 
@@ -1626,7 +1636,7 @@ vendor/bin/vppservice
 vendor/etc/configstore/vpp.configstore.xml
 vendor/etc/init/qconfig.rc
 vendor/etc/init/vppservice.rc
-vendor/etc/tunings.txt
+#vendor/etc/tunings.txt
 vendor/etc/vintf/manifest/vendor.qti.hardware.qconfig@1.0-service.xml
 vendor/etc/vintf/manifest/vendor.qti.hardware.vpp@2.0-service.xml
 vendor/lib/libvppcommon.so

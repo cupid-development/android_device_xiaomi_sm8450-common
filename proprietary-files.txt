@@ -994,9 +994,13 @@ vendor/bin/hw/vendor.qti.media.c2@1.0-service
 vendor/bin/hw/vendor.qti.media.c2audio@1.0-service
 vendor/etc/init/vendor.qti.media.c2@1.0-service.rc
 vendor/etc/init/vendor.qti.media.c2audio@1.0-service.rc
+vendor/etc/media_codecs_performance_cape.xml
 vendor/etc/media_codecs_performance_taro.xml
+vendor/etc/media_codecs_cape.xml
 vendor/etc/media_codecs_taro.xml
+vendor/etc/media_profiles_cape.xml
 vendor/etc/media_profiles_taro.xml
+vendor/etc/media_cape/video_system_specs.json
 vendor/etc/media_taro/video_system_specs.json
 vendor/etc/seccomp_policy/c2audio.vendor.base-arm.policy
 vendor/etc/seccomp_policy/c2audio.vendor.base-arm64.policy

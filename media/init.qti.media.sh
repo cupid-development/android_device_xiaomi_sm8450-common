@@ -57,7 +57,7 @@ case "$target" in
         case "$soc_hwid" in
             506|547|564)
                 setprop vendor.media.target_variant "_diwali_v2"
-                setprop vendor.netflix.bsp_rev ""
+                setprop vendor.netflix.bsp_rev "Q7450-35705-1"
                 sku_ver=`cat /sys/devices/platform/soc/aa00000.qcom,vidc/sku_version` 2> /dev/null
                 if [ $sku_ver -eq 0 ]; then
                     setprop vendor.media.target_variant "_diwali_v0"

@@ -6,5 +6,5 @@
 
 runtime_resource_overlay {
     name: "SystemUIResCommon",
-    product_specific: true,
+    vendor: true,
 }

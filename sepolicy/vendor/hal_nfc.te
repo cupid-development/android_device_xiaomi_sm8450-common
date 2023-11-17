@@ -1,3 +1,4 @@
 allow hal_nfc_default vendor_nfc_vendor_data_file:dir create_dir_perms;
 allow hal_nfc_default vendor_data_file:dir rw_dir_perms;
 allow hal_nfc_default vendor_data_file:file { create rw_file_perms };
+get_prop(hal_nfc_default, vendor_nfc_mi_prop)

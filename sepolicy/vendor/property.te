@@ -1,4 +1,5 @@
 # Camera
+vendor_public_prop(vendor_camera_p3enable_prop)
 vendor_public_prop(vendor_camera_sensor_prop)
 
 # DDR

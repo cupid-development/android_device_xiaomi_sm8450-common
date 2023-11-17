@@ -37,7 +37,7 @@
 #define DISP_PARAM_PATH "sys/devices/virtual/mi_display/disp_feature/disp-DSI-0/disp_param"
 #define DISP_PARAM_LOCAL_HBM_MODE "9"
 #define DISP_PARAM_LOCAL_HBM_OFF "0"
-#define DISP_PARAM_LOCAL_HBM_ON "1"
+#define DISP_PARAM_LOCAL_HBM_ON "4"
 
 #define FOD_PRESS_STATUS_PATH "/sys/class/touch/touch_dev/fod_press_status"
 

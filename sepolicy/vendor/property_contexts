@@ -1,4 +1,5 @@
 # Camera
+persist.vendor.EnableP3ColorSpace u:object_r:vendor_camera_p3enable_prop:s0
 vendor.camera.sensor. u:object_r:vendor_camera_sensor_prop:s0
 
 # DDR
@@ -24,6 +25,7 @@ persist.vendor.displayfeature.video.pq.type u:object_r:vendor_displayfeature_pro
 persist.vendor.dolbyvision.flat_on u:object_r:vendor_displayfeature_prop:s0
 persist.vendor.fod.modified.dc_status u:object_r:vendor_displayfeature_prop:s0
 persist.vendor.max.brightness u:object_r:vendor_displayfeature_prop:s0
+persist.vendor.mi_sf. u:object_r:vendor_displayfeature_prop:s0
 persist.vendor.power.dfps.level u:object_r:vendor_displayfeature_prop:s0
 ro.vendor.all_modes.colorpick_adjust u:object_r:vendor_displayfeature_prop:s0
 ro.vendor.aod.brightness.cust u:object_r:vendor_displayfeature_prop:s0
@@ -44,6 +46,7 @@ ro.vendor.display.dual_builtin_disp u:object_r:vendor_displayfeature_prop:s0
 #ro.vendor.display.dynamic_refresh_rate u:object_r:vendor_promotion_prop:s0
 ro.vendor.display.expert_calib.enable u:object_r:vendor_displayfeature_prop:s0
 ro.vendor.display.fod_monitor_default_fps u:object_r:vendor_displayfeature_prop:s0
+ro.vendor.display.framework_thermal_dimming u:object_r:vendor_displayfeature_prop:s0
 ro.vendor.display.hwc_thermal_dimming u:object_r:vendor_displayfeature_prop:s0
 ro.vendor.display.idle_default_fps u:object_r:vendor_displayfeature_prop:s0
 ro.vendor.display.idle_default_fps.support u:object_r:vendor_displayfeature_prop:s0
@@ -52,6 +55,7 @@ ro.vendor.display.ltpo.powerfull.with.charger.support u:object_r:vendor_displayf
 ro.vendor.display.ltpo.sync.tp u:object_r:vendor_displayfeature_prop:s0
 ro.vendor.display.ltpo.tp.idle.lowbrightness.support u:object_r:vendor_displayfeature_prop:s0
 ro.vendor.display.mi_calib.enable u:object_r:vendor_displayfeature_prop:s0
+ro.vendor.display.mode_change_optimize.enable u:object_r:vendor_displayfeature_prop:s0
 ro.vendor.display.nature_mode.enable u:object_r:vendor_displayfeature_prop:s0
 ro.vendor.display.papercontrast.opt u:object_r:vendor_displayfeature_prop:s0
 ro.vendor.display.primary.fps.limit u:object_r:vendor_displayfeature_prop:s0
@@ -78,6 +82,7 @@ ro.vendor.hist.threshold u:object_r:vendor_displayfeature_prop:s0
 ro.vendor.histogram.enable u:object_r:vendor_displayfeature_prop:s0
 ro.vendor.localhbm.enable u:object_r:vendor_displayfeature_prop:s0
 ro.vendor.media.video.style.support u:object_r:vendor_displayfeature_prop:s0
+ro.vendor.mi_sf. u:object_r:vendor_displayfeature_prop:s0
 ro.vendor.need.check.cup.hbm.coverlayer.enable u:object_r:vendor_displayfeature_prop:s0
 ro.vendor.pcc.dc.enable u:object_r:vendor_displayfeature_prop:s0
 ro.vendor.sdr2hdr.by.layer.support u:object_r:vendor_displayfeature_prop:s0
@@ -95,6 +100,7 @@ vendor.display.enable_fb_scaling u:object_r:vendor_displayfeature_prop:s0
 vendor.display.hwc_backlight.support u:object_r:vendor_displayfeature_prop:s0
 vendor.displayfeature.entry.enable u:object_r:vendor_displayfeature_prop:s0
 vendor.hbm.enable u:object_r:vendor_displayfeature_prop:s0
+vendor.mi_sf. u:object_r:vendor_displayfeature_prop:s0
 vendor.video.mode.status u:object_r:vendor_displayfeature_prop:s0
 
 # Dolby

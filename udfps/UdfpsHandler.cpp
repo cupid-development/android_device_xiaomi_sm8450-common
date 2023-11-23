@@ -7,6 +7,7 @@
 #define LOG_TAG "UdfpsHandler.xiaomi_sm8450"
 
 #include <android-base/logging.h>
+#include <android-base/properties.h>
 #include <android-base/unique_fd.h>
 
 #include <poll.h>
@@ -23,7 +24,6 @@
 
 #define COMMAND_FOD_PRESS_STATUS 1
 #define PARAM_FOD_PRESSED 1
-#define PARAM_FOD_RELEASED 1
 
 #define FOD_STATUS_OFF 0
 #define FOD_STATUS_ON 1
@@ -76,6 +76,13 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
         mDevice = device;
         touch_fd_ = android::base::unique_fd(open(TOUCH_DEV_PATH, O_RDWR));
 
+        std::string fpVendor = android::base::GetProperty("persist.vendor.sys.fp.vendor", "none");
+        LOG(INFO) << __func__ << " fingerprint vendor is " << fpVendor;
+        isFpc = fpVendor == "fpc_fod";
+        // fpc:    paramFodReleased = 0
+        // goodix: paramFodReleased = 1
+        paramFodReleased = !isFpc;
+
         std::thread([this]() {
             int fd = open(FOD_PRESS_STATUS_PATH, O_RDONLY);
             if (fd < 0) {
@@ -96,8 +103,9 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
                     continue;
                 }
 
+                bool pressed = readBool(fd);
                 mDevice->extCmd(mDevice, COMMAND_FOD_PRESS_STATUS,
-                                readBool(fd) ? PARAM_FOD_PRESSED : PARAM_FOD_RELEASED);
+                                pressed ? PARAM_FOD_PRESSED : paramFodReleased);
             }
         }).detach();
     }
@@ -117,10 +125,16 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
         if (result == FINGERPRINT_ACQUIRED_GOOD) {
             setFingerDown(false);
             setFodStatus(FOD_STATUS_OFF);
-        } else if (vendorCode == 21 || vendorCode == 23) {
+        } else if (!isFpc && (vendorCode == 21 || vendorCode == 23)) {
             /*
              * vendorCode = 21 waiting for fingerprint authentication
              * vendorCode = 23 waiting for fingerprint enroll
+             */
+            setFodStatus(FOD_STATUS_ON);
+        } else if (isFpc && (vendorCode == 20 || vendorCode == 22)) {
+            /*
+             * vendorCode = 20 waiting for fingerprint authentication
+             * vendorCode = 22 waiting for fingerprint enroll
              */
             setFodStatus(FOD_STATUS_ON);
         }
@@ -135,6 +149,8 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
   private:
     fingerprint_device_t* mDevice;
     android::base::unique_fd touch_fd_;
+    int paramFodReleased;
+    bool isFpc;
 
     void setFodStatus(int value) {
         int buf[MAX_BUF_SIZE] = {TOUCH_ID, Touch_Fod_Enable, value};

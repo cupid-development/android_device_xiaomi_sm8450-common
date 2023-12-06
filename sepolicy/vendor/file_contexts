@@ -68,7 +68,7 @@
 /vendor/bin/hw/android\.hardware\.nfc-service\.nxp u:object_r:hal_nfc_default_exec:s0
 
 # Sensors
-/(vendor|system/vendor)/bin/hw/android\.hardware\.sensors@2.1-service\.xiaomi-multihal u:object_r:hal_sensors_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.sensors-service\.xiaomi-multihal u:object_r:hal_sensors_default_exec:s0
 /(vendor|system/vendor)/bin/sensor-notifier u:object_r:vendor_sensor_notifier_exec:s0
 /dev/stmvl53l5 u:object_r:stmvl53l5_device:s0
 

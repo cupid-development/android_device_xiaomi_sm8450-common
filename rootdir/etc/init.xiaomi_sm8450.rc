@@ -120,11 +120,11 @@ service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
     onrestart restart audioserver
     socket audio_us_socket_0 seqpacket 0666 system system
 
-service vendor.sensors-hal-2-1-multihal /vendor/bin/hw/android.hardware.sensors@2.1-service.xiaomi-multihal
+service vendor.sensors-hal-multihal /vendor/bin/hw/android.hardware.sensors-service.xiaomi-multihal
     override
     class hal
     user system
-    group system wakelock context_hub
+    group system wakelock context_hub input uhid
     task_profiles ServiceCapacityLow
     capabilities BLOCK_SUSPEND
     rlimit rtprio 10 10

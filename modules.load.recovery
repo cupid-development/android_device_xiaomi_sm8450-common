@@ -100,7 +100,6 @@ qcom_rimps.ko
 c1dcvs_vendor.ko
 c1dcvs_scmi.ko
 bcl_pmic5.ko
-nfc_i2c.ko
 msm_sysstats.ko
 zsmalloc.ko
 lzo.ko
@@ -161,10 +160,8 @@ qti_battery_debug.ko
 charger-ulog-glink.ko
 altmode-glink.ko
 pmic-pon-log.ko
-spss_utils.ko
 msm_performance.ko
 qpnp-pbs.ko
-spcom.ko
 cdsprm.ko
 fsa4480-i2c.ko
 msm_show_epoch.ko
@@ -187,7 +184,6 @@ panel_event_notifier.ko
 qcom_sync_file.ko
 hung_task_enh.ko
 qfprom-sys.ko
-qcom_pm8008-regulator.ko
 qpnp-amoled-regulator.ko
 hvc_gunyah.ko
 msm_rng.ko
@@ -199,7 +195,9 @@ msm_kgsl.ko
 zram.ko
 hdcp.ko
 qseecom-mod.ko
+wl2866d.ko
 qcom-i2c-pmic.ko
+nfc_i2c.ko
 sg.ko
 spi-msm-geni.ko
 spmi-pmic-arb-debug.ko
@@ -234,13 +232,12 @@ nb7vpq904m.ko
 atmel_mxt_ts.ko
 focaltech_fts.ko
 synaptics_dsx.ko
-fts_touch_spi.ko
 xiaomi_touch.ko
 nt36xxx-i2c.ko
 nt36xxx-spi.ko
 goodix_core.ko
 pm8941-pwrkey.ko
-aw8697-haptic.ko
+qcom-hv-haptics.ko
 goodix_fod.ko
 i2c-msm-geni.ko
 i3c-master-msm-geni.ko
@@ -263,7 +260,6 @@ ddr_cdev.ko
 qti_userspace_cdev.ko
 qti_cpufreq_cdev.ko
 qti_devfreq_cdev.ko
-mi_thermal_interface.ko
 btpower.ko
 bt_fm_slim.ko
 qcom_edac.ko
@@ -289,12 +285,10 @@ qcom_pil_info.ko
 rproc_qcom_common.ko
 qcom_q6v5.ko
 qcom_q6v5_pas.ko
-qcom_spss.ko
 qcom_esoc.ko
 qcom_sysmon.ko
 qcom_glink.ko
 qcom_glink_smem.ko
-qcom_glink_spss.ko
 qcom_smd.ko
 gh_irq_lend.ko
 gh_mem_notifier.ko

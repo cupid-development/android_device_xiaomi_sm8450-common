@@ -172,6 +172,24 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.capabilityconfigstore@1.0.vendor
 
+# Display
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.mapper@4.0-impl-qti-display \
+    vendor.qti.hardware.display.allocator-service \
+    vendor.qti.hardware.display.composer-service
+
+PRODUCT_PACKAGES += \
+    init.qti.display_boot.rc \
+    init.qti.display_boot.sh
+
+PRODUCT_PACKAGES += \
+    vendor.display.config@1.11.vendor \
+    vendor.qti.hardware.display.config-V2-ndk_platform.vendor \
+    vendor.qti.hardware.display.mapper@2.0.vendor
+
+PRODUCT_COPY_FILES += \
+    hardware/qcom-caf/sm8450/display/config/snapdragon_color_libs_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/snapdragon_color_libs_config.xml
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.4-service.clearkey \
@@ -204,29 +222,7 @@ PRODUCT_COPY_FILES += \
 
 # Graphics
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.composer@2.4.vendor \
-    libgralloc.qti \
-    libgui_vendor \
-    libqdMetaData \
-    vendor.display.config@1.11.vendor \
-    vendor.qti.hardware.display.allocator@1.0.vendor \
-    vendor.qti.hardware.display.allocator@3.0.vendor \
-    vendor.qti.hardware.display.allocator@4.0.vendor \
-    vendor.qti.hardware.display.composer@1.0.vendor \
-    vendor.qti.hardware.display.composer@2.0.vendor \
-    vendor.qti.hardware.display.composer@3.1.vendor \
-    vendor.qti.hardware.display.config-V1-ndk_platform.vendor \
-    vendor.qti.hardware.display.config-V2-ndk_platform.vendor \
-    vendor.qti.hardware.display.config-V3-ndk_platform.vendor \
-    vendor.qti.hardware.display.config-V4-ndk_platform.vendor \
-    vendor.qti.hardware.display.config-V5-ndk_platform.vendor \
-    vendor.qti.hardware.display.config-V6-ndk_platform.vendor \
-    vendor.qti.hardware.display.demura@2.0.vendor \
-    vendor.qti.hardware.display.mapper@1.0.vendor \
-    vendor.qti.hardware.display.mapper@2.0.vendor \
-    vendor.qti.hardware.display.mapper@3.0.vendor \
-    vendor.qti.hardware.display.mapper@4.0.vendor \
-    vendor.qti.hardware.display.mapperextensions@1.2.vendor
+    libgui_vendor
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml \

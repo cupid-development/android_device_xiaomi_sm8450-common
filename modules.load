@@ -95,7 +95,6 @@ hdcp.ko
 qseecom-mod.ko
 wl2866d.ko
 qcom-i2c-pmic.ko
-nfc_i2c.ko
 sg.ko
 spi-msm-geni.ko
 spmi-pmic-arb-debug.ko

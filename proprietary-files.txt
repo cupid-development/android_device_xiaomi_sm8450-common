@@ -432,16 +432,6 @@ vendor/lib64/libsdmextension.so
 vendor/lib64/libtestutils.so
 vendor/lib64/libtinyxml2_1.so
 
-# Dolby music
-vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service
-vendor/etc/dolby/dax-default.xml
-vendor/etc/init/vendor.dolby.hardware.dms@2.0-service.rc
-vendor/etc/vintf/manifest/manifest_vendor.dolby.hardware.dms.xml
-vendor/lib/vendor.dolby.hardware.dms@2.0.so
-vendor/lib64/libdlbdsservice.so
-vendor/lib64/vendor.dolby.hardware.dms@2.0-impl.so
-vendor/lib64/vendor.dolby.hardware.dms@2.0.so
-
 # DPM
 system_ext/bin/dpmd
 system_ext/bin/tcmd

@@ -103,25 +103,17 @@ vendor/lib64/vendor.qti.hardware.pal@1.0.so
 
 # Audio soundfx
 vendor/lib/soundfx/libasphere.so
-vendor/lib/soundfx/libhwdap.so
 vendor/lib/soundfx/libmisoundfx.so
 vendor/lib/soundfx/libqcompostprocbundle.so
 vendor/lib/soundfx/libqcomvisualizer.so
 vendor/lib/soundfx/libqcomvoiceprocessing.so
 vendor/lib/soundfx/libshoebox.so
-vendor/lib/soundfx/libswdap.so
-vendor/lib/soundfx/libswgamedap.so
-vendor/lib/soundfx/libswvqe.so
 vendor/lib64/soundfx/libasphere.so
-vendor/lib64/soundfx/libhwdap.so
 vendor/lib64/soundfx/libmisoundfx.so
 vendor/lib64/soundfx/libqcompostprocbundle.so
 vendor/lib64/soundfx/libqcomvisualizer.so
 vendor/lib64/soundfx/libqcomvoiceprocessing.so
 vendor/lib64/soundfx/libshoebox.so
-vendor/lib64/soundfx/libswdap.so
-vendor/lib64/soundfx/libswgamedap.so
-vendor/lib64/soundfx/libswvqe.so
 
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
@@ -431,16 +423,6 @@ vendor/lib64/libsdm-disp-vndapis.so
 vendor/lib64/libsdmextension.so
 vendor/lib64/libtestutils.so
 vendor/lib64/libtinyxml2_1.so
-
-# Dolby music
-vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service
-vendor/etc/dolby/dax-default.xml
-vendor/etc/init/vendor.dolby.hardware.dms@2.0-service.rc
-vendor/etc/vintf/manifest/manifest_vendor.dolby.hardware.dms.xml
-vendor/lib/vendor.dolby.hardware.dms@2.0.so
-vendor/lib64/libdlbdsservice.so
-vendor/lib64/vendor.dolby.hardware.dms@2.0-impl.so
-vendor/lib64/vendor.dolby.hardware.dms@2.0.so
 
 # DPM
 system_ext/bin/dpmd

@@ -38,7 +38,7 @@ ro.qc.sdk.audio.fluencetype=none
 ro.qc.sdk.audio.ssr=false
 ro.vendor.audio.aiasst.support=true
 ro.vendor.audio.camera.loopback.support=true
-ro.vendor.audio.dolby.dax.support=true
+ro.vendor.audio.dolby.dax.support=false
 ro.vendor.audio.dolby.vision.support=true
 ro.vendor.audio.feature.fade=true
 ro.vendor.audio.feature.spatial=7
@@ -271,9 +271,6 @@ ro.vendor.whitepoint_calibration_enable=false
 ro.vendor.xiaomi.bl.poll=true
 sys.displayfeature.entry.enable=true
 sys.displayfeature_hidl=true
-
-# Dolby
-ro.vendor.dolby.dax.version=DAX3_3.6.1.6_r1
 
 # DPM
 persist.vendor.dpm.vndr.feature=1

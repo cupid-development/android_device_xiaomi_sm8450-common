@@ -19,7 +19,7 @@
     <!-- Default screen brightness setting set.
          -2 is invalid so setting will resort to int value specified above.
          Must be in the range specified by minimum and maximum. -->
-    <item format="float" name="config_screenBrightnessSettingDefaultFloat" type="dimen">0.25</item>
+    <item format="float" name="config_screenBrightnessSettingDefaultFloat" type="dimen">0.5</item>
 
     <!-- Stability requirements in milliseconds for accepting a new brightness level.  This is used
          for debouncing the light sensor.  Different constants are used to debounce the light sensor

@@ -1,0 +1,227 @@
+#
+# Copyright (C) 2024 The LineageOS Project
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+import /vendor/etc/init/hw/init.mi_thermald.rc
+import /vendor/etc/init/hw/init.batterysecret.rc
+
+on init
+    # Initial cpusets
+    mkdir /dev/cpuset/foreground/boost
+    copy /dev/cpuset/cpus /dev/cpuset/foreground/boost/cpus
+    copy /dev/cpuset/mems /dev/cpuset/foreground/boost/mems
+
+     # Initial cpuctl
+    chmod 0666 /dev/cpuctl/background/cpu.shares
+    chmod 0666 /dev/cpuctl/top-app/cpu.shares
+
+on fs
+    mkdir /mnt/vendor/persist/haptics 0755 system system
+    mkdir /mnt/vendor/persist/audio 0755 system system
+    mkdir /dev/logfs 0771 system system
+    mount vfat /dev/block/bootdevice/by-name/logfs /dev/logfs noatime umask=006,uid=1000,gid=1000
+    mount ext4 /dev/block/bootdevice/by-name/rescue /mnt/rescue noatime
+    restorecon_recursive /mnt/rescue
+    mkdir /mnt/vendor/persist/qca6490/ 0700 system system
+    chmod 0666 /dev/xlog
+
+on early-boot
+    # Enable WLAN cold boot calibration
+    write /sys/kernel/cnss/fs_ready 1
+    # Enable WLAN SSR recovery
+    write /sys/kernel/cnss/recovery 1
+
+on boot
+    # modem
+    chmod 0777 /dev/smd8
+    chown radio radio /dev/smd8
+    mkdir /data/vendor/modem 0777 radio radio
+
+    setprop persist.bluetooth.a2dp_offload.disabled false
+
+    #modify permission of block_size node
+    #chown -h root.oem_2902 /sys/bus/coresight/devices/coresight-tmc-etr/block_size
+    chown -h vendor_qdss /sys/bus/coresight/devices/coresight-tmc-etr/block_size
+    chmod 660 /sys/bus/coresight/devices/coresight-tmc-etr/block_size
+
+    chown system system /sys/class/thermal/thermal_message/sconfig
+    chown system system /sys/class/thermal/thermal_message/charger_temp
+    chown system system /sys/class/thermal/thermal_message/board_sensor_temp_comp
+    chown system system /sys/class/thermal/thermal_message/cpu_nolimit_temp
+    chown system system /sys/class/thermal/thermal_message/balance_mode
+    chown cameraserver cameraserver /sys/class/thermal/thermal_message/flash_state
+    chown system system /sys/module/perf_helper/mimd/mimdtrigger
+
+    # Create persist for camera calibration data
+    mkdir /mnt/vendor/persist/camera 0755 system cameraserver
+
+on post-fs-data
+    # Create folder of camera
+    mkdir /data/vendor/camera/offlinelog 0777 cameraserver audio
+    chmod 0666 /dev/camlog
+
+    # Create the directories used by the Wireless subsystem
+    mkdir /data/vendor/mac_addr 0770 system wifi
+
+    # Create the directory used by qrtr-lookup
+    mkdir /data/vendor/qrtr 0775 system system
+
+    mkdir /data/vendor/thermal 0771 root system
+    mkdir /data/vendor/thermal/config 0771 root system
+    mkdir /data/vendor/perfspy 0775 camera camera
+    chmod 0660 /dev/ir_spi
+    chown system system /dev/ir_spi
+    #nfc
+    mkdir /data/vendor/nfc 0770 nfc nfc
+
+    # add torch node for cit && mmi
+    chown system system /sys/class/leds/led:torch_0/brightness
+    chown system system /sys/class/leds/led:torch_1/brightness
+    chown system system /sys/class/leds/led:torch_2/brightness
+    chown system system /sys/class/leds/led:torch_3/brightness
+    chown system system /sys/class/leds/led:flash_0/brightness
+    chown system system /sys/class/leds/led:flash_1/brightness
+    chown system system /sys/class/leds/led:flash_2/brightness
+    chown system system /sys/class/leds/led:flash_3/brightness
+    chown system system /sys/class/leds/led:switch_0/brightness
+    chown system system /sys/class/leds/led:switch_1/brightness
+    chown system system /sys/class/leds/led:switch_2/brightness
+    chown system system /sys/class/leds/led:switch_3/brightness
+    chown system system /sys/class/leds/led:switch_0/trigger
+    chown system system /sys/class/leds/led:switch_1/trigger
+    chown system system /sys/class/leds/led:switch_2/trigger
+    chown system system /sys/class/leds/led:switch_3/trigger
+    chown system system /sys/class/leds/flashlight/brightness
+
+    chmod 0664 /sys/class/leds/led:torch_0/brightness
+    chmod 0664 /sys/class/leds/led:torch_1/brightness
+    chmod 0664 /sys/class/leds/led:torch_2/brightness
+    chmod 0664 /sys/class/leds/led:torch_3/brightness
+    chmod 0664 /sys/class/leds/led:flash_0/brightness
+    chmod 0664 /sys/class/leds/led:flash_1/brightness
+    chmod 0664 /sys/class/leds/led:flash_2/brightness
+    chmod 0664 /sys/class/leds/led:flash_3/brightnesssss
+    chmod 0664 /sys/class/leds/led:switch_0/brightness
+    chmod 0664 /sys/class/leds/led:switch_1/brightness
+    chmod 0664 /sys/class/leds/led:switch_2/brightness
+    chmod 0664 /sys/class/leds/led:switch_3/brightness
+    chmod 0664 /sys/class/leds/led:switch_0/trigger
+    chmod 0664 /sys/class/leds/led:switch_1/trigger
+    chmod 0664 /sys/class/leds/led:switch_2/trigger
+    chmod 0664 /sys/class/leds/led:switch_3/trigger
+    chmod 0664 /sys/class/leds/flashlight/brightness
+    mkdir /data/vendor/wlan_logs 0777 root shell
+    mkdir /data/vendor/qxwz 0770 gps system
+    #QCC mode configuration
+    setprop vendor.qti.qdma.oper.mode 3
+    setprop vendor.qti.qcc.oper.mode 3
+
+    # Display feature sysfs node
+    chown system system /sys/class/mi_display/disp-DSI-0/disp_param
+    chmod 0664 /sys/class/mi_display/disp-DSI-0/disp_param
+    chown system system /sys/class/mi_display/disp-DSI-0/mipi_rw
+    chmod 0664 /sys/class/mi_display/disp-DSI-0/mipi_rw
+    chown system system /sys/class/mi_display/disp-DSI-0/panel_info
+    chmod 0444 /sys/class/mi_display/disp-DSI-0/panel_info
+    chown system system /sys/class/mi_display/disp-DSI-0/wp_info
+    chmod 0444 /sys/class/mi_display/disp-DSI-0/wp_info
+    chown system system /sys/class/mi_display/disp-DSI-0/dynamic_fps
+    chmod 0444 /sys/class/mi_display/disp-DSI-0/dynamic_fps
+    chown system system /sys/class/mi_display/disp-DSI-0/doze_brightness
+    chmod 0664 /sys/class/mi_display/disp-DSI-0/doze_brightness
+    chown system system /sys/class/mi_display/disp-DSI-0/brightness_clone
+    chmod 0664 /sys/class/mi_display/disp-DSI-0/brightness_clone
+    chown system system /sys/class/mi_display/disp-DSI-0/max_brightness_clone
+    chmod 0664 /sys/class/mi_display/disp-DSI-0/max_brightness_clone
+
+    # Display feature sysfs node for penel1
+    chown system system /sys/class/mi_display/disp-DSI-1/brightness_clone
+    chmod 0664 /sys/class/mi_display/disp-DSI-1/brightness_clone
+    chown system system /sys/class/mi_display/disp-DSI-1/max_brightness_clone
+    chmod 0664 /sys/class/mi_display/disp-DSI-1/max_brightness_clone
+
+on property:sys.boot_completed=1
+    start qrtr-lookup
+
+on charger
+    chown system system /sys/class/backlight/panel0-backlight/brightness
+    chown system system /sys/class/backlight/panel1-backlight/brightness
+
+on property:sys.boot_completed=1 && property:ro.build.type=user && property:ro.debuggable="1"
+    mount debugfs debugfs /sys/kernel/debug
+    chmod 0755 /sys/kernel/debug
+
+    # cooling device used to set 4Rx or 2Rx
+    chmod 0666 /sys/class/thermal/cooling_device39/cur_state
+    chmod 0666 /sys/class/thermal/cooling_device40/cur_state
+    chmod 0666 /sys/class/thermal/cooling_device41/cur_state
+    chmod 0666 /sys/class/thermal/cooling_device42/cur_state
+    chmod 0666 /sys/class/thermal/cooling_device43/cur_state
+    chmod 0666 /sys/class/thermal/cooling_device44/cur_state
+    chmod 0666 /sys/class/thermal/cooling_device45/cur_state
+    chmod 0666 /sys/class/thermal/cooling_device46/cur_state
+    chmod 0666 /sys/class/thermal/cooling_device47/cur_state
+    chmod 0666 /sys/class/thermal/cooling_device48/cur_state
+    chmod 0666 /sys/class/thermal/cooling_device49/cur_state
+    chmod 0666 /sys/class/thermal/cooling_device50/cur_state
+
+service qrtr-lookup /vendor/bin/qrtr-lookup
+    class core
+    user system
+    group system
+    disabled
+    oneshot
+
+on property:vendor.audio.cit.spkcal.copy=true
+
+#                1.cal                  3.newCreate
+#   oldCaliFile  --->  newCaliFile  ----------------->  newCaliFile(or emptyFile)
+#                          \
+#                           \                           /  4.recovery
+#                 2.backup   --->  newCaliFile.bak  ----
+#
+# _if oldCaliFile isn't exist then  2 and 4 will failed(try again will success).
+# it could optimized when property action in front of spkcal
+# 
+
+    # 2.backup
+    chmod 600 /mnt/vendor/persist/audio/crus_calr.bin
+    chmod 600 /mnt/vendor/persist/audio/crus_calr.txt
+    copy /mnt/vendor/persist/audio/crus_calr.bin /mnt/vendor/persist/audio/crus_calr.bin.bak
+    copy /mnt/vendor/persist/audio/crus_calr.txt /mnt/vendor/persist/audio/crus_calr.txt.bak
+
+    # 3.newCreate
+    write /mnt/vendor/persist/audio/crus_calr.bin ""
+    write /mnt/vendor/persist/audio/crus_calr.txt ""
+
+    # 4.recovery
+    copy /mnt/vendor/persist/audio/crus_calr.bin.bak /mnt/vendor/persist/audio/crus_calr.bin
+    copy /mnt/vendor/persist/audio/crus_calr.txt.bak /mnt/vendor/persist/audio/crus_calr.txt
+
+    chmod 666 /mnt/vendor/persist/audio/crus_calr.bin
+    chmod 666 /mnt/vendor/persist/audio/crus_calr.txt
+
+    # 2.backup
+    chmod 600 /mnt/vendor/persist/audio/aw_calr.bin
+    chmod 600 /mnt/vendor/persist/audio/aw_calr.txt
+    copy /mnt/vendor/persist/audio/aw_calr.bin /mnt/vendor/persist/audio/aw_calr.bin.bak
+    copy /mnt/vendor/persist/audio/aw_calr.txt /mnt/vendor/persist/audio/aw_calr.txt.bak
+
+    # 3.newCreate
+    write /mnt/vendor/persist/audio/aw_calr.bin ""
+    write /mnt/vendor/persist/audio/aw_calr.txt ""
+
+    # 4.recovery
+    copy /mnt/vendor/persist/audio/aw_calr.bin.bak /mnt/vendor/persist/audio/aw_calr.bin
+    copy /mnt/vendor/persist/audio/aw_calr.txt.bak /mnt/vendor/persist/audio/aw_calr.txt
+
+    chmod 666 /mnt/vendor/persist/audio/aw_calr.bin
+    chmod 666 /mnt/vendor/persist/audio/aw_calr.txt
+
+service vendor.nv_mac /vendor/bin/nv_mac
+    class late_start
+    user system
+    group system inet net_admin wifi net_raw
+    oneshot

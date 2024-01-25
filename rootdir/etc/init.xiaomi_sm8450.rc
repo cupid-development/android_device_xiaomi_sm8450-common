@@ -57,6 +57,10 @@ on boot
     # Create persist for camera calibration data
     mkdir /mnt/vendor/persist/camera 0755 system cameraserver
 
+    # Goodix fingerprint
+    chmod 0660 /dev/goodix_fp
+    chown system system /dev/goodix_fp
+
 on post-fs-data
     # Create folder of camera
     mkdir /data/vendor/camera/offlinelog 0777 cameraserver audio
@@ -141,6 +145,10 @@ on post-fs-data
     chmod 0664 /sys/class/mi_display/disp-DSI-1/brightness_clone
     chown system system /sys/class/mi_display/disp-DSI-1/max_brightness_clone
     chmod 0664 /sys/class/mi_display/disp-DSI-1/max_brightness_clone
+
+    # Goodix fingerprint
+    mkdir /data/vendor/goodix 0770 system system
+    mkdir /mnt/vendor/persist/goodix 0770 system system
 
 on property:sys.boot_completed=1
     start qrtr-lookup

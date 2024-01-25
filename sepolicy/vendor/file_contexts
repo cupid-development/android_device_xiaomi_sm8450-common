@@ -92,6 +92,9 @@
 # QRTR
 /(vendor|system/vendor)/bin/qrtr-lookup u:object_r:vendor_qrtr_exec:s0
 
+# Powershare
+/vendor/bin/hw/vendor\.lineage\.powershare@1\.0-service\.xiaomi u:object_r:hal_lineage_powershare_default_exec:s0
+
 # RIL
 /data/vendor/diag(/.*)? u:object_r:minidump_data_file:s0
 
@@ -137,6 +140,3 @@
 /sys/devices/virtual/touch/touch_dev/tx_num u:object_r:sysfs_touch_hostprocess:s0
 /sys/devices/virtual/touch/touch_dev/update_rawdata u:object_r:sysfs_touch_hostprocess:s0
 /sys/devices/virtual/touch/tp_dev/fod_status u:object_r:sysfs_tp_fodstatus:s0
-
-# Vibrator
-/(vendor|system/vendor)/bin/hw/vendor\.qti\.hardware\.vibrator\.service\.xiaomi_sm8450 u:object_r:hal_vibrator_default_exec:s0

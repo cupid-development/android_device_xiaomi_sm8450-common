@@ -1745,14 +1745,6 @@ vendor/lib/sensors.ultrasoundproximity.so
 vendor/lib64/libultrasound_notify.so
 vendor/lib64/sensors.ultrasoundproximity.so
 
-# SLA
-vendor/bin/hw/vendor.qti.sla.service@1.0-service
-vendor/etc/init/vendor.qti.sla.service@1.0-service.rc
-vendor/lib/vendor.qti.sla.service@1.0-impl.so
-vendor/lib/vendor.qti.sla.service@1.0.so
-vendor/lib64/vendor.qti.sla.service@1.0-impl.so
-vendor/lib64/vendor.qti.sla.service@1.0.so
-
 # Soter
 vendor/app/SoterService/SoterService.apk
 vendor/bin/SoterProvisioningTool

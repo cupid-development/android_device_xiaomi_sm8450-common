@@ -91,11 +91,6 @@
 /(vendor|system/vendor)/bin/hw/vendor.xiaomi.sensor.communicate@1.0-service u:object_r:vendor_hal_sensorcommunicate_default_exec:s0
 /dev/stmvl53l5 u:object_r:stmvl53l5_device:s0
 
-# SLA
-/(vendor|system/vendor)/bin/hw/vendor\.qti\.sla\.service\@1\.0-service u:object_r:hal_slaservice_qti_exec:s0
-/data/vendor/sla(/.*)? u:object_r:sla_data_file:s0
-/dev/socket/slad u:object_r:slad_socket:s0
-
 # Thermal
 /(vendor|system/vendor)/bin/mi_thermald u:object_r:mi_thermald_exec:s0
 /data/vendor/thermal(/.*)? u:object_r:thermal_data_file:s0

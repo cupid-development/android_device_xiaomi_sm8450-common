@@ -1034,11 +1034,11 @@ typedef enum {
     LOC_OUTPUT_ENGINE_COUNT,
 } LocOutputEngineType;
 
-typedef enum {
-    QUALITY_HIGH_ACCU_FIX_ONLY = 0,       /* Only allow valid fix with high accuracy */
-    QUALITY_ANY_VALID_FIX,                /* Allow fix with any accuracy, like intermediate fix */
-    QUALITY_ANY_OR_FAILED_FIX,            /* Allow fix of any type, even failed fix */
-} FixQualityLevel;
+enum loc_sess_status {
+    LOC_SESS_SUCCESS,
+    LOC_SESS_INTERMEDIATE,
+    LOC_SESS_FAILURE
+};
 
 struct LocationOptions {
     uint32_t size;          // set to sizeof(LocationOptions)
@@ -1050,12 +1050,12 @@ struct LocationOptions {
     //  if engine hub is running, this will be fused fix,
     //  if engine hub is not running, this will be SPE fix
     LocReqEngineTypeMask locReqEngTypeMask;
-    FixQualityLevel qualityLevelAccepted; /* Send through position reports with which accuracy. */
+    loc_sess_status qualityLevelAccepted; /* Send through position reports with which accuracy. */
 
     inline LocationOptions() :
             size(0), minInterval(0), minDistance(0), mode(GNSS_SUPL_MODE_STANDALONE),
             locReqEngTypeMask((LocReqEngineTypeMask)0),
-            qualityLevelAccepted(QUALITY_HIGH_ACCU_FIX_ONLY) {}
+            qualityLevelAccepted(LOC_SESS_SUCCESS) {}
 };
 
 typedef enum {
@@ -1309,12 +1309,6 @@ typedef struct {
     double longitude; // in degree
     float altitude;  // altitude wrt to ellipsoid
 } LLAInfo;
-
-enum loc_sess_status {
-    LOC_SESS_SUCCESS,
-    LOC_SESS_INTERMEDIATE,
-    LOC_SESS_FAILURE
-};
 
 typedef struct {
     uint32_t size;                      // set to sizeof(GnssLocationInfo)

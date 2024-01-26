@@ -11,7 +11,4 @@ vendor.xiaomi.sensor.citsensorservice::ICitSensorService u:object_r:vendor_hal_c
 vendor.xiaomi.sensor.communicate::ISensorCommunicate u:object_r:vendor_hal_sensorcommunicate_hwservice:s0
 
 # Mlipay
-vendor.xiaomi.hardware.mfidoca::IFidoService u:object_r:hal_mfidoca_hwservice:s0
 vendor.xiaomi.hardware.mlipay::IMlipayService u:object_r:hal_mlipay_hwservice:s0
-vendor.xiaomi.hardware.mtdservice::IMTService u:object_r:hal_mtdservice_hwservice:s0
-vendor.xiaomi.hardware.tidaservice::ITidaService u:object_r:hal_tidaservice_hwservice:s0

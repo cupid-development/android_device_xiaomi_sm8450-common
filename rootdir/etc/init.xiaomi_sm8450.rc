@@ -73,9 +73,6 @@ on post-fs-data
     # Create the directories used by the Wireless subsystem
     mkdir /data/vendor/mac_addr 0770 system wifi
 
-    # Create the directory used by qrtr-lookup
-    mkdir /data/vendor/qrtr 0775 system system
-
     mkdir /data/vendor/thermal 0771 root system
     mkdir /data/vendor/thermal/config 0771 root system
     mkdir /data/vendor/perfspy 0775 camera camera
@@ -155,8 +152,6 @@ on post-fs-data
     mkdir /mnt/vendor/persist/goodix 0770 system system
 
 on property:sys.boot_completed=1
-    start qrtr-lookup
-
     # Set thermal mode to mgame
     write /sys/devices/virtual/thermal/thermal_message/sconfig 20
 
@@ -181,13 +176,6 @@ on property:sys.boot_completed=1 && property:ro.build.type=user && property:ro.d
     chmod 0666 /sys/class/thermal/cooling_device48/cur_state
     chmod 0666 /sys/class/thermal/cooling_device49/cur_state
     chmod 0666 /sys/class/thermal/cooling_device50/cur_state
-
-service qrtr-lookup /vendor/bin/qrtr-lookup
-    class core
-    user system
-    group system
-    disabled
-    oneshot
 
 on property:vendor.audio.cit.spkcal.copy=true
 

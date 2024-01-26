@@ -24,8 +24,5 @@ vendor_public_prop(vendor_nfc_mi_prop)
 # Panel
 vendor_public_prop(vendor_panel_info_prop)
 
-# SLA
-type vendor_slad_prop, property_type, vendor_property_type;
-
 # Thermal
 vendor_public_prop(vendor_thermal_normal_prop)

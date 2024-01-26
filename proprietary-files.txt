@@ -1169,8 +1169,6 @@ system_ext/etc/sysconfig/qti_whitelist_system_ext.xml
 vendor/bin/irsc_util
 vendor/bin/qmi-framework-tests/qmi_test_mt_client_init_instance
 vendor/bin/qmipriod
-vendor/bin/qrtr-cfg
-vendor/bin/qrtr-lookup
 vendor/bin/qrtr-ns
 vendor/etc/init/qmipriod.debug.rc
 vendor/etc/init/qmipriod.rc

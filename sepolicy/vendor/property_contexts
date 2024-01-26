@@ -2,9 +2,6 @@
 persist.vendor.EnableP3ColorSpace u:object_r:vendor_camera_p3enable_prop:s0
 vendor.camera.sensor. u:object_r:vendor_camera_sensor_prop:s0
 
-# DDR
-vendor.ddr_training.is.start u:object_r:vendor_ddr_prop:s0
-
 # Device ID
 persist.vendor.radio.imei u:object_r:vendor_deviceid_prop:s0
 persist.vendor.radio.meid u:object_r:vendor_deviceid_prop:s0

@@ -1,7 +1,6 @@
 allow init ddr_training_exec:file { execute getattr open read };
 allow init slad_exec:file { getattr open read };
 allow init sla_data_file:file rw_file_perms;
-allow vendor_init vendor_ddr_prop:property_service set;
 set_prop(vendor_init, vendor_fp_prop)
 set_prop(vendor_init, vendor_fp_info_prop)
 set_prop(vendor_init, vendor_thermal_normal_prop)

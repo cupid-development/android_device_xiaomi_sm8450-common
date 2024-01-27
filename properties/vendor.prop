@@ -125,7 +125,6 @@ vendor.gatekeeper.disable_spu=true
 # Graphics
 debug.egl.hw=0
 debug.sf.disable_client_composition_cache=1
-debug.sf.enable_advanced_sf_phase_offset=1
 debug.sf.enable_gl_backpressure=1
 debug.sf.enable_hwc_vds=1
 debug.sf.high_fps_early_gl_phase_offset_ns=-2000000
@@ -154,7 +153,6 @@ ro.surface_flinger.supports_background_blur=1
 ro.surface_flinger.use_color_management=true
 ro.surface_flinger.use_content_detection_for_refresh_rate=true
 ro.surface_flinger.wcg_composition_dataspace=143261696
-ro.vendor.all_modes.colorpick_adjust=true
 vendor.gralloc.disable_ubwc=0
 
 # Haptics

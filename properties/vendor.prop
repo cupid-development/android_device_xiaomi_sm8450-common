@@ -164,9 +164,6 @@ debug.stagefright.c2inputsurface=-1
 debug.stagefright.ccodec=4
 debug.stagefright.omx_default_rank=0
 
-# Misc
-sys.vendor.shutdown.waittime=500
-
 # NFC
 ro.vendor.nfc.disable.i2c=true
 ro.vendor.nfc.repair=1

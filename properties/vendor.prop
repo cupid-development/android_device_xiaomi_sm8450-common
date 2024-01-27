@@ -164,12 +164,6 @@ debug.stagefright.c2inputsurface=-1
 debug.stagefright.ccodec=4
 debug.stagefright.omx_default_rank=0
 
-# NFC
-ro.vendor.nfc.disable.i2c=true
-ro.vendor.nfc.repair=1
-ro.vendor.se.chip.model=SN110T
-ro.vendor.se.type=HCE,UICC
-
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
 ro.vendor.perf-hal.ver=2.3

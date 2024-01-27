@@ -7,9 +7,6 @@ persist.vendor.cne.feature=1
 # Media
 media.stagefright.thumbnail.prefer_hw_codecs=true
 
-# NFC
-ro.nfc.port=I2C
-
 # QTI
 ro.vendor.qti.va_aosp.support=1
 

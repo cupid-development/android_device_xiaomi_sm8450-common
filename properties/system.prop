@@ -4,9 +4,6 @@ ro.charger.enable_suspend=1
 # CNE
 persist.vendor.cne.feature=1
 
-# Graphics
-debug.sf.disable_backpressure=1
-
 # Media
 media.aac_51_output_enabled=true
 media.stagefright.enable-aac=true

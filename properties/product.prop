@@ -12,6 +12,3 @@ vendor.audio.offload.buffer.size.kb=32
 vendor.audio.offload.multiaac.enable=true
 vendor.audio.offload.multiple.enabled=false
 vendor.audio_hal.period_size=192
-
-# Radio
-persist.vendor.radio.hidl_dev_service=true

@@ -169,9 +169,6 @@ ro.vendor.extension_library=libqti-perfd-client.so
 vendor.pasr.activemode.enabled=false
 vendor.pasr.enabled=false
 
-# QSPM
-ro.vendor.qspm.enable=true
-
 # Radio
 persist.radio.multisim.config=dsds
 persist.vendor.radio.apm_sim_not_pwdn=1

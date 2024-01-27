@@ -185,7 +185,6 @@ persist.vendor.rcs.singlereg.feature=1
 persist.vendor.ssr.restart_level=ALL_ENABLE
 
 # USB
-persist.sys.usb.config=none
 sys.usb.mtp.batchcancel=1
 vendor.usb.diag.func.name=ffs
 vendor.usb.dpl.inst.name=dpl

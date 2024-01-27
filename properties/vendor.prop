@@ -104,43 +104,8 @@ vendor.display.enable_early_wakeup=1
 vendor.display.enable_hdr10_gpu_target=1
 vendor.display.enable_optimize_refresh=0
 vendor.display.enable_rc_support=1
-vendor.display.use_layer_ext=0
 vendor.display.use_smooth_motion=1
 vendor.display.vds_allow_hwc=0
-
-# displayfeature
-persist.vendor.dc_backlight.enable=false
-persist.vendor.dc_backlight.threshold=0
-ro.vendor.bcbc.enable=true
-ro.vendor.beluga.c=0x4800
-ro.vendor.beluga.p=0x3
-ro.vendor.beluga.s=0x900
-ro.vendor.beluga.t=0x240
-ro.vendor.cabc.enable=fasle
-ro.vendor.colorpick_adjust=true
-ro.vendor.dfps.enable=false
-ro.vendor.display.ai_disp.enable=true
-ro.vendor.display.default_fps=60
-ro.vendor.display.mi_calib.enable=true
-ro.vendor.display.nature_mode.enable=true
-ro.vendor.display.touch.idle.enable=true
-ro.vendor.display.type=oled
-ro.vendor.fps.switch.default=true
-ro.vendor.fps.switch.thermal=true
-ro.vendor.gcp.enable=1
-ro.vendor.hbm_backlight.enable=true
-ro.vendor.histogram.enable=true
-ro.vendor.localhbm.enable=true
-ro.vendor.soft_backlight.enable=true
-ro.vendor.sre.enable=true
-ro.vendor.standard.video.enable=true
-ro.vendor.thermal.dimming.enable=true
-ro.vendor.touchfeature.type=183
-ro.vendor.video_box.version=2
-ro.vendor.whitepoint_calibration_enable=false
-ro.vendor.xiaomi.bl.poll=true
-sys.displayfeature.entry.enable=true
-sys.displayfeature_hidl=true
 
 # DPM
 persist.vendor.dpm.vndr.feature=1

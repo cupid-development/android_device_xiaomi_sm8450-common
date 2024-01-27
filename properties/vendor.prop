@@ -83,17 +83,6 @@ ro.bluetooth.a2dp_offload.supported=true
 
 # Camera
 camera.disable_zsl_mode=true
-persist.sys.camera.boost.ext.mem=1048576
-persist.sys.camera.boost.reclaim.pages=524288
-persist.sys.camera.boost.threshold=2621440
-persist.sys.miui.camera.boost.enable=true
-persist.sys.miui.camera.boost.force_stop=false
-persist.sys.miui.camera.boost.kill701_threshold=307200
-persist.sys.miui.camera.boost.opt=true
-persist.sys.miui.camera.boost.task=6
-persist.sys.miui.camera.inhibit_procs.enable=true
-persist.sys.miui.camera.intercept_restart.time=2000
-persist.sys.miui.camera.lmkd.level.update=2
 ro.camera.enableCamera1MaxZsl=1
 ro.hardware.camera=xiaomi
 

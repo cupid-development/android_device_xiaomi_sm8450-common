@@ -98,6 +98,8 @@ vendor/lib64/libqtigefar.so
 vendor/lib64/libresampler.so
 vendor/lib64/libsndcardparser.so
 vendor/lib64/libxlog.so
+vendor/lib64/vendor.qti.hardware.pal@1.0-impl.so
+vendor/lib64/vendor.qti.hardware.pal@1.0.so
 
 # Audio soundfx
 vendor/lib/soundfx/libasphere.so
@@ -120,8 +122,6 @@ vendor/lib64/soundfx/libshoebox.so
 vendor/lib64/soundfx/libswdap.so
 vendor/lib64/soundfx/libswgamedap.so
 vendor/lib64/soundfx/libswvqe.so
-vendor/lib64/vendor.qti.hardware.pal@1.0-impl.so
-vendor/lib64/vendor.qti.hardware.pal@1.0.so
 
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti

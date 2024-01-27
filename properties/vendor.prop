@@ -169,9 +169,6 @@ ro.vendor.extension_library=libqti-perfd-client.so
 vendor.pasr.activemode.enabled=false
 vendor.pasr.enabled=false
 
-# QFP
-persist.vendor.qfp=true
-
 # QSPM
 ro.vendor.qspm.enable=true
 

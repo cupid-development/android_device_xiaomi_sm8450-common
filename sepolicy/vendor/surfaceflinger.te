@@ -1,1 +1,0 @@
-allow surfaceflinger vendor_sysfs_graphics:dir { open read search };

@@ -1,6 +1,7 @@
 type slad, domain;
 type slad_exec, exec_type, file_type, vendor_file_type;
 type qti_proc_sla, proc_type;
+
 allow slad slad_socket:sock_file { getattr read write };
 allow slad slad_socket:sock_file unlink;
 allow slad slad:netlink_socket { bind create read write };
@@ -22,8 +23,11 @@ allow slad socket_device:sock_file { create setattr unlink };
 allow slad qti_proc_sla:dir search;
 allow slad qti_proc_sla:file { map open read write };
 allow slad vendor_shell_exec:file execute_no_trans;
+
 dontaudit slad self:capability dac_read_search;
+
 init_daemon_domain(slad)
+
 unix_socket_connect(slad, dnsproxyd, slad)
 unix_socket_connect(slad, dnsproxyd, netd)
 unix_socket_connect(slad, dnsproxyd, init)
@@ -32,5 +36,6 @@ unix_socket_connect(slad, fwmarkd, netd)
 unix_socket_connect(slad, fwmarkd, init)
 unix_socket_connect(slad, property, slad)
 unix_socket_connect(slad, property, netd)
+
 set_prop(slad, vendor_slad_prop)
 net_domain(slad)

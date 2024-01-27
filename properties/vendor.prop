@@ -174,13 +174,9 @@ persist.radio.multisim.config=dsds
 persist.vendor.radio.apm_sim_not_pwdn=1
 persist.vendor.radio.custom_ecc=1
 persist.vendor.radio.dynamic_sar=1
-persist.vendor.radio.enable_temp_dds=true
 persist.vendor.radio.enableadvancedscan=true
 persist.vendor.radio.procedure_bytes=SKIP
 persist.vendor.radio.sib16_support=1
-rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
-ro.vendor.radio.5g=3
-ro.vendor.radio.features_common=3
 
 # RCS
 persist.vendor.rcs.singlereg.feature=1

@@ -12,8 +12,16 @@ vendor/lib64/libadsp_default_listener.so
 vendor/lib/hw/com.dsi.ant@1.0-impl.so
 vendor/lib64/hw/com.dsi.ant@1.0-impl.so
 
-# Audio libraries
+# Audio configs
 vendor/etc/audio_cloud_control_white_list.xml
+vendor/etc/backend_conf.xml
+vendor/etc/card-defs.xml
+vendor/etc/media_codecs_c2_audio.xml
+vendor/etc/media_codecs_vendor_audio.xml
+vendor/etc/microphone_characteristics.xml
+vendor/etc/usecaseKvManager.xml
+
+# Audio libraries
 vendor/etc/models/acd/event.eai
 vendor/etc/models/acd/music.eai
 vendor/etc/models/acd/speech.eai

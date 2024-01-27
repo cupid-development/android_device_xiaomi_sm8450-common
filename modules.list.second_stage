@@ -82,7 +82,6 @@ panel_event_notifier.ko
 qcom_sync_file.ko
 hung_task_enh.ko
 qfprom-sys.ko
-qcom_pm8008-regulator.ko
 qpnp-amoled-regulator.ko
 hvc_gunyah.ko
 msm_rng.ko
@@ -129,13 +128,11 @@ nb7vpq904m.ko
 atmel_mxt_ts.ko
 focaltech_fts.ko
 synaptics_dsx.ko
-fts_touch_spi.ko
 xiaomi_touch.ko
 nt36xxx-i2c.ko
 nt36xxx-spi.ko
 goodix_core.ko
 pm8941-pwrkey.ko
-aw8697-haptic.ko
 goodix_fod.ko
 i2c-msm-geni.ko
 i3c-master-msm-geni.ko

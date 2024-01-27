@@ -1,14 +1,3 @@
 # Audio
-aaudio.hw_burst_min_usec=2000
-aaudio.mmap_exclusive_policy=2
-aaudio.mmap_policy=1
-af.fast_track_multiplier=1
-audio.deep_buffer.media=true
 audio.offload.min.duration.secs=30
-audio.offload.video=true
 media.stagefright.audio.deep=false
-ro.af.client_heap_size_kbyte=7168
-vendor.audio.offload.buffer.size.kb=32
-vendor.audio.offload.multiaac.enable=true
-vendor.audio.offload.multiple.enabled=false
-vendor.audio_hal.period_size=192

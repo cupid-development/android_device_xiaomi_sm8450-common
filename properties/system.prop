@@ -22,9 +22,3 @@ persist.vendor.sensors.enable.mag_filter=true
 
 # WiFi display
 persist.debug.wfd.enable=1
-
-# WLAN
-ro.hardware.wlan.chip=qca6490
-ro.hardware.wlan.dbs=2
-ro.hardware.wlan.mimo=1
-ro.hardware.wlan.vendor=qcom

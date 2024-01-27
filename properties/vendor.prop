@@ -160,27 +160,9 @@ ro.incremental.enable=yes
 
 # Media
 debug.c2.use_dmabufheaps=1
-debug.config.media.video.aie.support=true
-debug.config.media.video.ais.support=true
-debug.config.media.video.frc.support=true
-debug.mdpcomp.logs=0
-debug.media.video.chipset=5
-debug.media.video.frc=false
-debug.media.video.vpp=false
 debug.stagefright.c2inputsurface=-1
 debug.stagefright.ccodec=4
 debug.stagefright.omx_default_rank=0
-ro.vendor.media.video.frc.support=true
-ro.vendor.media.video.vpp.support=true
-vendor.media.vpp.aie.cade=100
-vendor.media.vpp.aie.ltm=1
-vendor.media.vpp.aie.ltmacebrih=0
-vendor.media.vpp.aie.ltmacebril=20
-vendor.media.vpp.aie.ltmacestr=37
-vendor.media.vpp.aie.ltmsatgain=55
-vendor.media.vpp.aie.ltmsatoff=55
-vendor.media.vpp.debug.value.use=false
-vendor.mm.enable.qcom_parser=16777215
 
 # Misc
 sys.vendor.shutdown.waittime=500

@@ -20,9 +20,6 @@ telephony.lteOnCdmaDevice=1
 # Sensors
 persist.vendor.sensors.enable.mag_filter=true
 
-# SSR
-persist.vendor.ssr.enable_ramdumps=1
-
 # WiFi display
 persist.debug.wfd.enable=1
 persist.sys.wfd.virtual=0

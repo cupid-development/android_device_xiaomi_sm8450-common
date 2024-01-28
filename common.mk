@@ -46,7 +46,6 @@ PRODUCT_PACKAGES += \
 # AIDL NDK backend
 PRODUCT_PACKAGES += \
     android.hardware.common-V2-ndk_platform.vendor \
-    android.hardware.gnss-V1-ndk_platform.vendor \
     android.hardware.identity-V3-ndk_platform.vendor \
     android.hardware.keymaster-V3-ndk_platform.vendor \
     android.hardware.light-V1-ndk_platform.vendor \
@@ -396,8 +395,7 @@ PRODUCT_COPY_FILES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@2.1-service.xiaomi-multihal \
-    libsensorndkbridge
+    android.hardware.sensors@2.1-service.xiaomi-multihal
 
 $(foreach sku, taro diwali cape ukee, \
     $(eval PRODUCT_COPY_FILES += \

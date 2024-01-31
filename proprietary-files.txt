@@ -257,8 +257,12 @@ vendor/lib64/vendor.qti.diaghal@1.0.so
 # Display HDR - from eqs T1SQS33.15-11-137-10-2
 vendor/lib/libhdr_backlight_adapter.so|27a76877b0ef7c090c469b3784bce9d2ecc857d8
 vendor/lib/libhdr_tm.so|26f4e9235982e677383510572cd0d3fb6e146da2
+vendor/lib/libhdrdynamic.so|e8a126848cd3d2833eeb6bf22a94003b67a923d1
+vendor/lib/libhdrdynamicootf.so|2b6a4244e2a432aa1dee8f07a1d5291fc277762f
 vendor/lib64/libhdr_backlight_adapter.so|57036c19938fe40e73e9b9e3d4c6a6073d7aa858
 vendor/lib64/libhdr_tm.so|b5bc48b34450b9031e7b667b9b97991b3aafa5fd
+vendor/lib64/libhdrdynamic.so|df82be6d9d2efa33960bafea1b9f7bc035a58174
+vendor/lib64/libhdrdynamicootf.so|22884f0200f27814aae6d07e8fa6ba72d190b3f4
 
 # Display HWC - from eqs T1SQS33.15-11-137-10-2
 vendor/bin/qdcmss|801d4429210c1a4f8c01f6d91f172ff063c5c307

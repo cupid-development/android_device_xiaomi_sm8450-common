@@ -276,9 +276,10 @@ PRODUCT_COPY_FILES += \
 
 # Media
 PRODUCT_PACKAGES += \
+    libOmxCore \
     libcodec2_hidl@1.0.vendor \
-    libcodec2_soft_common.vendor \
-    libsfplugin_ccodec_utils.vendor
+    libcodec2_vndk.vendor \
+    libstagefrighthw
 
 PRODUCT_PACKAGES += \
     init.qti.media.rc \

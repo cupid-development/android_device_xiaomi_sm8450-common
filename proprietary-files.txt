@@ -911,6 +911,23 @@ vendor/bin/hw/vendor.qti.psiclient@1.0-service
 vendor/etc/init/vendor.qti.psiclient@1.0-service.rc
 
 # QCC
+system_ext/app/QCC/QCC.apk
+system_ext/bin/qccsyshal@1.2-service
+system_ext/etc/init/vendor.qti.hardware.qccsyshal@1.2-service.rc
+system_ext/lib/libqcc.so
+system_ext/lib/libqcc_file_agent_sys.so
+system_ext/lib/vendor.qti.hardware.qccsyshal@1.0.so
+system_ext/lib/vendor.qti.hardware.qccsyshal@1.1.so
+system_ext/lib/vendor.qti.hardware.qccsyshal@1.2-halimpl.so
+system_ext/lib/vendor.qti.hardware.qccsyshal@1.2.so
+system_ext/lib/vendor.qti.hardware.qccvndhal@1.0.so
+system_ext/lib64/libqcc.so
+system_ext/lib64/libqcc_file_agent_sys.so
+system_ext/lib64/vendor.qti.hardware.qccsyshal@1.0.so
+system_ext/lib64/vendor.qti.hardware.qccsyshal@1.1.so
+system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2-halimpl.so
+system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2.so
+system_ext/lib64/vendor.qti.hardware.qccvndhal@1.0.so
 vendor/bin/qcc-trd
 vendor/etc/init/init.qdmastats.rc
 vendor/lib/hw/vendor.qti.hardware.qccvndhal@1.0-impl.so

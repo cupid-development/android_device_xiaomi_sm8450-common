@@ -230,6 +230,8 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     hardware/xiaomi/vintf/xiaomi_framework_compatibility_matrix.xml \
     vendor/lineage/config/device_framework_matrix.xml
 
+DEVICE_FRAMEWORK_MANIFEST_FILE += $(COMMON_PATH)/vintf/framework_manifest.xml
+
 # Verified Boot
 BOARD_AVB_ENABLE := true
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3

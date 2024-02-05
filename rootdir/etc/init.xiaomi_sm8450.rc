@@ -57,9 +57,20 @@ on boot
     # Create persist for camera calibration data
     mkdir /mnt/vendor/persist/camera 0755 system cameraserver
 
-    # Goodix fingerprint
+    # Set fingerprint related permissions
     chmod 0660 /dev/goodix_fp
     chown system system /dev/goodix_fp
+    chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/irq
+    chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/irq_enable
+    chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/wakeup_enable
+    chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/hw_reset
+    chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/device_prepare
+    chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/fingerdown_wait
+    chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/vendor
+    chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/request_vreg
+    chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/simulate_irq
+    chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/finger_irq
+    chown system system /sys/bus/platform/devices/soc:fingerprint_fpc/power_cfg
 
     # Xiaomi touch
     chown system system /dev/xiaomi-touch
@@ -147,8 +158,11 @@ on post-fs-data
     chown system system /sys/class/mi_display/disp-DSI-1/max_brightness_clone
     chmod 0664 /sys/class/mi_display/disp-DSI-1/max_brightness_clone
 
-    # Goodix fingerprint
+    # Create fingerprint related directories
+    mkdir /data/vendor/fpc 0770 system system
+    mkdir /data/vendor/fpdump 0770 system system
     mkdir /data/vendor/goodix 0770 system system
+    mkdir /mnt/vendor/persist/fpc 0770 system system
     mkdir /mnt/vendor/persist/goodix 0770 system system
 
 on property:sys.boot_completed=1

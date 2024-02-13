@@ -911,8 +911,6 @@ vendor/lib64/vendor.qti.hardware.alarm@1.0.so
 # Psiclient
 vendor/bin/hw/vendor.qti.psiclient@1.0-service
 vendor/etc/init/vendor.qti.psiclient@1.0-service.rc
-vendor/lib/libpsi.so
-vendor/lib64/libpsi.so
 
 # QCC
 vendor/lib/hw/vendor.qti.hardware.qccvndhal@1.0-impl.so

@@ -760,9 +760,6 @@ vendor/etc/seccomp_policy/modemManager.policy
 # Native public libraries
 vendor/etc/public.libraries.txt
 
-# Neural networks
-vendor/lib64/libQnnHtpAltPrepV69Stub.so
-
 # NFC
 vendor/bin/hw/vendor.nxp.hardware.nfc@2.0-service
 vendor/bin/nqnfcinfo

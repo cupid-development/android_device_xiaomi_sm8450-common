@@ -3,9 +3,8 @@
 cc_library_shared {
 
     name: "libgnss",
+    defaults: ["qtilocation_common_defaults"],
     vendor: true,
-
-
 
     shared_libs: [
         "libutils",

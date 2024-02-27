@@ -26,6 +26,43 @@
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  */
+
+/*
+Changes from Qualcomm Innovation Center are provided under the following license:
+
+Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted (subject to the limitations in the
+disclaimer below) provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+
+    * Redistributions in binary form must reproduce the above
+      copyright notice, this list of conditions and the following
+      disclaimer in the documentation and/or other materials provided
+      with the distribution.
+
+    * Neither the name of Qualcomm Innovation Center, Inc. nor the names of its
+      contributors may be used to endorse or promote products derived
+      from this software without specific prior written permission.
+
+NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE
+GRANTED BY THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT
+HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
+WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
+IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
 #ifndef GNSS_ADAPTER_H
 #define GNSS_ADAPTER_H
 
@@ -246,7 +283,6 @@ class GnssAdapter : public LocAdapterBase {
     bool mIsMeasCorrInterfaceOpen;
     measCorrSetCapabilitiesCb mMeasCorrSetCapabilitiesCb;
     bool initMeasCorr(bool bSendCbWhenNotSupported);
-    bool mIsAntennaInfoInterfaceOpened;
 
     /* ==== DGNSS Data Usable Report======================================================== */
     QDgnssListenerHDL mQDgnssListenerHDL;
@@ -364,7 +400,6 @@ public:
     bool isTimeBasedTrackingSession(LocationAPI* client, uint32_t sessionId);
     bool isDistanceBasedTrackingSession(LocationAPI* client, uint32_t sessionId);
     bool hasCallbacksToStartTracking(LocationAPI* client);
-    bool isTrackingSession(LocationAPI* client, uint32_t sessionId);
     void saveTrackingSession(LocationAPI* client, uint32_t sessionId,
                              const TrackingOptions& trackingOptions);
     void eraseTrackingSession(LocationAPI* client, uint32_t sessionId);
@@ -477,7 +512,7 @@ public:
     bool measCorrSetCorrectionsCommand(const GnssMeasurementCorrections gnssMeasCorr);
     inline void closeMeasCorrCommand() { mIsMeasCorrInterfaceOpen = false; }
     uint32_t antennaInfoInitCommand(const antennaInfoCb antennaInfoCallback);
-    inline void antennaInfoCloseCommand() { mIsAntennaInfoInterfaceOpened = false; }
+    inline void antennaInfoCloseCommand() {}
     uint32_t configMinGpsWeekCommand(uint16_t minGpsWeek);
     uint32_t configDeadReckoningEngineParamsCommand(const DeadReckoningEngineConfig& dreConfig);
     uint32_t configEngineRunStateCommand(PositioningEngineMask engType,
@@ -546,6 +581,8 @@ public:
             GnssAdditionalSystemInfo& additionalSystemInfo);
     virtual void reportNfwNotificationEvent(GnssNfwNotification& notification);
     virtual void reportLatencyInfoEvent(const GnssLatencyInfo& gnssLatencyInfo);
+    virtual void reportEngDebugDataInfoEvent(GnssEngineDebugDataInfo&
+            gnssEngineDebugDataInfo) override;
     virtual bool reportQwesCapabilities
     (
         const std::unordered_map<LocationQwesFeatureType, bool> &featureMap
@@ -618,7 +655,7 @@ public:
     void getAgcInformation(GnssMeasurementsNotification& measurements, int msInWeek);
     /* get Data information from system status and fill it */
     void getDataInformation(GnssDataNotification& data, int msInWeek);
-
+    void reportEngDebugDataInfo(const GnssEngineDebugDataInfo& gnssEngineDebugDataInfo);
     /*==== SYSTEM STATUS ================================================================*/
     inline SystemStatus* getSystemStatus(void) { return mSystemStatus; }
     std::string& getServerUrl(void) { return mServerUrl; }

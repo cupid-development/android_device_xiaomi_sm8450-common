@@ -26,4 +26,23 @@ PRODUCT_PACKAGES += android.hardware.gnss@2.1-impl-qti
 PRODUCT_PACKAGES += android.hardware.gnss-aidl-impl-qti
 PRODUCT_PACKAGES += android.hardware.gnss-aidl-service-qti
 
+## Feature flags - self contained FR in gps module
+# Enable NHz location feature. Default is false.
+# Set this flag to true to enable the NHz location feature.
+FEATURE_LOCATION_NHZ := false
+
+# Soong Namespace
+SOONG_CONFIG_NAMESPACES += qtilocation
+
+# Soong Keys
+SOONG_CONFIG_qtilocation := feature_nhz
+
+# Soong Values
+SOONG_CONFIG_qtilocation_feature_nhz := false
+
+# Enable NHz location feature
+ifeq ($(FEATURE_LOCATION_NHZ),true)
+    SOONG_CONFIG_qtilocation_feature_nhz := true
+endif
+
 endif # ifneq ($(BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE),)

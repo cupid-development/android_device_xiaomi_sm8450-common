@@ -28,6 +28,10 @@ ifneq (,$(filter $(GNSS_HIDL_LEGACY_MEASURMENTS_TARGET_LIST),$(TARGET_BOARD_PLAT
 GNSS_HIDL_LEGACY_MEASURMENTS := true
 endif
 
+# Enable NHz location feature. Default is false.
+# Set this flag to true to enable the NHz location feature.
+FEATURE_NHZ_ENABLED := false
+
 LOCAL_PATH := $(call my-dir)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 

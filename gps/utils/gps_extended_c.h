@@ -183,7 +183,12 @@ typedef enum {
     LOC_SUPPORTED_FEATURE_DSDA_CONFIGURATION,
     /**<  Support the Multiple Attribution Apps(UTH clients Lock control) feature   */
     LOC_SUPPORTED_FEATURE_MULTIPLE_ATTRIBUTION_APPS,
-    LOC_SUPPORTED_FEATURE_QMI_FLP_NLP_SOURCE, /**< Support the FLP, NLP Z-Source provider feature */
+    /**< Support the FLP, NLP Z-Source provider feature */
+    LOC_SUPPORTED_FEATURE_QMI_FLP_NLP_SOURCE,
+    /**< Support the feature to report engine debug data */
+    LOC_SUPPORTED_FEATURE_ENGINE_DEBUG_DATA,
+    /**< Support the feature to report feature update in QMI_LOC_EVENT_REPORT_IND */
+    LOC_SUPPORTED_FEATURE_DYNAMIC_FEATURE_STATUS
 } loc_supported_feature_enum;
 
 typedef struct {
@@ -1053,7 +1058,9 @@ enum loc_api_adapter_event_index {
     LOC_API_ADAPTER_LOC_SYSTEM_INFO,                   // Location system info event
     LOC_API_ADAPTER_GNSS_NHZ_MEASUREMENT_REPORT,       // GNSS SV nHz measurement report
     LOC_API_ADAPTER_EVENT_REPORT_INFO,                 // Event report info
-    LOC_API_ADAPTER_LATENCY_INFORMATION_REPORT,       // Latency information report
+    LOC_API_ADAPTER_LATENCY_INFORMATION_REPORT,        // Latency information report
+    LOC_API_ADAPTER_FEATURE_STATUS_UPDATE,             // Dynamic feature status update
+    LOC_API_ADAPTER_ENGINE_DEBUG_DATA_REPORT,         // Engine Debug data report
     LOC_API_ADAPTER_EVENT_MAX
 };
 
@@ -1097,6 +1104,9 @@ enum loc_api_adapter_event_index {
 #define LOC_API_ADAPTER_BIT_GNSS_NHZ_MEASUREMENT             (1ULL<<LOC_API_ADAPTER_GNSS_NHZ_MEASUREMENT_REPORT)
 #define LOC_API_ADAPTER_BIT_EVENT_REPORT_INFO                (1ULL<<LOC_API_ADAPTER_EVENT_REPORT_INFO)
 #define LOC_API_ADAPTER_BIT_LATENCY_INFORMATION              (1ULL<<LOC_API_ADAPTER_LATENCY_INFORMATION_REPORT)
+#define LOC_API_ADAPTER_BIT_FEATURE_STATUS_UPDATE            (1ULL<<LOC_API_ADAPTER_FEATURE_STATUS_UPDATE)
+#define LOC_API_ADAPTER_BIT_ENGINE_DEBUG_DATA_REPORT         (1ULL<<LOC_API_ADAPTER_ENGINE_DEBUG_DATA_REPORT)
+
 
 typedef uint64_t LOC_API_ADAPTER_EVENT_MASK_T;
 

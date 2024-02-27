@@ -865,6 +865,7 @@ static void loc_nmea_generate_GSV(const GnssSvNotification &svNotify,
             if ((sv_meta_p->svTypeMask & (1 << svNotify.gnssSvs[svNumber - 1].type)) &&
                     sv_meta_p->signalId == convert_signalType_to_signalId(signalType))
             {
+                svIdOffset = sv_meta_p->svIdOffset;
                 if (GNSS_SV_TYPE_SBAS == svNotify.gnssSvs[svNumber - 1].type) {
                     svIdOffset = SBAS_SV_ID_OFFSET;
                 }

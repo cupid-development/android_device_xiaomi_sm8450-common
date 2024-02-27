@@ -349,12 +349,20 @@ LocationAPI::updateCallbacks(LocationCallbacks& locationCallbacks)
 
     pthread_mutex_lock(&gDataMutex);
 
+    LocationCallbacks currentCallbacks = {};
+    auto it = gData.clientData.find(this);
+    if (it != gData.clientData.end()) {
+        currentCallbacks = gData.clientData[this];
+    }
+
     if (isGnssClient(locationCallbacks)) {
         loadLibGnss();
         if (NULL != gData.gnssInterface) {
             // either adds new Client or updates existing Client
             gData.gnssInterface->addClient(this, locationCallbacks);
         }
+    } else if (NULL != gData.gnssInterface && isGnssClient(currentCallbacks)) {
+        gData.gnssInterface->removeClient(this, nullptr);
     }
 
     if (isBatchingClient(locationCallbacks)) {
@@ -363,6 +371,8 @@ LocationAPI::updateCallbacks(LocationCallbacks& locationCallbacks)
             // either adds new Client or updates existing Client
             gData.batchingInterface->addClient(this, locationCallbacks);
         }
+    } else if (NULL != gData.batchingInterface && isBatchingClient(currentCallbacks)) {
+        gData.batchingInterface->removeClient(this, nullptr);
     }
 
     if (isGeofenceClient(locationCallbacks)) {
@@ -371,6 +381,8 @@ LocationAPI::updateCallbacks(LocationCallbacks& locationCallbacks)
             // either adds new Client or updates existing Client
             gData.geofenceInterface->addClient(this, locationCallbacks);
         }
+    } else if (NULL != gData.geofenceInterface && isGeofenceClient(currentCallbacks)) {
+        gData.geofenceInterface->removeClient(this, nullptr);
     }
 
     gData.clientData[this] = locationCallbacks;

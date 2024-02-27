@@ -354,6 +354,8 @@ typedef enum {
     LOCATION_CAPABILITIES_QWES_QDR3                         = (1<<26),
     // This mask indicates DGNSS license bundle is enabled.
     LOCATION_CAPABILITIES_QWES_DGNSS                        = (1<<27),
+    // This mask indicates engine debug data enabled.
+    LOCATION_CAPABILITIES_ENGINE_DEBUG_DATA_BIT             = (1<<28)
 } LocationCapabilitiesBits;
 
 typedef uint8_t LocationQwesFeatureType;
@@ -881,7 +883,9 @@ typedef enum {
     GNSS_LOC_SIGNAL_TYPE_SBAS_L1_CA = 17,       /**<  SBAS L1_CA RF Band  */
     GNSS_LOC_SIGNAL_TYPE_NAVIC_L5 = 18,         /**<  NAVIC L5 RF Band */
     GNSS_LOC_SIGNAL_TYPE_BEIDOU_B2A_Q = 19,     /**<  BEIDOU B2A_Q RF Band  */
-    GNSS_LOC_MAX_NUMBER_OF_SIGNAL_TYPES = 20    /**<  Maximum number of signal types */
+    GNSS_LOC_SIGNAL_TYPE_BEIDOU_B2B_I = 20,     /**<  BeiDou B2B_I RF band (data) */
+    GNSS_LOC_SIGNAL_TYPE_BEIDOU_B2B_Q = 21,     /**< BeiDou B2B_Q RF band (Pilot)*/
+    GNSS_LOC_MAX_NUMBER_OF_SIGNAL_TYPES = 22    /**<  Maximum number of signal types */
 } Gnss_LocSignalEnumType;
 
 typedef uint32_t PositioningEngineMask;

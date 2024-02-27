@@ -26,6 +26,13 @@
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  */
+
+/*
+Changes from Qualcomm Innovation Center are provided under the following license:
+Copyright (c) 2022 Qualcomm Innovation Center, Inc. All rights reserved.
+SPDX-License-Identifier: BSD-3-Clause-Clear
+*/
+
 #ifndef XTRA_SYSTEM_STATUS_OBS_H
 #define XTRA_SYSTEM_STATUS_OBS_H
 
@@ -78,6 +85,7 @@ public :
     bool updateXtraThrottle(const bool enabled);
     inline const MsgTask* getMsgTask() { return mMsgTask; }
     void subscribe(bool yes);
+    bool notifySessionStart();
     bool onStatusRequested(int32_t xtraStatusUpdated);
     void startDgnssSource(const StartDgnssNtripParams& params);
     void restartDgnssSource();

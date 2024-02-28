@@ -4319,8 +4319,8 @@ void GnssAdapter::reportEngDebugDataInfoEvent(GnssEngineDebugDataInfo& gnssEngin
         GnssAdapter& mAdapter;
         const GnssEngineDebugDataInfo mGnssEngineDebugDataInfo;
         inline MsgReportEngDebugDataInfo(GnssAdapter& adapter, GnssEngineDebugDataInfo&
-            gnssEngineDebugDataInfo) : mGnssEngineDebugDataInfo(gnssEngineDebugDataInfo),
-                mAdapter(adapter) {}
+            gnssEngineDebugDataInfo) : mAdapter(adapter),
+                mGnssEngineDebugDataInfo(gnssEngineDebugDataInfo) {}
         inline virtual void proc() const {
             mAdapter.reportEngDebugDataInfo(mGnssEngineDebugDataInfo);
         }

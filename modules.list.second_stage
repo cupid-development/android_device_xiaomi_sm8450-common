@@ -132,7 +132,6 @@ xiaomi_touch.ko
 nt36xxx-i2c.ko
 nt36xxx-spi.ko
 pm8941-pwrkey.ko
-goodix_fod.ko
 i2c-msm-geni.ko
 i3c-master-msm-geni.ko
 ir-spi.ko

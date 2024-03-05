@@ -131,7 +131,6 @@ synaptics_dsx.ko
 xiaomi_touch.ko
 nt36xxx-i2c.ko
 nt36xxx-spi.ko
-goodix_core.ko
 pm8941-pwrkey.ko
 goodix_fod.ko
 i2c-msm-geni.ko

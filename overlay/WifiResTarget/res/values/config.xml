@@ -5,17 +5,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Indicates that bridged AP mode is supported on this device -->
-    <bool name="config_wifiBridgedSoftApSupported" translatable="false">true</bool>
+    <bool name="config_wifiBridgedSoftApSupported" translatable="false">false</bool>
 
     <!-- Enable Make-Before-Break Wifi network switching.
          Note: this is conditional on the device supporting dual concurrent STAs. -->
-    <bool name="config_wifiMultiStaNetworkSwitchingMakeBeforeBreakEnabled" translatable="false">true</bool>
+    <bool name="config_wifiMultiStaNetworkSwitchingMakeBeforeBreakEnabled" translatable="false">false</bool>
 
     <!-- Enable concurrent peer to peer + internet connectivity
          Note: this is conditional on the device supporting dual concurrent STAs. -->
-    <bool name="config_wifiMultiStaLocalOnlyConcurrencyEnabled" translatable="false">true</bool>
+    <bool name="config_wifiMultiStaLocalOnlyConcurrencyEnabled" translatable="false">false</bool>
 
     <!-- Enable concurrent restricted connectivity + internet connectivity
          Note: this is conditional on the device supporting dual concurrent STAs. -->
-    <bool name="config_wifiMultiStaRestrictedConcurrencyEnabled" translatable="false">true</bool>
+    <bool name="config_wifiMultiStaRestrictedConcurrencyEnabled" translatable="false">false</bool>
 </resources>

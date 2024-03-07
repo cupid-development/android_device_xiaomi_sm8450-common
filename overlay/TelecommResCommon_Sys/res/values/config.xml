@@ -7,9 +7,6 @@
     <!-- Class name for the default in-call UI Service [DO NOT TRANSLATE] -->
     <string name="incall_default_class" translatable="false">com.android.incallui.InCallServiceImpl</string>
 
-    <!-- Class name for the default main dialer activity [DO NOT TRANSLATE] -->
-    <string name="dialer_default_class" translatable="false">com.android.dialer.DialtactsActivity</string>
-
     <!-- Flag indicating if the tty is enabled -->
     <bool name="tty_enabled">true</bool>
 </resources>

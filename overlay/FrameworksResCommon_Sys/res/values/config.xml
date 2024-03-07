@@ -234,7 +234,7 @@
     <string-array name="config_mobile_tcp_buffers">
         <item>5gnr:2097152,6291456,16777216,512000,2097152,8388608</item>
         <item>lte:2097152,4194304,8388608,262144,524288,1048576</item>
-        <item>lte_ca:4096,6291456,12582912,4096,1048576,2097152</item>
+        <item>lte_ca:4096,6291456,12582912,4096,1048576,4194304</item>
         <item>umts:4094,87380,1220608,4096,16384,1220608</item>
         <item>hspa:4094,87380,1220608,4096,16384,1220608</item>
         <item>hsupa:4094,87380,1220608,4096,16384,1220608</item>
@@ -285,6 +285,10 @@
 
     <!-- Flag specifying whether WFC over IMS is available on device -->
     <bool name="config_device_wfc_ims_available">true</bool>
+
+    <!--Support decoding the user data payload as pack GSM 8-bit (a GSM alphabet
+        string that's stored in 8-bit unpacked format) characters.-->
+    <bool name="config_sms_decode_gsm_8bit_data" translatable="false">true</bool>
 
     <!-- Config determines whether to update phone object when voice registration
          state changes. Voice radio tech change will always trigger an update of

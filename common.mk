@@ -350,6 +350,7 @@ PRODUCT_PACKAGES += \
     SettingsProviderResXiaomi \
     SettingsResXiaomi \
     WifiResTarget \
+    WifiResTarget_cape \
     WifiResTarget_spf
 
 # Partitions

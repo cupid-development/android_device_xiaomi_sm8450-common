@@ -570,11 +570,11 @@ vendor/lib64/libllvm-qgl.so
 vendor/lib/hw/vulkan.adreno.so
 vendor/lib64/hw/vulkan.adreno.so
 
-# Hotword Enrollment
-#product/priv-app/HotwordEnrollmentOKGoogleHEXAGON_WIDEBAND/HotwordEnrollmentOKGoogleHEXAGON_WIDEBAND.apk
-#product/priv-app/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND.apk
-#system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml
-#system_ext/framework/com.android.hotwordenrollment.common.util.jar
+# Hotword Enrollment - from cupid V816.0.3.0.ULCEUXM
+-product/priv-app/HotwordEnrollmentOKGoogleHEXAGON_WIDEBAND/HotwordEnrollmentOKGoogleHEXAGON_WIDEBAND.apk|37ab3f58bb62e4cd496279a9d4e1638ce59af668
+-product/priv-app/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND.apk|ace374fc1ceb11d0df65560b5a51feda10699024
+system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml|99cfd80965c170f4885a7dd62c0eaad1a0c7840f
+-system_ext/framework/com.android.hotwordenrollment.common.util.jar|b768584073c6348713ffd0139d44039c9efc775a
 
 # Identity service
 vendor/bin/hw/android.hardware.identity-service-qti

@@ -69,10 +69,11 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
         touch_fd_ = android::base::unique_fd(open(TOUCH_DEV_PATH, O_RDWR));
         disp_fd_ = android::base::unique_fd(open(DISP_FEATURE_PATH, O_RDWR));
 
+        // Thread to notify fingeprint hwmodule about fod presses
         std::thread([this]() {
             int fd = open(FOD_PRESS_STATUS_PATH, O_RDONLY);
             if (fd < 0) {
-                LOG(ERROR) << "failed to open fd, err: " << fd;
+                LOG(ERROR) << "failed to open " << FOD_PRESS_STATUS_PATH << " , err: " << fd;
                 return;
             }
 
@@ -85,7 +86,7 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
             while (true) {
                 int rc = poll(&fodPressStatusPoll, 1, -1);
                 if (rc < 0) {
-                    LOG(ERROR) << "failed to poll fd, err: " << rc;
+                    LOG(ERROR) << "failed to poll " << FOD_PRESS_STATUS_PATH << ", err: " << rc;
                     continue;
                 }
 

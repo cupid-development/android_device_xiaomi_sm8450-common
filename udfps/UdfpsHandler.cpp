@@ -95,6 +95,8 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
         touch_fd_ = android::base::unique_fd(open(TOUCH_DEV_PATH, O_RDWR));
         disp_fd_ = android::base::unique_fd(open(DISP_FEATURE_PATH, O_RDWR));
 
+        setFodStatus(FOD_STATUS_ON);
+
         // Thread to notify fingeprint hwmodule about fod presses
         std::thread([this]() {
             int fd = open(FOD_PRESS_STATUS_PATH, O_RDONLY);
@@ -133,7 +135,7 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
                 } else if (brightness_req.brightness > 0) {
                     brightness = brightness_req.brightness;
                 }
-                LOG(DEBUG) << "brightness is: " << (int)brightness_req.brightness;
+                LOG(INFO) << "brightness is: " << (int)brightness_req.brightness;
                 bool requestLowBrightness = brightness < LOW_BRIGHTNESS_THRESHHOLD;
 
                 // Request HBM
@@ -187,7 +189,7 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
                 }
 
                 int value = response->data[0];
-                LOG(DEBUG) << "received data: " << std::bitset<8>(value);
+                LOG(INFO) << "received data: " << std::bitset<8>(value);
 
                 bool localHbmUiReady = value & LOCAL_HBM_UI_READY;
                 bool requestLowBrightnessCapture = value & FOD_LOW_BRIGHTNESS_CAPTURE;
@@ -202,7 +204,7 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
     }
 
     void onFingerDown(uint32_t x, uint32_t y, float /*minor*/, float /*major*/) {
-        LOG(DEBUG) << __func__ << "x: " << x << ", y: " << y;
+        LOG(INFO) << __func__ << "x: " << x << ", y: " << y;
         // Track x and y coordinates
         lastPressX = x;
         lastPressY = y;
@@ -212,54 +214,54 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
     }
 
     void onFingerUp() {
-        LOG(DEBUG) << __func__;
+        LOG(INFO) << __func__;
         // Ensure touchscreen is aware of the press state, ideally this is not needed
         setFingerDown(false);
     }
 
     void onAcquired(int32_t result, int32_t vendorCode) {
-        LOG(DEBUG) << __func__ << " result: " << result << " vendorCode: " << vendorCode;
+        LOG(INFO) << __func__ << " result: " << result << " vendorCode: " << vendorCode;
         if (result == FINGERPRINT_ACQUIRED_GOOD) {
             // Set finger as up to disable HBM already, even if the finger is still pressed
             setFingerDown(false);
 
             if (!enrolling) {
-                setFodStatus(FOD_STATUS_OFF);
+                // setFodStatus(FOD_STATUS_OFF);
             }
         }
 
-        /* vendorCode
+        /* vendorCode on goodix_fod devices:
          * 21: waiting for finger
          * 22: finger down
          * 23: finger up
          */
-        if (vendorCode == 21) {
+        if (vendorCode == 20 || vendorCode == 21) {
             setFodStatus(FOD_STATUS_ON);
         }
     }
 
     void cancel() {
-        LOG(DEBUG) << __func__;
+        LOG(INFO) << __func__;
         enrolling = false;
 
-        setFodStatus(FOD_STATUS_OFF);
+        // setFodStatus(FOD_STATUS_OFF);
     }
 
     void preEnroll() {
-        LOG(DEBUG) << __func__;
+        LOG(INFO) << __func__;
         enrolling = true;
     }
 
     void enroll() {
-        LOG(DEBUG) << __func__;
+        LOG(INFO) << __func__;
         enrolling = true;
     }
 
     void postEnroll() {
-        LOG(DEBUG) << __func__;
+        LOG(INFO) << __func__;
         enrolling = false;
 
-        setFodStatus(FOD_STATUS_OFF);
+        // setFodStatus(FOD_STATUS_OFF);
     }
 
   private:

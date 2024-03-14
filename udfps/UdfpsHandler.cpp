@@ -14,6 +14,8 @@
 #include <fstream>
 #include <thread>
 
+#include <display/drm/mi_disp.h>
+
 #include "UdfpsHandler.h"
 #include "xiaomi_touch.h"
 
@@ -34,20 +36,11 @@
 #define TOUCH_IOC_SET_CUR_VALUE _IO(TOUCH_MAGIC, SET_CUR_VALUE)
 #define TOUCH_IOC_GET_CUR_VALUE _IO(TOUCH_MAGIC, GET_CUR_VALUE)
 
-#define DISP_PARAM_PATH "sys/devices/virtual/mi_display/disp_feature/disp-DSI-0/disp_param"
-#define DISP_PARAM_LOCAL_HBM_MODE "9"
-#define DISP_PARAM_LOCAL_HBM_OFF "0"
-#define DISP_PARAM_LOCAL_HBM_ON "1"
+#define DISP_FEATURE_PATH "/dev/mi_display/disp_feature"
 
 #define FOD_PRESS_STATUS_PATH "/sys/class/touch/touch_dev/fod_press_status"
 
 namespace {
-
-template <typename T>
-static void set(const std::string& path, const T& value) {
-    std::ofstream file(path);
-    file << value;
-}
 
 static bool readBool(int fd) {
     char c;
@@ -75,6 +68,7 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
     void init(fingerprint_device_t* device) {
         mDevice = device;
         touch_fd_ = android::base::unique_fd(open(TOUCH_DEV_PATH, O_RDWR));
+        disp_fd_ = android::base::unique_fd(open(DISP_FEATURE_PATH, O_RDWR));
 
         std::thread([this]() {
             int fd = open(FOD_PRESS_STATUS_PATH, O_RDONLY);
@@ -156,6 +150,7 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
   private:
     fingerprint_device_t* mDevice;
     android::base::unique_fd touch_fd_;
+    android::base::unique_fd disp_fd_;
     bool enrolling = false;
 
     void setFodStatus(int value) {
@@ -169,9 +164,13 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
         int buf[MAX_BUF_SIZE] = {TOUCH_ID, THP_FOD_DOWNUP_CTL, pressed ? 1 : 0};
         ioctl(touch_fd_.get(), TOUCH_IOC_SET_CUR_VALUE, &buf);
 
-        set(DISP_PARAM_PATH,
-            std::string(DISP_PARAM_LOCAL_HBM_MODE) + " " +
-                    (pressed ? DISP_PARAM_LOCAL_HBM_ON : DISP_PARAM_LOCAL_HBM_OFF));
+        // Request HBM
+        disp_local_hbm_req req;
+        req.base.flag = 0;
+        req.base.disp_id = MI_DISP_PRIMARY;
+        req.local_hbm_value = pressed ? LHBM_TARGET_BRIGHTNESS_WHITE_1000NIT
+                                      : LHBM_TARGET_BRIGHTNESS_OFF_FINGER_UP;
+        ioctl(disp_fd_.get(), MI_DISP_IOCTL_SET_LOCAL_HBM, &req);
     }
 };
 

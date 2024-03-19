@@ -132,7 +132,9 @@ PRODUCT_PACKAGES_DEBUG += \
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.7.vendor \
     camera.device@1.0-impl \
-    libcamera2ndk_vendor
+    libcamera2ndk_vendor \
+    vendor.qti.hardware.camera.aon@1.0.vendor \
+    vendor.qti.hardware.camera.postproc@1.0.vendor
 
 PRODUCT_PACKAGES += \
     libMegviiFacepp-0.5.2 \

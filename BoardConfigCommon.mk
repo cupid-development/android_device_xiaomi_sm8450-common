@@ -80,6 +80,10 @@ NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/configs/config.fs
 
+# GPS
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := default
+$(call soong_config_set, qtilocation, feature_nhz, false)
+
 # Kernel
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_RAMDISK_USE_LZ4 := true

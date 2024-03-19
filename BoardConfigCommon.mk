@@ -42,6 +42,17 @@ TARGET_2ND_CPU_VARIANT := cortex-a75
 # Audio
 $(call soong_config_set, android_hardware_audio, run_64bit, true)
 
+AUDIO_FEATURE_ENABLED_DLKM := true
+AUDIO_FEATURE_ENABLED_DTS_EAGLE := false
+AUDIO_FEATURE_ENABLED_GEF_SUPPORT := true
+AUDIO_FEATURE_ENABLED_HW_ACCELERATED_EFFECTS := false
+AUDIO_FEATURE_ENABLED_INSTANCE_ID := true
+AUDIO_FEATURE_ENABLED_LSM_HIDL := true
+AUDIO_FEATURE_ENABLED_PAL_HIDL := true
+AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
+
+TARGET_USES_QCOM_MM_AUDIO := true
+
 # Boot control
 $(call soong_config_set, ufsbsg, ufsframework, bsg)
 

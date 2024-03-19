@@ -11,7 +11,6 @@
 # Camera
 /(vendor|system/vendor)/bin/hw/vendor.xiaomi.hardware.quickcamera@1.0-service u:object_r:hal_quickcamera_default_exec:s0
 /mnt/vendor/persist/camera(/.*)? u:object_r:camera_persist_file:s0
-#/vendor/bin/camera_cal u:object_r:DualCameraCal_exec:s0
 /vendor/lib(64)?/libQnnHtpV69Stub\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libQnnHtp\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libSNPE\.so u:object_r:same_process_hal_file:s0
@@ -64,6 +63,7 @@
 
 # Mac Address
 /data/vendor/mac_addr(/.*)? u:object_r:vendor_mac_vendor_data_file:s0
+/mnt/vendor/persist/qca6490/wlan_mac\.bin u:object_r:vendor_mac_vendor_data_file:s0
 /vendor/bin/nv_mac u:object_r:vendor_wcnss_service_exec:s0
 
 # Mlipay
@@ -85,9 +85,6 @@
 
 # QRTR
 /(vendor|system/vendor)/bin/qrtr-lookup u:object_r:vendor_qrtr_exec:s0
-
-# RIL
-/data/vendor/diag(/.*)? u:object_r:minidump_data_file:s0
 
 # Sensors
 /(vendor|system/vendor)/bin/hw/android\.hardware\.sensors@2.1-service\.xiaomi-multihal u:object_r:hal_sensors_default_exec:s0

@@ -1,2 +1,0 @@
-allow bootanim vendor_audio_prop:file read;
-allow bootanim vendor_proc_audiod:file read;

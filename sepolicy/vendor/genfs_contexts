@@ -1,5 +1,7 @@
 # Battery
 genfscon sysfs /class/qcom-battery u:object_r:vendor_sysfs_battery_supply:s0
+genfscon sysfs /devices/platform/soc/soc:xm_battmngr/power_supply/battery u:object_r:vendor_sysfs_battery_supply:s0
+genfscon sysfs /devices/platform/soc/soc:xm_battmngr/power_supply/usb u:object_r:vendor_sysfs_usb_supply:s0
 
 # Extcon
 genfscon sysfs /devices/platform/soc/88e0000.qcom,msm-eud/extcon u:object_r:sysfs_extcon:s0

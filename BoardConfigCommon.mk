@@ -151,7 +151,8 @@ TARGET_KERNEL_EXT_MODULES := \
 	qcom/opensource/display-drivers/msm \
 	qcom/opensource/eva-kernel \
 	qcom/opensource/video-driver \
-	qcom/opensource/wlan/qcacld-3.0
+	qcom/opensource/wlan/qcacld-3.0/.qca6490 \
+	qcom/opensource/wlan/qcacld-3.0/.qca6750
 
 # Lineage Health
 TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_BYPASS := false

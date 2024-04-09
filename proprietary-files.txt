@@ -1,4 +1,4 @@
-# All unpinned blobs below are extracted from unicorn V816.0.3.0.ULECNXM
+# All unpinned blobs below are extracted from diting V816.0.3.0.ULFMIXM
 
 # ADSP
 vendor/bin/adsprpcd
@@ -570,11 +570,11 @@ vendor/lib64/libllvm-qgl.so
 vendor/lib/hw/vulkan.adreno.so
 vendor/lib64/hw/vulkan.adreno.so
 
-# Hotword Enrollment - from cupid V816.0.3.0.ULCEUXM
--product/priv-app/HotwordEnrollmentOKGoogleHEXAGON_WIDEBAND/HotwordEnrollmentOKGoogleHEXAGON_WIDEBAND.apk|37ab3f58bb62e4cd496279a9d4e1638ce59af668
--product/priv-app/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND.apk|ace374fc1ceb11d0df65560b5a51feda10699024
-system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml|99cfd80965c170f4885a7dd62c0eaad1a0c7840f
--system_ext/framework/com.android.hotwordenrollment.common.util.jar|b768584073c6348713ffd0139d44039c9efc775a
+# Hotword Enrollment
+-product/priv-app/HotwordEnrollmentOKGoogleHEXAGON_WIDEBAND/HotwordEnrollmentOKGoogleHEXAGON_WIDEBAND.apk
+-product/priv-app/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND.apk
+system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml
+-system_ext/framework/com.android.hotwordenrollment.common.util.jar
 
 # Identity service
 vendor/bin/hw/android.hardware.identity-service-qti
@@ -923,7 +923,7 @@ system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2-halimpl.so
 system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2.so
 system_ext/lib64/vendor.qti.hardware.qccvndhal@1.0.so
 system_ext/lib64/vendor.qti.qccvndhal_aidl-V1-ndk.so
-vendor/bin/qcc-trd
+#vendor/bin/qcc-trd
 vendor/etc/init/init.qdmastats.rc
 vendor/lib/hw/vendor.qti.hardware.qccvndhal@1.0-impl.so
 vendor/lib/libqcc_file_agent.so
@@ -1466,9 +1466,10 @@ vendor/bin/hw/vendor.qti.secure_element@1.2-service
 vendor/etc/init/vendor.qti.secure_element@1.2-service.rc
 vendor/lib/android.hardware.secure_element@1.0-impl.so
 vendor/lib64/android.hardware.secure_element@1.0-impl.so
-vendor/lib64/jcos_nq_client-v1.so
-vendor/lib64/ls_nq_client-v1.so
+vendor/lib64/jcos_nq_client.so
+vendor/lib64/ls_nq_client.so
 vendor/lib64/se_nq_extn_client-v1.so
+vendor/lib64/se_nq_extn_client.so
 
 # Sensor communicate
 vendor/bin/hw/vendor.xiaomi.sensor.communicate@1.0-service

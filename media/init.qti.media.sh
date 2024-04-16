@@ -74,7 +74,7 @@ case "$target" in
                     setprop vendor.media.target_variant "_parrot_v1"
                 fi
 
-                if [ $build_codename -le "13" ]; then
+                if [ $build_codename -le "14" ]; then
                     setprop vendor.netflix.bsp_rev "Q6450-36256-1"
                 fi
                 ;;

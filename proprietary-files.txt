@@ -1,4 +1,4 @@
-# All unpinned blobs below are extracted from diting V816.0.3.0.ULFMIXM
+# All unpinned blobs below are extracted from ziyi V816.0.4.0.ULLMIXM
 
 # ADSP
 vendor/bin/adsprpcd
@@ -923,6 +923,7 @@ system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2-halimpl.so
 system_ext/lib64/vendor.qti.hardware.qccsyshal@1.2.so
 system_ext/lib64/vendor.qti.hardware.qccvndhal@1.0.so
 system_ext/lib64/vendor.qti.qccvndhal_aidl-V1-ndk.so
+vendor/bin/qcc-trd
 vendor/etc/init/init.qdmastats.rc
 vendor/lib/hw/vendor.qti.hardware.qccvndhal@1.0-impl.so
 vendor/lib/libgrpc++_unsecure.so
@@ -938,9 +939,6 @@ vendor/lib64/vendor.qti.hardware.qccsyshal@1.0.so
 vendor/lib64/vendor.qti.hardware.qccsyshal@1.1.so
 vendor/lib64/vendor.qti.hardware.qccvndhal@1.0-halimpl.so
 vendor/lib64/vendor.qti.hardware.qccvndhal@1.0.so
-
-# QCC trd - from unicorn V816.0.3.0.ULECNXM
-vendor/bin/qcc-trd|30a37f9996e8402fe0a98f4a7a488a5d7aa4aa0a
 
 # QCOM system daemon
 vendor/bin/qcom-system-daemon
@@ -1097,7 +1095,7 @@ product/framework/uimgbalibrary.jar
 product/framework/uimgbamanagerlibrary.jar
 product/framework/uimservicelibrary.jar
 system_ext/app/ImsRcsService/ImsRcsService.apk
-system_ext/app/QtiTelephony/QtiTelephony.apk|eba420fdf0d5b9bb67fd626ad8143ee34fa672b5
+system_ext/app/QtiTelephony/QtiTelephony.apk|8a61be891343e2c4bb5b21ca8c28c53bea2217cf
 system_ext/app/QtiTelephonyService/QtiTelephonyService.apk
 system_ext/etc/permissions/qcrilhook.xml
 system_ext/etc/permissions/qti_permissions.xml
@@ -1128,7 +1126,7 @@ system_ext/lib64/libimsmedia_jni.so
 system_ext/lib64/vendor.qti.ImsRtpService-V1-ndk.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.0.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.1.so
-system_ext/priv-app/ims/ims.apk|67980ca1ae8004b87e9befee39df9fc7fe371673
+system_ext/priv-app/ims/ims.apk|7a4b54db168d6d5f66be0b8b14d589420b1664d8
 system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/app/IWlanService/IWlanService.apk
 vendor/bin/ATFWD-daemon
@@ -1469,10 +1467,9 @@ vendor/bin/hw/vendor.qti.secure_element@1.2-service
 vendor/etc/init/vendor.qti.secure_element@1.2-service.rc
 vendor/lib/android.hardware.secure_element@1.0-impl.so
 vendor/lib64/android.hardware.secure_element@1.0-impl.so
-vendor/lib64/jcos_nq_client.so
-vendor/lib64/ls_nq_client.so
+vendor/lib64/jcos_nq_client-v1.so
+vendor/lib64/ls_nq_client-v1.so
 vendor/lib64/se_nq_extn_client-v1.so
-vendor/lib64/se_nq_extn_client.so
 
 # Sensor communicate
 vendor/bin/hw/vendor.xiaomi.sensor.communicate@1.0-service
@@ -1634,7 +1631,6 @@ vendor/bin/vppservice
 vendor/etc/configstore/vpp.configstore.xml
 vendor/etc/init/qconfig.rc
 vendor/etc/init/vppservice.rc
-vendor/etc/tunings.txt
 vendor/etc/vintf/manifest/vendor.qti.hardware.qconfig@1.0-service.xml
 vendor/etc/vintf/manifest/vendor.qti.hardware.vpp@2.0-service.xml
 vendor/lib/libvppcommon.so

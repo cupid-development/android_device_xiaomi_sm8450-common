@@ -1,0 +1,25 @@
+//
+// Copyright (C) 2024 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_binary {
+    name: "disp2slpi",
+    vendor: true,
+
+    init_rc: ["disp2slpi.rc"],
+
+    srcs: [
+        "DisplayInfo2SlpiNotifier.cpp",
+    ],
+
+    shared_libs: [
+        "libbase",
+        "libssccalapi@2.0",
+    ],
+
+    header_libs: [
+        "generated_kernel_headers",
+    ],
+}

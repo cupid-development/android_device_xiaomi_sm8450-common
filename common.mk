@@ -408,7 +408,8 @@ PRODUCT_PACKAGES += \
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@2.1-service.xiaomi-multihal \
-    android.frameworks.sensorservice@1.0.vendor
+    android.frameworks.sensorservice@1.0.vendor \
+    disp2slpi
 
 $(foreach sku, taro diwali cape ukee, \
     $(eval PRODUCT_COPY_FILES += \

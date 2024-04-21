@@ -1,0 +1,19 @@
+type vendor_disp2slpi, domain;
+type vendor_disp2slpi_exec, exec_type, file_type, vendor_file_type;
+
+init_daemon_domain(vendor_disp2slpi)
+
+hwbinder_use(vendor_disp2slpi)
+get_prop(vendor_disp2slpi, hwservicemanager_prop)
+
+allow vendor_disp2slpi self:socket create_socket_perms;
+allow vendor_disp2slpi self:qipcrtr_socket create_socket_perms;
+allowxperm vendor_disp2slpi self:socket ioctl msm_sock_ipc_ioctls;
+allowxperm vendor_disp2slpi self:qipcrtr_socket ioctl msm_sock_ipc_ioctls;
+
+allow vendor_disp2slpi fwk_sensor_hwservice:hwservice_manager find;
+allow vendor_disp2slpi system_server:binder { call transfer };
+allow vendor_disp2slpi vendor_displayfeature_device:chr_file { ioctl open read write };
+
+get_prop(vendor_disp2slpi, vendor_sensors_prop)
+userdebug_or_eng(`get_prop(vendor_disp2slpi, vendor_sensors_debug_prop)');

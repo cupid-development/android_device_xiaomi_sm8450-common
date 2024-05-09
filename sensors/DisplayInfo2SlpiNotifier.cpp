@@ -43,6 +43,15 @@ struct _oem_msg {
 extern void process_msg(_oem_msg* msg);
 extern void init_current_sensors(bool debug);
 
+// using vendor::display::config::V2_0::IDisplayConfig;
+// using vendor::display::config::V2_0::IDisplayConfigCallback;
+
+#include <config/client_interface.h>
+#include <gralloc/gr_priv_handle.h>
+
+using namespace android;
+using namespace DisplayConfig;
+
 namespace {
 
 static disp_event_resp* parseDispEvent(int fd) {
@@ -73,9 +82,87 @@ static disp_event_resp* parseDispEvent(int fd) {
     return response;
 }
 
+#define NSEC_TO_SEC (1000000000l)
+
+float getCurrentFps() {
+    float fps = 0;
+    int ret = 0;
+    uint32_t dpy_index = -1;
+    ClientInterface* client = nullptr;
+    Attributes dpy_attr;
+    char buf[150];
+
+    ret = DisplayConfig::ClientInterface::Create("disp2slpi", nullptr, &client);
+
+    if (client != NULL) {
+        client->GetActiveConfig(DisplayConfig::DisplayType::kPrimary, &dpy_index);
+        if (dpy_index >= 0) {
+            ret = client->GetDisplayAttributes(dpy_index, DisplayConfig::DisplayType::kPrimary,
+                                               &dpy_attr);
+            if (ret == 0 && dpy_attr.vsync_period) {
+                LOG(ERROR) << "VSYNC : " << dpy_attr.vsync_period;
+                fps = NSEC_TO_SEC / dpy_attr.vsync_period;
+                LOG(ERROR) << "Panel Attributes vsyncPeriod: " << dpy_attr.vsync_period
+                           << " Fps: " << fps;
+            }
+        }
+        ClientInterface::Destroy(client);
+    }
+
+    return fps;
+}
+
 }  // namespace
 
+class CWBCallback : public ConfigCallback {
+  public:
+    void NotifyCWBBufferDone(int error, const native_handle_t* buffer) override {
+        LOG(ERROR) << "NotifyCWBBufferDone called with error code: " << error;
+    }
+
+    void NotifyQsyncChange(bool qsync_enabled, int refresh_rate, int qsync_refresh_rate) override {
+        LOG(ERROR) << "NotifyQsyncChange called with qsync_enabled: " << qsync_enabled
+                   << ", refresh_rate: " << refresh_rate
+                   << ", qsync_refresh_rate: " << qsync_refresh_rate;
+    }
+
+    void NotifyIdleStatus(bool is_idle) override {
+        LOG(ERROR) << "NotifyIdleStatus called with is_idle: " << is_idle;
+    }
+};
+
 int main() {
+    ClientInterface* client = nullptr;
+    CWBCallback callback;
+    int ret = 0;
+    const uint32_t disp_id = static_cast<uint32_t>(DisplayType::kPrimary);
+    native_handle_t* buffer = native_handle_create(1, 1);
+    
+    // private_handle_t phandle = private_handle_t(int fd, int meta_fd, int flags, int width, int height, int uw, int uh,
+    //                int format, int buf_type, unsigned int size, uint64_t usage = 0)
+
+    ret = ClientInterface::Create("disp2slpi", &callback, &client);
+    if (ret < 0) {
+        LOG(ERROR) << "failed to create ClientInterface, ret: " << ret;
+    }
+
+    // TODO: get rect from cwbInfo in lightSensorConfig.json
+    const Rect rect = {
+            .left = 697,
+            .top = 3,
+            .right = 793,
+            .bottom = 99,
+    };
+
+    ret = client->SetCWBOutputBuffer(disp_id, rect, true, buffer);
+
+    while (true) {
+        sleep(1);
+    }
+
+    ClientInterface::Destroy(client);
+
+    return 0;
     bool debug_enable = android::base::GetBoolProperty("persist.vendor.debug.ssccalapi", false);
     init_current_sensors(debug_enable);
 

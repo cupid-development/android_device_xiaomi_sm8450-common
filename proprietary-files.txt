@@ -1,4 +1,4 @@
-# All unpinned blobs below are extracted from ziyi V816.0.4.0.ULLMIXM
+# All unpinned blobs below are extracted from cupid V816.0.8.0.ULCEUXM
 
 # ADSP
 vendor/bin/adsprpcd
@@ -1143,7 +1143,7 @@ system_ext/lib64/libimsmedia_jni.so
 system_ext/lib64/vendor.qti.ImsRtpService-V1-ndk.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.0.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.1.so
-system_ext/priv-app/ims/ims.apk|7a4b54db168d6d5f66be0b8b14d589420b1664d8
+system_ext/priv-app/ims/ims.apk|67980ca1ae8004b87e9befee39df9fc7fe371673
 system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/app/IWlanService/IWlanService.apk
 vendor/bin/ATFWD-daemon

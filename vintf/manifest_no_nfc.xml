@@ -6,10 +6,8 @@
     <!-- NFC HAL service -->
     <hal format="aidl" override="true">
         <name>android.hardware.nfc</name>
-        <fqname>INfc/default</fqname>
     </hal>
     <hal format="aidl" override="true">
         <name>vendor.nxp.nxpnfc_aidl</name>
-        <fqname>INxpNfc/default</fqname>
     </hal>
 </manifest>

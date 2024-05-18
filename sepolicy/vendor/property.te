@@ -18,9 +18,6 @@ vendor_public_prop(vendor_mi_ins_prop)
 # Mlipay
 vendor_public_prop(vendor_payment_security_prop)
 
-# NFC
-vendor_public_prop(vendor_nfc_mi_prop)
-
 # Panel
 vendor_public_prop(vendor_panel_info_prop)
 

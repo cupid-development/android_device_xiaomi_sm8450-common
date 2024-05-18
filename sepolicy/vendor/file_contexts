@@ -72,6 +72,9 @@
 # Modem
 /dev/smd8 u:object_r:vendor_radio_smd_device:s0
 
+# NFC
+/vendor/bin/hw/android\.hardware\.nfc-service\.nxp u:object_r:hal_nfc_default_exec:s0
+
 # Powershare
 /vendor/bin/hw/vendor\.lineage\.powershare@1\.0-service\.xiaomi u:object_r:hal_lineage_powershare_default_exec:s0
 

@@ -28,7 +28,6 @@ videocc-diwali.ko
 bam_dma.ko
 gpi.ko
 pci-edma.ko
-qcom_cpuss_sleep_stats.ko
 mdt_loader.ko
 cdsp-loader.ko
 qcom_ramdump.ko
@@ -55,7 +54,6 @@ glink_pkt.ko
 glink_probe.ko
 pmic_glink.ko
 qti_battery_debug.ko
-charger-ulog-glink.ko
 altmode-glink.ko
 pmic-pon-log.ko
 msm_performance.ko
@@ -71,7 +69,6 @@ qcom_soc_wdt.ko
 sys_pm_vx.ko
 msm_ext_display.ko
 icnss2.ko
-rimps_log.ko
 plh_scmi.ko
 gplaf_scmi.ko
 shared_rail_scmi.ko
@@ -87,7 +84,6 @@ hvc_gunyah.ko
 msm_rng.ko
 frpc-adsprpc.ko
 rdbg.ko
-qcom_iommu_debug.ko
 lt9611uxc.ko
 msm_kgsl.ko
 zram.ko
@@ -119,7 +115,6 @@ usb_f_qdss.ko
 usb_f_ccid.ko
 usb_f_cdev.ko
 usb_f_gsi.ko
-f_fs_ipc_log.ko
 ucsi_glink.ko
 repeater.ko
 repeater-i2c-eusb2.ko
@@ -166,7 +161,6 @@ leds-qpnp-vibrator-ldo.ko
 plh_vendor.ko
 gplaf_vendor.ko
 shared_rail_vendor.ko
-tz_log.ko
 qce50.ko
 qcedev-mod.ko
 ipa_fmwk.ko
@@ -190,7 +184,6 @@ gh_virtio_backend.ko
 qcom-spmi-adc5.ko
 qcom-vadc-common.ko
 nvmem_qfprom.ko
-icc-test.ko
 qnoc-parrot.ko
 ofpart.ko
 chipreg.ko

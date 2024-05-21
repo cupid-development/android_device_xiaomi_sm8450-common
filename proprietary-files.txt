@@ -1,4 +1,4 @@
-# All unpinned blobs below are extracted from cupid V816.0.8.0.ULCEUXM
+# All unpinned blobs below are extracted from diting V816.0.4.0.ULFMIXM
 
 # ADSP
 vendor/bin/adsprpcd
@@ -1443,9 +1443,9 @@ vendor/bin/hw/vendor.qti.secure_element@1.2-service
 vendor/etc/init/vendor.qti.secure_element@1.2-service.rc
 vendor/lib/android.hardware.secure_element@1.0-impl.so
 vendor/lib64/android.hardware.secure_element@1.0-impl.so
-vendor/lib64/jcos_nq_client-v1.so
-vendor/lib64/ls_nq_client-v1.so
-vendor/lib64/se_nq_extn_client-v1.so
+vendor/lib64/jcos_nq_client.so
+vendor/lib64/ls_nq_client.so
+vendor/lib64/se_nq_extn_client.so
 
 # Sensor communicate
 vendor/bin/hw/vendor.xiaomi.sensor.communicate@1.0-service

@@ -7,7 +7,28 @@
     <hal format="aidl" override="true">
         <name>android.hardware.nfc</name>
     </hal>
+    <!-- secure element -->
+    <hal format="hidl" override="true">
+       <name>android.hardware.secure_element</name>
+       <transport>hwbinder</transport>
+       <version>1.2</version>
+       <interface>
+           <name>ISecureElement</name>
+           <instance>SIM1</instance>
+           <instance>SIM2</instance>
+       </interface>
+    </hal>
     <hal format="aidl" override="true">
         <name>vendor.nxp.nxpnfc_aidl</name>
+    </hal>
+    <!-- eSEPowerManager -->
+    <hal format="hidl" override="true">
+        <name>vendor.qti.esepowermanager</name>
+        <transport>hwbinder</transport>
+    </hal>
+    <!--  Eid service -->
+    <hal format="hidl" override="true">
+        <name>vendor.qti.hardware.eid</name>
+        <transport>hwbinder</transport>
     </hal>
 </manifest>

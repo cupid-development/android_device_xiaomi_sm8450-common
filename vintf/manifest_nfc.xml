@@ -8,8 +8,40 @@
         <name>android.hardware.nfc</name>
         <fqname>INfc/default</fqname>
     </hal>
+    <!-- secure element -->
+    <hal format="hidl" override="true">
+       <name>android.hardware.secure_element</name>
+       <transport>hwbinder</transport>
+       <version>1.2</version>
+       <interface>
+           <name>ISecureElement</name>
+           <instance>eSE1</instance>
+           <instance>SIM1</instance>
+           <instance>SIM2</instance>
+       </interface>
+    </hal>
     <hal format="aidl" override="true">
         <name>vendor.nxp.nxpnfc_aidl</name>
         <fqname>INxpNfc/default</fqname>
+    </hal>
+    <!-- eSEPowerManager -->
+    <hal format="hidl" override="true">
+        <name>vendor.qti.esepowermanager</name>
+        <transport>hwbinder</transport>
+        <version>1.1</version>
+        <interface>
+            <name>IEsePowerManager</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <!--  Eid service -->
+    <hal format="hidl" override="true">
+        <name>vendor.qti.hardware.eid</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IEid</name>
+            <instance>default</instance>
+        </interface>
     </hal>
 </manifest>

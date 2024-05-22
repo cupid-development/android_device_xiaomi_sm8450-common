@@ -100,7 +100,10 @@ function configure_read_ahead_kb_values() {
 		echo $ra_kb > /sys/block/mmcblk0rpmb/bdi/read_ahead_kb
 	fi
 	for dm in $dmpts; do
-		echo $ra_kb > $dm
+		if [ `cat $(dirname $dm)/../removable` -eq 0 ]; then
+			echo $ra_kb > $dm
+		fi
+
 	done
 }
 

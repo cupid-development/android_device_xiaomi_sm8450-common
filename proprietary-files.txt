@@ -599,16 +599,6 @@ vendor/lib64/hw/consumerir.qcom.so
 vendor/bin/msm_irqbalance
 vendor/etc/msm_irqbalance.conf
 
-# Kernel
-vendor/bin/init.kernel.post_boot-cape.sh
-vendor/bin/init.kernel.post_boot-diwali.sh
-vendor/bin/init.kernel.post_boot-taro.sh
-vendor/bin/init.kernel.post_boot.sh
-vendor/bin/init.qti.kernel.sh
-vendor/bin/init.qti.write.sh
-vendor/bin/vendor_modprobe.sh
-vendor/etc/init/hw/init.qti.kernel.rc
-
 # Keymaster
 vendor/bin/hw/android.hardware.keymaster@4.1-service-qti
 vendor/etc/init/android.hardware.keymaster@4.1-service-qti.rc

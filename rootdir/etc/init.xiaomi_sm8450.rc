@@ -7,44 +7,16 @@
 import /vendor/etc/init/hw/init.mi_thermald.rc
 import /vendor/etc/init/hw/init.batterysecret.rc
 
-on init
-    # Initial cpusets
-    mkdir /dev/cpuset/foreground/boost
-    copy /dev/cpuset/cpus /dev/cpuset/foreground/boost/cpus
-    copy /dev/cpuset/mems /dev/cpuset/foreground/boost/mems
-
-     # Initial cpuctl
-    chmod 0666 /dev/cpuctl/background/cpu.shares
-    chmod 0666 /dev/cpuctl/top-app/cpu.shares
-
 on fs
     mkdir /mnt/vendor/persist/haptics 0755 system system
     mkdir /mnt/vendor/persist/audio 0755 system system
-    mkdir /dev/logfs 0771 system system
-    mount vfat /dev/block/bootdevice/by-name/logfs /dev/logfs noatime umask=006,uid=1000,gid=1000
-    mount ext4 /dev/block/bootdevice/by-name/rescue /mnt/rescue noatime
-    restorecon_recursive /mnt/rescue
     mkdir /mnt/vendor/persist/qca6490/ 0700 system system
-    chmod 0666 /dev/xlog
-
-on early-boot
-    # Enable WLAN cold boot calibration
-    write /sys/kernel/cnss/fs_ready 1
-    # Enable WLAN SSR recovery
-    write /sys/kernel/cnss/recovery 1
 
 on boot
     # modem
     chmod 0777 /dev/smd8
     chown radio radio /dev/smd8
     mkdir /data/vendor/modem 0777 radio radio
-
-    setprop persist.bluetooth.a2dp_offload.disabled false
-
-    #modify permission of block_size node
-    #chown -h root.oem_2902 /sys/bus/coresight/devices/coresight-tmc-etr/block_size
-    chown -h vendor_qdss /sys/bus/coresight/devices/coresight-tmc-etr/block_size
-    chmod 660 /sys/bus/coresight/devices/coresight-tmc-etr/block_size
 
     chown system system /sys/class/thermal/thermal_message/sconfig
     chown system system /sys/class/thermal/thermal_message/charger_temp
@@ -89,50 +61,6 @@ on post-fs-data
     mkdir /data/vendor/perfspy 0775 camera camera
     chmod 0660 /dev/ir_spi
     chown system system /dev/ir_spi
-    #nfc
-    mkdir /data/vendor/nfc 0770 nfc nfc
-
-    # add torch node for cit && mmi
-    chown system system /sys/class/leds/led:torch_0/brightness
-    chown system system /sys/class/leds/led:torch_1/brightness
-    chown system system /sys/class/leds/led:torch_2/brightness
-    chown system system /sys/class/leds/led:torch_3/brightness
-    chown system system /sys/class/leds/led:flash_0/brightness
-    chown system system /sys/class/leds/led:flash_1/brightness
-    chown system system /sys/class/leds/led:flash_2/brightness
-    chown system system /sys/class/leds/led:flash_3/brightness
-    chown system system /sys/class/leds/led:switch_0/brightness
-    chown system system /sys/class/leds/led:switch_1/brightness
-    chown system system /sys/class/leds/led:switch_2/brightness
-    chown system system /sys/class/leds/led:switch_3/brightness
-    chown system system /sys/class/leds/led:switch_0/trigger
-    chown system system /sys/class/leds/led:switch_1/trigger
-    chown system system /sys/class/leds/led:switch_2/trigger
-    chown system system /sys/class/leds/led:switch_3/trigger
-    chown system system /sys/class/leds/flashlight/brightness
-
-    chmod 0664 /sys/class/leds/led:torch_0/brightness
-    chmod 0664 /sys/class/leds/led:torch_1/brightness
-    chmod 0664 /sys/class/leds/led:torch_2/brightness
-    chmod 0664 /sys/class/leds/led:torch_3/brightness
-    chmod 0664 /sys/class/leds/led:flash_0/brightness
-    chmod 0664 /sys/class/leds/led:flash_1/brightness
-    chmod 0664 /sys/class/leds/led:flash_2/brightness
-    chmod 0664 /sys/class/leds/led:flash_3/brightnesssss
-    chmod 0664 /sys/class/leds/led:switch_0/brightness
-    chmod 0664 /sys/class/leds/led:switch_1/brightness
-    chmod 0664 /sys/class/leds/led:switch_2/brightness
-    chmod 0664 /sys/class/leds/led:switch_3/brightness
-    chmod 0664 /sys/class/leds/led:switch_0/trigger
-    chmod 0664 /sys/class/leds/led:switch_1/trigger
-    chmod 0664 /sys/class/leds/led:switch_2/trigger
-    chmod 0664 /sys/class/leds/led:switch_3/trigger
-    chmod 0664 /sys/class/leds/flashlight/brightness
-    mkdir /data/vendor/wlan_logs 0777 root shell
-    mkdir /data/vendor/qxwz 0770 gps system
-    #QCC mode configuration
-    setprop vendor.qti.qdma.oper.mode 3
-    setprop vendor.qti.qcc.oper.mode 3
 
     # Display feature sysfs node
     chown system system /sys/class/mi_display/disp-DSI-0/disp_param
@@ -168,28 +96,6 @@ on post-fs-data
 on property:sys.boot_completed=1
     # Set thermal mode to mgame
     write /sys/devices/virtual/thermal/thermal_message/sconfig 20
-
-on property:init.svc.vendor.charger=running
-    chown system system /sys/class/backlight/panel0-backlight/brightness
-    chown system system /sys/class/backlight/panel1-backlight/brightness
-
-on property:sys.boot_completed=1 && property:ro.build.type=user && property:ro.debuggable="1"
-    mount debugfs debugfs /sys/kernel/debug
-    chmod 0755 /sys/kernel/debug
-
-    # cooling device used to set 4Rx or 2Rx
-    chmod 0666 /sys/class/thermal/cooling_device39/cur_state
-    chmod 0666 /sys/class/thermal/cooling_device40/cur_state
-    chmod 0666 /sys/class/thermal/cooling_device41/cur_state
-    chmod 0666 /sys/class/thermal/cooling_device42/cur_state
-    chmod 0666 /sys/class/thermal/cooling_device43/cur_state
-    chmod 0666 /sys/class/thermal/cooling_device44/cur_state
-    chmod 0666 /sys/class/thermal/cooling_device45/cur_state
-    chmod 0666 /sys/class/thermal/cooling_device46/cur_state
-    chmod 0666 /sys/class/thermal/cooling_device47/cur_state
-    chmod 0666 /sys/class/thermal/cooling_device48/cur_state
-    chmod 0666 /sys/class/thermal/cooling_device49/cur_state
-    chmod 0666 /sys/class/thermal/cooling_device50/cur_state
 
 on property:persist.sys.xtra-daemon.enabled=*
     restart loc_launcher

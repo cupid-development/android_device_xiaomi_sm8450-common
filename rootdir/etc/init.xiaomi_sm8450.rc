@@ -191,52 +191,6 @@ on property:sys.boot_completed=1 && property:ro.build.type=user && property:ro.d
     chmod 0666 /sys/class/thermal/cooling_device49/cur_state
     chmod 0666 /sys/class/thermal/cooling_device50/cur_state
 
-on property:vendor.audio.cit.spkcal.copy=true
-
-#                1.cal                  3.newCreate
-#   oldCaliFile  --->  newCaliFile  ----------------->  newCaliFile(or emptyFile)
-#                          \
-#                           \                           /  4.recovery
-#                 2.backup   --->  newCaliFile.bak  ----
-#
-# _if oldCaliFile isn't exist then  2 and 4 will failed(try again will success).
-# it could optimized when property action in front of spkcal
-# 
-
-    # 2.backup
-    chmod 600 /mnt/vendor/persist/audio/crus_calr.bin
-    chmod 600 /mnt/vendor/persist/audio/crus_calr.txt
-    copy /mnt/vendor/persist/audio/crus_calr.bin /mnt/vendor/persist/audio/crus_calr.bin.bak
-    copy /mnt/vendor/persist/audio/crus_calr.txt /mnt/vendor/persist/audio/crus_calr.txt.bak
-
-    # 3.newCreate
-    write /mnt/vendor/persist/audio/crus_calr.bin ""
-    write /mnt/vendor/persist/audio/crus_calr.txt ""
-
-    # 4.recovery
-    copy /mnt/vendor/persist/audio/crus_calr.bin.bak /mnt/vendor/persist/audio/crus_calr.bin
-    copy /mnt/vendor/persist/audio/crus_calr.txt.bak /mnt/vendor/persist/audio/crus_calr.txt
-
-    chmod 666 /mnt/vendor/persist/audio/crus_calr.bin
-    chmod 666 /mnt/vendor/persist/audio/crus_calr.txt
-
-    # 2.backup
-    chmod 600 /mnt/vendor/persist/audio/aw_calr.bin
-    chmod 600 /mnt/vendor/persist/audio/aw_calr.txt
-    copy /mnt/vendor/persist/audio/aw_calr.bin /mnt/vendor/persist/audio/aw_calr.bin.bak
-    copy /mnt/vendor/persist/audio/aw_calr.txt /mnt/vendor/persist/audio/aw_calr.txt.bak
-
-    # 3.newCreate
-    write /mnt/vendor/persist/audio/aw_calr.bin ""
-    write /mnt/vendor/persist/audio/aw_calr.txt ""
-
-    # 4.recovery
-    copy /mnt/vendor/persist/audio/aw_calr.bin.bak /mnt/vendor/persist/audio/aw_calr.bin
-    copy /mnt/vendor/persist/audio/aw_calr.txt.bak /mnt/vendor/persist/audio/aw_calr.txt
-
-    chmod 666 /mnt/vendor/persist/audio/aw_calr.bin
-    chmod 666 /mnt/vendor/persist/audio/aw_calr.txt
-
 on property:persist.sys.xtra-daemon.enabled=*
     restart loc_launcher
 

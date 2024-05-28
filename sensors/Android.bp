@@ -17,11 +17,14 @@ cc_binary {
     shared_libs: [
         "libbase",
         "libcutils",
+        "liblog",
         "//hardware/qcom-caf/sm8450:libdisplayconfig.qti",
         "libssccalapi@2.0",
     ],
 
     header_libs: [
+        "display_intf_headers",
         "generated_kernel_headers",
+        "libhardware_headers",
     ],
 }

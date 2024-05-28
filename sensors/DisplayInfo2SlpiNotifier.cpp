@@ -47,7 +47,8 @@ extern void init_current_sensors(bool debug);
 // using vendor::display::config::V2_0::IDisplayConfigCallback;
 
 #include <config/client_interface.h>
-#include <gralloc/gr_priv_handle.h>
+#include <gr_priv_handle.h>
+#include <hardware/gralloc.h>
 
 using namespace android;
 using namespace DisplayConfig;
@@ -138,13 +139,9 @@ int main() {
     const uint32_t disp_id = static_cast<uint32_t>(DisplayType::kPrimary);
     native_handle_t* buffer = native_handle_create(1, 1);
     
-    // private_handle_t phandle = private_handle_t(int fd, int meta_fd, int flags, int width, int height, int uw, int uh,
+    // private_handle_t phandle = new private_handle_t(int fd, int meta_fd, int flags, int width, int height, int uw, int uh,
     //                int format, int buf_type, unsigned int size, uint64_t usage = 0)
 
-    ret = ClientInterface::Create("disp2slpi", &callback, &client);
-    if (ret < 0) {
-        LOG(ERROR) << "failed to create ClientInterface, ret: " << ret;
-    }
 
     // TODO: get rect from cwbInfo in lightSensorConfig.json
     const Rect rect = {
@@ -154,7 +151,62 @@ int main() {
             .bottom = 99,
     };
 
-    ret = client->SetCWBOutputBuffer(disp_id, rect, true, buffer);
+
+    bool is_wb_ubwc_supported = false;
+
+    BufferInfo output_buffer_info;
+    // Initialize CWB buffer with display resolution to get full size buffer
+    // as mixer or fb can init with custom values based on property
+    output_buffer_info.buffer_config.width = rect.left - rect.right;
+    output_buffer_info.buffer_config.height = rect.bottom - rect.top;
+    if (is_wb_ubwc_supported) {
+        output_buffer_info.buffer_config.format = 13U; //kFormatRGBX8888Ubwc
+    } else {
+        output_buffer_info.buffer_config.format = 8U; //kFormatRGB888
+    }
+    output_buffer_info.buffer_config.buffer_count = 1;
+    if (buffer_allocator_->AllocateBuffer(&output_buffer_info) != 0) {
+        DLOGE("Buffer allocation failed");
+        return;
+    }
+
+    LayerBuffer buffer = {};
+    buffer.planes[0].fd = output_buffer_info.alloc_buffer_info.fd;
+    buffer.planes[0].offset = 0;
+    buffer.planes[0].stride = output_buffer_info.alloc_buffer_info.stride;
+    buffer.size = output_buffer_info.alloc_buffer_info.size;
+    buffer.handle_id = output_buffer_info.alloc_buffer_info.id;
+    buffer.width = output_buffer_info.alloc_buffer_info.aligned_width;
+    buffer.height = output_buffer_info.alloc_buffer_info.aligned_height;
+    buffer.format = output_buffer_info.alloc_buffer_info.format;
+    buffer.unaligned_width = output_buffer_info.buffer_config.width;
+    buffer.unaligned_height = output_buffer_info.buffer_config.height;
+
+    cwb_layer_.composition = kCompositionCWBTarget;
+    cwb_layer_.input_buffer = buffer;
+    cwb_layer_.input_buffer.buffer_id = reinterpret_cast<uint64_t>(output_buffer_info.private_data);
+    cwb_layer_.src_rect = {0, 0, FLOAT(cwb_layer_.input_buffer.unaligned_width),
+                            FLOAT(cwb_layer_.input_buffer.unaligned_height)};
+    cwb_layer_.dst_rect = {0, 0, FLOAT(cwb_layer_.input_buffer.unaligned_width),
+                            FLOAT(cwb_layer_.input_buffer.unaligned_height)};
+
+    cwb_layer_.flags.is_cwb = 1;
+
+    CwbConfig cwb_config = {};
+    cwb_config.tap_point = CwbTapPoint::kLmTapPoint;
+    cwb_config.cwb_full_rect = LayerRect(0.0f, 0.0f, FLOAT(cwb_layer_.input_buffer.width),
+                                        FLOAT(cwb_layer_.input_buffer.height));
+    cwb_buffer_inited_ = true;
+
+
+
+    ret = ClientInterface::Create("disp2slpi", &callback, &client);
+    if (ret < 0) {
+        LOG(ERROR) << "failed to create ClientInterface, ret: " << ret;
+    }
+
+
+    ret = client->SetCWBOutputBuffer(disp_id, rect, true, &phandle);
 
     while (true) {
         sleep(1);

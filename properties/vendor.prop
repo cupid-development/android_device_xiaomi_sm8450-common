@@ -202,6 +202,9 @@ ro.vendor.radio.build_profile=u-stable
 # RCS
 persist.vendor.rcs.singlereg.feature=1
 
+# Sensors
+ro.vendor.sensors.xiaomi.single_tap=true
+
 # SSR
 persist.vendor.ssr.restart_level=ALL_ENABLE
 

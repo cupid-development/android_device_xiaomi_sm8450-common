@@ -25,7 +25,7 @@ source "${HELPER}"
 setup_vendor "${DEVICE_COMMON}" "${VENDOR_COMMON:-$VENDOR}" "${ANDROID_ROOT}" true
 
 # Warning headers and guards
-write_headers "cupid dagda marble mayfly mondrian taranis thor unicorn zeus ziyi zizhan"
+write_headers "cupid dagda diting marble mayfly mondrian taranis thor unicorn zeus ziyi zizhan"
 
 # The standard common blobs
 write_makefiles "${MY_DIR}/proprietary-files.txt" true

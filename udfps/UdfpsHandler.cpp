@@ -218,22 +218,6 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
 
     void cancel() {
         LOG(DEBUG) << __func__;
-        enrolling = false;
-    }
-
-    void preEnroll() {
-        LOG(DEBUG) << __func__;
-        enrolling = true;
-    }
-
-    void enroll() {
-        LOG(DEBUG) << __func__;
-        enrolling = true;
-    }
-
-    void postEnroll() {
-        LOG(DEBUG) << __func__;
-        enrolling = false;
     }
 
   private:
@@ -241,7 +225,6 @@ class XiaomiSm8450UdfpsHander : public UdfpsHandler {
     android::base::unique_fd touch_fd_;
     android::base::unique_fd disp_fd_;
     bool isFpcFod;
-    bool enrolling = false;
     uint32_t lastPressX, lastPressY;
 
     void setFingerDown(bool pressed) {

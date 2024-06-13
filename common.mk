@@ -65,9 +65,11 @@ PRODUCT_PACKAGES += \
     audio.usb.default
 
 PRODUCT_PACKAGES += \
+    libaudioroute.vendor \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
+    libtinycompress \
     libvolumelistener
 
 $(foreach sku, taro diwali cape ukee parrot, \
@@ -114,6 +116,9 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.7.vendor \
     camera.device@1.0-impl \
     libcamera2ndk_vendor \
+    libexif.vendor \
+    libjpeg.vendor \
+    liblz4.vendor \
     vendor.qti.hardware.camera.aon@1.0.vendor \
     vendor.qti.hardware.camera.postproc@1.0.vendor
 
@@ -378,6 +383,13 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full-3.9.1-vendorcompat \
     libprotobuf-cpp-lite-3.9.1-vendorcompat
 
+# QMI
+PRODUCT_PACKAGES += \
+    libcurl.vendor \
+    libjsoncpp.vendor \
+    libnetutils.vendor \
+    libsqlite.vendor
+
 # QTI
 PRODUCT_PACKAGES += \
     libqti_vndfwk_detect.vendor \
@@ -483,7 +495,8 @@ PRODUCT_PACKAGES_DEBUG += \
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.3-service-qti
+    android.hardware.usb@1.3-service-qti \
+    libusbhost.vendor
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \

@@ -448,7 +448,6 @@ vendor/etc/media_codecs_performance_taro.xml
 vendor/etc/media_codecs_performance_ukee.xml
 vendor/etc/media_codecs_taro.xml
 vendor/etc/media_codecs_ukee.xml
-vendor/etc/media_codecs_vendor_audio.xml
 vendor/etc/media_diwali_v0/video_system_specs.json
 vendor/etc/media_diwali_v1/video_system_specs.json
 vendor/etc/media_diwali_v2/video_system_specs.json

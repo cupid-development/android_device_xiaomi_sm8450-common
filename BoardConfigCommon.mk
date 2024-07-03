@@ -76,6 +76,7 @@ TARGET_USES_GRALLOC4 := true
 TARGET_USES_HWC2 := true
 MAX_VIRTUAL_DISPLAY_DIMENSION := 4096
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
+$(call soong_config_set, qtidisplay, use_ycrcb_camera_encode, true)
 
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/configs/config.fs

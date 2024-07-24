@@ -7,7 +7,15 @@
 #define LOG_TAG "NonUiNotifier"
 
 #include <android-base/logging.h>
-#include <android/frameworks/sensorservice/1.0/ISensorManager.h>
+
+#include <android/binder_auto_utils.h>
+#include <android/binder_ibinder_platform.h>
+#include <android/binder_manager.h>
+#include <android/binder_process.h>
+
+#include <aidl/android/frameworks/sensorservice/ISensorManager.h>
+#include <aidl/android/frameworks/sensorservice/BnEventQueueCallback.h>
+#include <aidl/android/frameworks/sensorservice/IEventQueue.h>
 
 #include <fcntl.h>
 #include <poll.h>
@@ -17,17 +25,14 @@
 
 #define SENSOR_NAME_XIAOMI_SENSOR_NONUI "xiaomi.sensor.nonui"
 
+using aidl::android::frameworks::sensorservice::IEventQueue;
+using aidl::android::frameworks::sensorservice::IEventQueueCallback;
+using aidl::android::frameworks::sensorservice::BnEventQueueCallback;
+using aidl::android::frameworks::sensorservice::ISensorManager;
+using aidl::android::hardware::sensors::SensorInfo;
+using aidl::android::hardware::sensors::SensorType;
+using aidl::android::hardware::sensors::Event;
 using android::sp;
-using android::frameworks::sensorservice::V1_0::IEventQueue;
-using android::frameworks::sensorservice::V1_0::IEventQueueCallback;
-using android::frameworks::sensorservice::V1_0::ISensorManager;
-using android::frameworks::sensorservice::V1_0::Result;
-using android::hardware::Return;
-using android::hardware::Void;
-using android::hardware::sensors::V1_0::Event;
-using android::hardware::sensors::V1_0::SensorFlagBits;
-using android::hardware::sensors::V1_0::SensorInfo;
-using android::hardware::sensors::V1_0::SensorType;
 
 #define TOUCH_DEV_PATH "/dev/xiaomi-touch"
 
@@ -52,39 +57,43 @@ static bool readBool(int fd) {
     return c != '0';
 }
 
-struct NonUiSensorCallback : IEventQueueCallback {
-    Return<void> onEvent(const Event& e) {
-        int buf[MAX_BUF_SIZE] = {0, Touch_Nonui_Mode, static_cast<int>(e.u.scalar)};
-        ioctl(open(TOUCH_DEV_PATH, O_RDWR), TOUCH_IOC_SET_CUR_VALUE, &buf);
+class NonUiSensorCallback : public BnEventQueueCallback {
+public:
+     ndk::ScopedAStatus onEvent(const Event& /*event*/) override {
+        LOG(ERROR) << "nonui: hi i noticed an event";
 
-        return Void();
+        // int buf[MAX_BUF_SIZE] = {0, Touch_Nonui_Mode, static_cast<int>(e.u.scalar)};
+        // ioctl(open(TOUCH_DEV_PATH, O_RDWR), TOUCH_IOC_SET_CUR_VALUE, &buf);
+
+        return ::ndk::ScopedAStatus::ok();
     }
 };
 
 }  // namespace
 
 int main() {
-    Result res;
-    sp<IEventQueue> queue;
+    ::ndk::ScopedAStatus res;
+    std::shared_ptr<IEventQueue> queue;
 
-    sp<ISensorManager> manager = ISensorManager::getService();
-    if (manager == nullptr) {
+    const std::string name = std::string() + ISensorManager::descriptor + "/default";
+    std::shared_ptr<ISensorManager> manager =
+        ISensorManager::fromBinder(ndk::SpAIBinder(AServiceManager_waitForService(name.c_str())));
+    if (manager == NULL) {
         LOG(ERROR) << "failed to get ISensorManager";
         return EXIT_FAILURE;
     }
+    LOG(ERROR) << "got ISensorManager";
 
     std::vector<SensorInfo> sensorList;
-    manager->getSensorList([&sensorList, &res](const auto& l, auto r) {
-        sensorList = l;
-        res = r;
-    });
-    if (res != Result::OK) {
-        LOG(ERROR) << "failed to get getSensorList";
+    res = manager->getSensorList(&sensorList);
+    if (!res.isOk()) {
+        LOG(ERROR) << "failed to get sensors list";
         return EXIT_FAILURE;
     }
+
     auto it = std::find_if(sensorList.begin(), sensorList.end(), [](const SensorInfo& sensor) {
         return (sensor.typeAsString == SENSOR_NAME_XIAOMI_SENSOR_NONUI) &&
-               (sensor.flags & SensorFlagBits::WAKE_UP);
+               (sensor.flags & SensorInfo::SENSOR_FLAG_BITS_WAKE_UP);
     });
 
     int32_t sensorHandle = -1;
@@ -97,11 +106,8 @@ int main() {
 
     sensorList.clear();
 
-    manager->createEventQueue(new NonUiSensorCallback(), [&queue, &res](const auto& q, auto r) {
-        queue = q;
-        res = r;
-    });
-    if (res != Result::OK) {
+    res = manager->createEventQueue(ndk::SharedRefBase::make<NonUiSensorCallback>(), &queue);
+    if (!res.isOk()) {
         LOG(ERROR) << "failed to create event queue";
         return EXIT_FAILURE;
     }
@@ -144,14 +150,16 @@ int main() {
         }
         if (enabled) {
             res = queue->enableSensor(sensorHandle, 20000 /* sample period */, 0 /* latency */);
-            if (res != Result::OK) {
+            if (!res.isOk()) {
                 LOG(ERROR) << "failed to enable sensor";
             }
+            else LOG(ERROR) << "enabled sensor";
         } else {
             res = queue->disableSensor(sensorHandle);
-            if (res != Result::OK) {
+            if (!res.isOk()) {
                 LOG(ERROR) << "failed to disable sensor";
             }
+            else LOG(ERROR) << "disabled sensor";
         }
     }
 

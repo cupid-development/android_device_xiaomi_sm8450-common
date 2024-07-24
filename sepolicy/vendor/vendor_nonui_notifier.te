@@ -10,7 +10,7 @@ binder_use(vendor_nonui_notifier)
 binder_call(vendor_nonui_notifier, system_server)
 binder_call(system_server, vendor_nonui_notifier)
 
-allow vendor_nonui_notifier fwk_sensor_hwservice:hwservice_manager find;
+allow vendor_nonui_notifier fwk_sensor_service:service_manager find;
 allow vendor_nonui_notifier touchfeature_device:chr_file rw_file_perms;
 allow vendor_nonui_notifier vendor_sysfs_sensors:file r_file_perms;
 

@@ -13,6 +13,7 @@
 #include "AodNotifier.h"
 #include "LightNotifier.h"
 #include "NonUiNotifier.h"
+#include "SensorNotifierExt.h"
 
 int main() {
     sp<ISensorManager> manager = ISensorManager::getService();
@@ -54,6 +55,12 @@ int main() {
     std::unique_ptr<NonUiNotifier> nonUiNotifier =
             std::make_unique<NonUiNotifier>(manager, process_msg);
     nonUiNotifier->activate();
+
+    std::unique_ptr<SensorNotifierExt> sensorNotifierExt =
+            std::make_unique<SensorNotifierExt>(manager, process_msg);
+    for (const auto& notifier : sensorNotifierExt->mNotifiers) {
+        notifier->activate();
+    }
 
     while (true) {
         // Sleep to keep the notifiers alive

@@ -221,6 +221,10 @@ SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/private
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/public
 BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
 
+# Sensors
+TARGET_SENSOR_NOTIFIER_EXT ?= libsensor-notifier-ext
+$(call soong_config_set, xiaomiSm8450SensorVars, extensionLibs, $(TARGET_SENSOR_NOTIFIER_EXT))
+
 # VINTF
 DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix.xml
 

@@ -8,6 +8,7 @@
 
 #include <android-base/logging.h>
 
+#include "AodNotifier.h"
 #include "NonUiNotifier.h"
 
 int main() {
@@ -17,8 +18,10 @@ int main() {
         return EXIT_FAILURE;
     }
 
+    std::unique_ptr<AodNotifier> aodNotifier = std::make_unique<AodNotifier>(manager);
     std::unique_ptr<NonUiNotifier> nonUiNotifier = std::make_unique<NonUiNotifier>(manager);
 
+    aodNotifier->activate();
     nonUiNotifier->activate();
 
     while (true) {

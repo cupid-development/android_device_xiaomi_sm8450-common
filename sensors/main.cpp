@@ -8,6 +8,7 @@
 
 #include <android-base/logging.h>
 
+#include "AodNotifier.h"
 #include "NonUiNotifier.h"
 
 int main() {
@@ -16,6 +17,9 @@ int main() {
         LOG(ERROR) << "failed to get ISensorManager";
         return EXIT_FAILURE;
     }
+
+    std::unique_ptr<AodNotifier> aodNotifier = std::make_unique<AodNotifier>(manager);
+    aodNotifier->activate();
 
     std::unique_ptr<NonUiNotifier> nonUiNotifier = std::make_unique<NonUiNotifier>(manager);
     nonUiNotifier->activate();

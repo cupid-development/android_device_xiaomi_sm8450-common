@@ -4,14 +4,45 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 
+soong_config_module_type {
+    name: "xiaomi_sm8450_sensor_notifier",
+    module_type: "cc_defaults",
+    config_namespace: "xiaomiSm8450SensorVars",
+    value_variables: ["extensionLibs"],
+    properties: [
+        "whole_static_libs",
+    ],
+}
+
+xiaomi_sm8450_sensor_notifier {
+    name: "xiaomi_sm8450_sensor_notifier_defaults",
+    soong_config_variables: {
+        extensionLibs: {
+            whole_static_libs: ["%s"],
+        },
+    },
+}
+
+cc_library_headers {
+    name: "xiaomi_sm8450_sensor_notifier_headers",
+    export_include_dirs: ["include"],
+    vendor: true,
+}
+
 cc_binary {
-    name: "nonui-notifier",
+    name: "sensor-notifier",
+    defaults: [
+        "xiaomi_sm8450_sensor_notifier_defaults",
+    ],
     vendor: true,
 
-    init_rc: ["nonui-notifier.rc"],
+    init_rc: ["sensor-notifier.rc"],
 
     srcs: [
-        "NonUiNotifier.cpp",
+        "main.cpp",
+        "notifiers/NonUiNotifier.cpp",
+        "SensorNotifier.cpp",
+        "utils/SensorNotifierUtils.cpp",
     ],
 
     shared_libs: [
@@ -23,5 +54,23 @@ cc_binary {
 
     header_libs: [
         "generated_kernel_headers",
+        "xiaomi_sm8450_sensor_notifier_headers",
+    ],
+}
+
+cc_library_static {
+    name: "libsensor-notifier-ext",
+    vendor: true,
+
+    srcs: [
+        "SensorNotifierExt.cpp",
+    ],
+
+    shared_libs: [
+        "android.frameworks.sensorservice@1.0",
+    ],
+
+    header_libs: [
+        "xiaomi_sm8450_sensor_notifier_headers",
     ],
 }

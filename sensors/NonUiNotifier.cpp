@@ -100,12 +100,6 @@ void NonUiNotifier::pollingFunction() {
             continue;
         }
 
-        for (size_t i = 0; i < paths.size(); ++i) {
-            if (pollfds[i].revents & POLLPRI) {
-                LOG(INFO) << "polled pri change on " << paths[i] << std::endl;
-            }
-        }
-
         bool enabled = false;
         for (size_t i = 0; i < paths.size(); ++i) {
             enabled = enabled || readBool(pollfds[i].fd);

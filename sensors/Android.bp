@@ -5,13 +5,17 @@
 //
 
 cc_binary {
-    name: "nonui-notifier",
+    name: "sensor-notifier",
     vendor: true,
 
-    init_rc: ["nonui-notifier.rc"],
+    init_rc: ["sensor-notifier.rc"],
 
     srcs: [
+        "AodNotifier.cpp",
         "NonUiNotifier.cpp",
+        "SensorNotifier.cpp",
+        "SensorNotifierUtils.cpp",
+        "main.cpp",
     ],
 
     shared_libs: [

@@ -10,6 +10,7 @@
 
 #include "AodNotifier.h"
 #include "NonUiNotifier.h"
+#include "SensorNotifierExt.h"
 
 int main() {
     sp<ISensorManager> manager = ISensorManager::getService();
@@ -23,6 +24,8 @@ int main() {
 
     aodNotifier->activate();
     nonUiNotifier->activate();
+
+    activateAdditionalNotifiers(manager);
 
     while (true) {
         // Sleep to keep the notifiers alive

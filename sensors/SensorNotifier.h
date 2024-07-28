@@ -9,6 +9,8 @@
 #include <android/frameworks/sensorservice/1.0/ISensorManager.h>
 #include <thread>
 
+#include "SscCalApi.h"
+
 using android::sp;
 using android::frameworks::sensorservice::V1_0::IEventQueue;
 using android::frameworks::sensorservice::V1_0::IEventQueueCallback;
@@ -17,7 +19,7 @@ using android::frameworks::sensorservice::V1_0::Result;
 
 class SensorNotifier {
   public:
-    SensorNotifier(sp<ISensorManager> manager);
+    SensorNotifier(sp<ISensorManager> manager, process_msg_t processMsg);
     virtual ~SensorNotifier();
 
     void activate();
@@ -30,6 +32,8 @@ class SensorNotifier {
     sp<IEventQueue> mQueue;
     int32_t mSensorHandle = -1;
     bool mActive = false;
+
+    process_msg_t mProcessMsg;
 
   private:
     sp<ISensorManager> mManager;

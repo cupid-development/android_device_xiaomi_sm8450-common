@@ -45,7 +45,8 @@ class NonUiSensorCallback : public IEventQueueCallback {
 
 }  // namespace
 
-NonUiNotifier::NonUiNotifier(sp<ISensorManager> manager) : SensorNotifier(manager) {
+NonUiNotifier::NonUiNotifier(sp<ISensorManager> manager, process_msg_t processMsg)
+    : SensorNotifier(manager, processMsg) {
     initializeSensorQueue("xiaomi.sensor.nonui", true, new NonUiSensorCallback());
 }
 

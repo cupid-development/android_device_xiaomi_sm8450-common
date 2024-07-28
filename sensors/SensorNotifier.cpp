@@ -13,7 +13,8 @@
 using android::hardware::sensors::V1_0::SensorFlagBits;
 using android::hardware::sensors::V1_0::SensorInfo;
 
-SensorNotifier::SensorNotifier(sp<ISensorManager> manager) : mManager(manager) {}
+SensorNotifier::SensorNotifier(sp<ISensorManager> manager, process_msg_t processMsg)
+    : mProcessMsg(processMsg), mManager(manager) {}
 
 SensorNotifier::~SensorNotifier() {
     if (mQueue != nullptr) {

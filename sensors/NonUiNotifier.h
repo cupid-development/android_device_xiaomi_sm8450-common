@@ -10,7 +10,7 @@
 
 class NonUiNotifier : public SensorNotifier {
   public:
-    NonUiNotifier(sp<ISensorManager> manager);
+    NonUiNotifier(sp<ISensorManager> manager, process_msg_t processMsg);
     ~NonUiNotifier();
 
   protected:

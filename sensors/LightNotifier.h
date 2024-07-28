@@ -8,11 +8,14 @@
 
 #include "SensorNotifier.h"
 
-class AodNotifier : public SensorNotifier {
+class LightNotifier : public SensorNotifier {
   public:
-    AodNotifier(sp<ISensorManager> manager, process_msg_t processMsg);
-    ~AodNotifier();
+    LightNotifier(sp<ISensorManager> manager, process_msg_t processMsg);
+    ~LightNotifier();
 
   protected:
     void pollingFunction();
+
+  private:
+    std::vector<int> mLightSensors;
 };

@@ -53,7 +53,8 @@ class AodSensorCallback : public IEventQueueCallback {
 
 }  // namespace
 
-AodNotifier::AodNotifier(sp<ISensorManager> manager) : SensorNotifier(manager) {
+AodNotifier::AodNotifier(sp<ISensorManager> manager, process_msg_t processMsg)
+    : SensorNotifier(manager, processMsg) {
     initializeSensorQueue("xiaomi.sensor.aod", true, new AodSensorCallback());
 }
 

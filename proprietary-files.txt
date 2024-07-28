@@ -1437,12 +1437,6 @@ vendor/lib64/jcos_nq_client.so
 vendor/lib64/ls_nq_client.so
 vendor/lib64/se_nq_extn_client.so
 
-# Sensor communicate
-vendor/bin/hw/vendor.xiaomi.sensor.communicate@1.0-service
-vendor/etc/init/vendor.xiaomi.sensor.communicate@1.0-service.rc
-vendor/etc/vintf/manifest/vendor.xiaomi.sensor.communicate@1.0_manifest.xml
-vendor/lib64/vendor.xiaomi.sensor.communicate@1.0.so
-
 # Sensors
 vendor/bin/hw/vendor.qti.hardware.sensorscalibrate@1.0-service
 vendor/bin/init.qcom.sensors.sh

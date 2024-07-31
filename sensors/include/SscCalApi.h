@@ -21,9 +21,7 @@ struct _oem_msg {
     float unknown2;
     float notify_type_float;
     float value;
-    float unused0;
-    float unused1;
-    float unused2;
+    float unused[10];
 };
 
 typedef void (*process_msg_t)(_oem_msg* msg);

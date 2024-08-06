@@ -78,6 +78,7 @@ PRODUCT_PACKAGES += \
     libagm_pcm_plugin:64 \
     libagmclient:64 \
     libaudioroute.vendor:64 \
+    libbatterylistener:64 \
     libfmpal:64 \
     libpalclient:64 \
     libqcompostprocbundle:64 \

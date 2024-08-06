@@ -416,6 +416,9 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.config@1.3.vendor:64 \
     android.hardware.radio.deprecated@1.0.vendor:64 \
 
+PRODUCT_PACKAGES += \
+    librmnetctl
+
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@2.1-service.xiaomi-multihal \

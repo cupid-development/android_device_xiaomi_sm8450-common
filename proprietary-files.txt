@@ -934,7 +934,6 @@ vendor/lib64/libril-legacy.so
 vendor/lib64/libril-qc-ltedirectdisc.so
 vendor/lib64/libril-qc-radioconfig.so
 vendor/lib64/librilqmimiscservices.so
-vendor/lib64/librmnetctl.so
 vendor/lib64/libshsusr_verinfo.so
 vendor/lib64/libsystem_health_mon.so
 vendor/lib64/libxiaomi_qcril.so

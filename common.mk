@@ -68,6 +68,9 @@ PRODUCT_PACKAGES += \
     audio.usb.default:64
 
 PRODUCT_PACKAGES += \
+    audioadsprpcd
+
+PRODUCT_PACKAGES += \
     libaudioroute.vendor:64 \
     libqcompostprocbundle:64 \
     libqcomvisualizer:64 \

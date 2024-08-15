@@ -6,6 +6,8 @@
 
 #pragma once
 
+#include <android-base/unique_fd.h>
+
 #include "SensorNotifier.h"
 
 class LightNotifier : public SensorNotifier {
@@ -17,5 +19,8 @@ class LightNotifier : public SensorNotifier {
     void pollingFunction();
 
   private:
-    std::vector<int> mLightSensors;
+    std::vector<int> mLightSensorsPrimary;
+    std::vector<int> mLightSensorsSecondary;
+    android::base::unique_fd mDispFd;
+    bool mHasSecondaryPanel;
 };

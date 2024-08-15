@@ -45,12 +45,9 @@ int main() {
     std::unique_ptr<AodNotifier> aodNotifier = std::make_unique<AodNotifier>(manager, process_msg);
     aodNotifier->activate();
 
-    std::unique_ptr<LightNotifier> lightNotifier;
-    if (process_msg != NULL &&
-        android::base::GetProperty("ro.vendor.sensors.notifier.light_sensors", "") != "") {
-        lightNotifier = std::make_unique<LightNotifier>(manager, process_msg);
-        lightNotifier->activate();
-    }
+    std::unique_ptr<LightNotifier> lightNotifier =
+            std::make_unique<LightNotifier>(manager, process_msg);
+    lightNotifier->activate();
 
     std::unique_ptr<NonUiNotifier> nonUiNotifier =
             std::make_unique<NonUiNotifier>(manager, process_msg);

@@ -71,6 +71,18 @@ void LightNotifier::pollingFunction() {
         return;
     }
 
+    if (mDispFd.get() == -1) {
+        LOG(ERROR) << "mi_disp node failed to open, skip light notifications";
+        mActive = false;
+        return;
+    }
+
+    if (mLightSensorsPrimary.empty() || mLightSensorsSecondary.empty()) {
+        LOG(ERROR) << "no light sensors to notify defined, skip light notifications";
+        mActive = false;
+        return;
+    }
+
     std::vector<disp_display_type> displays =
         mHasSecondaryPanel ? std::vector{MI_DISP_PRIMARY, MI_DISP_SECONDARY}
                            : std::vector{MI_DISP_PRIMARY};

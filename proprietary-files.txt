@@ -44,6 +44,7 @@ vendor/lib64/libsdsprpc.so
 # CNE
 vendor/app/CneApp/CneApp.apk;REQUIRED=CneApp.libvndfwk_detect_jni.qti_vendor_symlink
 vendor/bin/cnd
+# qms depends on libwpa_client, which is a gnu makefile target
 vendor/bin/qms;DISABLE_CHECKELF
 vendor/etc/cne/mwqem.conf
 vendor/etc/cne/profileMwqem.xml
@@ -79,10 +80,12 @@ vendor/etc/cne/wqeclient/VZW/VZW_profile7.xml
 vendor/etc/default-permissions/com.qualcomm.qti.cne.xml
 vendor/etc/init/cnd.rc
 vendor/etc/init/qms.rc
+# libcne depends on libwpa_client, which is a gnu makefile target
 vendor/lib64/libcne.so;DISABLE_CHECKELF
 vendor/lib64/libcneapiclient.so
 vendor/lib64/libcneoplookup.so
 vendor/lib64/libcneqmiutils.so
+# libmasc depends on libwpa_client, which is a gnu makefile target
 vendor/lib64/libmasc.so;DISABLE_CHECKELF
 vendor/lib64/libshsc.so
 vendor/lib64/libwms.so
@@ -477,6 +480,7 @@ vendor/lib64/libqc2audio_base.so
 vendor/lib64/libqc2audio_basecodec.so
 vendor/lib64/libqc2audio_core.so
 vendor/lib64/libqc2audio_hooks.so
+# libqc2audio_hwaudiocodec depends on libpalclient, which is a gnu makefile target
 vendor/lib64/libqc2audio_hwaudiocodec.so;DISABLE_CHECKELF
 vendor/lib64/libqc2audio_platform.so
 vendor/lib64/libqc2audio_swaudiocodec.so
@@ -1123,6 +1127,7 @@ vendor/lib64/libwfdhdcpcp.so
 vendor/lib64/libwfdhdcpservice_proprietary.so
 vendor/lib64/libwfdmminterface_proprietary.so
 vendor/lib64/libwfdmmservice_proprietary.so
+# libwfdmmsrc_proprietary depends on libwfdaac_vendor, which is a gnu makefile target
 vendor/lib64/libwfdmmsrc_proprietary.so;DISABLE_CHECKELF
 vendor/lib64/libwfdmodulehdcpsession.so
 vendor/lib64/libwfdrtsp_vendor.so

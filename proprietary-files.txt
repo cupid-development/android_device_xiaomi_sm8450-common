@@ -210,7 +210,7 @@ vendor/lib64/libtestutils.so|61b98f252afde4eb7c674de870e7afb590c9bb2a
 vendor/lib64/libtinyxml2_1.so|ae0c9190fd54c18a6c28dfccdfd29655abcb08de
 
 # DPM
-system_ext/bin/dpmd;DISABLE_CHECKELF
+system_ext/bin/dpmd
 system_ext/bin/tcmd
 system_ext/etc/dpm/dpm.conf
 system_ext/etc/init/dpmd.rc
@@ -220,11 +220,11 @@ system_ext/etc/permissions/dpmapi.xml
 system_ext/etc/seccomp_policy/tcmd.policy
 system_ext/framework/com.qti.dpmframework.jar
 system_ext/framework/dpmapi.jar
-system_ext/lib64/com.qualcomm.qti.dpm.api@1.0.so;MODULE=com.qualcomm.qti.dpm.api@1.0-se
-system_ext/lib64/libdpmctmgr.so;DISABLE_CHECKELF
-system_ext/lib64/libdpmfdmgr.so;DISABLE_CHECKELF
-system_ext/lib64/libdpmframework.so;DISABLE_CHECKELF
-system_ext/lib64/libdpmtcm.so;DISABLE_CHECKELF
+system_ext/lib64/com.qualcomm.qti.dpm.api@1.0.so
+system_ext/lib64/libdpmctmgr.so
+system_ext/lib64/libdpmfdmgr.so
+system_ext/lib64/libdpmframework.so
+system_ext/lib64/libdpmtcm.so
 system_ext/lib64/vendor.qti.hardware.dpmaidlservice-V1-ndk.so
 system_ext/lib64/vendor.qti.hardware.dpmservice@1.0.so
 system_ext/lib64/vendor.qti.hardware.dpmservice@1.1.so
@@ -234,7 +234,7 @@ vendor/bin/vendor.dpmd
 vendor/etc/dpm_vndr/vendor.dpm.conf
 vendor/etc/init/dpmQmiMgr.rc
 vendor/etc/init/vendor.dpmd.rc
-vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so
+vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so;MODULE=com.qualcomm.qti.dpm.api@1.0-vendor
 vendor/lib64/libdpmqmihal.so
 vendor/lib64/vendor.libdpmctmgr.so
 vendor/lib64/vendor.libdpmfdmgr.so

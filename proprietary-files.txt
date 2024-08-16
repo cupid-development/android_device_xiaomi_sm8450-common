@@ -692,57 +692,6 @@ vendor/etc/init/vendor.qti.hardware.servicetracker@1.2-service.rc
 vendor/etc/vintf/manifest/vendor.qti.hardware.servicetracker@1.2-service.xml
 vendor/lib64/hw/vendor.qti.hardware.servicetracker@1.2-impl.so
 
-# QVR
-vendor/bin/hw/qvrservice
-vendor/bin/qvrdatalogger
-vendor/bin/qvrservicetest
-vendor/bin/qvrservicetest64
-vendor/etc/init/qvrd_vndr.rc
-vendor/etc/qvr/cfg/339/0/65536/mtp855.txt
-vendor/etc/qvr/cfg/339/0/65536/mtp855_6dof_config.xml
-vendor/etc/qvr/cfg/356/0/65536/mtp865.txt
-vendor/etc/qvr/cfg/356/0/65536/mtp865_6dof_config.xml
-vendor/etc/qvr/cfg/356/1/131072/morpheus.txt
-vendor/etc/qvr/cfg/356/1/131072/morpheus_6dof_config.xml
-vendor/etc/qvr/cfg/356/1/65536/trinity.txt
-vendor/etc/qvr/cfg/356/1/65536/trinity_6dof_config.xml
-vendor/etc/qvr/cfg/415/0/131072/mtplahaina.txt
-vendor/etc/qvr/cfg/415/0/131072/mtplahaina_6dof_config.xml
-vendor/etc/qvr/cfg/415/0/65536/mtplahaina.txt
-vendor/etc/qvr/cfg/415/0/65536/mtplahaina_6dof_config.xml
-vendor/etc/qvr/cfg/457/0/65536/mtpwaipio.txt
-vendor/etc/qvr/cfg/457/0/65536/mtpwaipio_6dof_config.xml
-vendor/etc/qvr/cfg/457/0/65536/mtpwaipio_qvr_3dof_tracker_config.txt
-vendor/etc/qvr/cfg/457/0/65537/mtpwaipio.txt
-vendor/etc/qvr/cfg/457/0/65537/mtpwaipio_6dof_config.xml
-vendor/etc/qvr/cfg/457/0/65537/mtpwaipio_qvr_3dof_tracker_config.txt
-vendor/etc/qvr/cfg/457/3/65536/mtpwaipio.txt
-vendor/etc/qvr/cfg/457/3/65536/mtpwaipio_6dof_config.xml
-vendor/etc/qvr/cfg/457/3/65536/mtpwaipio_qvr_3dof_tracker_config.txt
-vendor/etc/qvr/cfg/457/3/65537/mtpwaipio.txt
-vendor/etc/qvr/cfg/457/3/65537/mtpwaipio_6dof_config.xml
-vendor/etc/qvr/cfg/457/3/65537/mtpwaipio_qvr_3dof_tracker_config.txt
-vendor/etc/qvr/qvr_hid_device_list.txt
-vendor/etc/qvr/qvr_usb_device_list.txt
-vendor/etc/qvr/qvrservice_config.txt
-vendor/etc/seccomp_policy/qvr@2.0.policy
-vendor/etc/vintf/manifest/vendor.qti.hardware.qxr-service.xml
-vendor/lib64/libDspIOProxy_stub.so
-vendor/lib64/libMapService.so
-vendor/lib64/libScenescape.so
-vendor/lib64/libStereoRectifyWrapper.so
-vendor/lib64/libeye_tracking_dsp_sample_stub.so
-vendor/lib64/libhalide_hexagon_host.so
-vendor/lib64/libqvr_cam_cdsp_driver_stub.so
-vendor/lib64/libqvr_cdsp_driver_stub.so
-vendor/lib64/libqvr_eyetracking_plugin.so
-vendor/lib64/libqvr_hostcontroller_plugin.so
-vendor/lib64/libqvrcamera_client.qti.so
-vendor/lib64/libqvrservice.so
-vendor/lib64/libqvrservice_client.qti.so
-vendor/lib64/libtracker_6dof_impl.so
-vendor/lib64/vendor.qti.hardware.qxr-V1-ndk_platform.so
-
 # RIL
 product/app/uimgbaservice/uimgbaservice.apk
 product/etc/permissions/UimGba.xml
@@ -1039,13 +988,6 @@ vendor/lib64/vendor.qti.hardware.soter@1.0.so
 vendor/bin/ssr_diag
 vendor/bin/ssr_setup
 vendor/bin/subsystem_ramdump
-
-# SXR
-vendor/bin/hw/sxrservice
-vendor/etc/init/sxrd.rc
-vendor/etc/seccomp_policy/sxr@2.0.policy
-vendor/lib64/libsxrcryptoimpl.so
-vendor/lib64/libsxrservice.so
 
 # Thermal
 vendor/bin/mi_thermald

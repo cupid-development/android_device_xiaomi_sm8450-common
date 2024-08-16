@@ -404,10 +404,6 @@ PRODUCT_PACKAGES += \
     libvndfwk_detect_jni.qti_vendor:64 \
     vendor.qti.hardware.systemhelper@1.0.vendor:64
 
-# QXR
-PRODUCT_PACKAGES += \
-    android.hardware.common-V2-ndk_platform.vendor:64
-
 # Recovery
 PRODUCT_PACKAGES += \
     fastbootd

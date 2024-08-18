@@ -408,9 +408,6 @@ vendor/lib64/libqtiidentitycredential.so
 # IPA firmware
 vendor/etc/init/ipa_fws.rc
 
-# IR
-vendor/lib64/hw/consumerir.qcom.so
-
 # IRQ balance
 vendor/bin/msm_irqbalance
 vendor/etc/msm_irqbalance.conf

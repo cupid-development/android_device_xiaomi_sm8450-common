@@ -3,15 +3,6 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <manifest version="1.0" type="device">
-     <hal format="hidl">
-        <name>android.hardware.ir</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IConsumerIr</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
     <hal format="hidl">
         <name>com.fingerprints.extension</name>
         <transport>hwbinder</transport>

@@ -50,6 +50,10 @@ function lib_to_package_fixup_vendor_variants() {
         com.qualcomm.qti.dpm.api@1.0)
             echo "$1-vendor"
             ;;
+        libpalclient | \
+        libwpa_client | \
+        libwfdaac_vendor)
+            ;;
         *)
             return 1
     esac

@@ -1,4 +1,4 @@
-# All unpinned blobs below are extracted from diting V816.0.5.0.ULFMIXM
+# All unpinned blobs below are extracted from diting V816.0.6.0.ULFMIXM
 
 # ADSP
 vendor/bin/adsprpcd

@@ -5,6 +5,6 @@
 //
 
 runtime_resource_overlay {
-    name: "WifiResCommon_Sys",
+    name: "TelephonyResCommon",
     product_specific: true,
 }

@@ -5,6 +5,7 @@
 //
 
 runtime_resource_overlay {
-    name: "TelecommResCommon_Sys",
+    name: "CarrierConfigResCommon",
     product_specific: true,
+    aaptflags: ["--keep-raw-values"],
 }

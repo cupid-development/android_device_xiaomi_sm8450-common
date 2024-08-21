@@ -5,6 +5,6 @@
 //
 
 runtime_resource_overlay {
-    name: "FrameworksResCommon_Sys",
-    product_specific: true,
+    name: "FrameworksResTarget",
+    vendor: true,
 }

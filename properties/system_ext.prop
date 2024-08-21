@@ -1,5 +1,2 @@
 # DPM
 persist.vendor.dpm.feature=11
-
-# Radio
-telephony.active_modems.max_count=2

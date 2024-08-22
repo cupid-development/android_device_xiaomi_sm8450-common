@@ -193,8 +193,8 @@ TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOARD_PLATFORM := taro
 
-# PowerShare
-$(call soong_config_set, XIAOMI_POWERSHARE, WIRELESS_TX_ENABLE_PATH, /sys/class/qcom-battery/reverse_chg_mode)
+# Powershare
+TARGET_POWERSHARE_PATH := /sys/class/qcom-battery/reverse_chg_mode
 
 # Properties
 TARGET_ODM_PROP += $(COMMON_PATH)/properties/odm.prop

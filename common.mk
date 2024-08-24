@@ -441,6 +441,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     sensor-notifier
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/sensors/hals.conf:$(TARGET_COPY_OUT_ODM)/etc/sensors/hals.conf
+
 $(foreach sku, taro diwali cape ukee, \
     $(eval PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/sku_$(sku)/android.hardware.sensor.accelerometer.xml \

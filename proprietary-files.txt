@@ -4,9 +4,39 @@
 vendor/bin/adsprpcd
 vendor/etc/init/vendor.qti.adsprpc-guestos-service.rc
 vendor/lib64/libadsp_default_listener.so
+vendor/lib64/libadsprpc.so
 
 # ANT+
 vendor/lib64/hw/com.dsi.ant@1.0-impl.so
+
+# Audio
+vendor/etc/models/acd/event.eai
+vendor/etc/models/acd/music.eai
+vendor/etc/models/acd/speech.eai
+vendor/lib64/hw/gyro_fusion_interface.so
+vendor/lib64/libadm.so
+vendor/lib64/libar-acdb.so
+vendor/lib64/libar-gpr.so
+vendor/lib64/libar-gsl.so
+vendor/lib64/libats.so
+vendor/lib64/libaudio_log_utils.so
+vendor/lib64/libaudiocloudctrl.so
+vendor/lib64/libaudioroute_ext.so
+vendor/lib64/libcapiv2svacnnvendor.so
+vendor/lib64/libcapiv2svarnnvendor.so
+vendor/lib64/libcapiv2uvvendor.so
+vendor/lib64/liblx-ar_util.so
+vendor/lib64/liblx-osal.so
+# libmcs depends on libagm, which is decommonized
+vendor/lib64/libmcs.so;DISABLE_CHECKELF
+vendor/lib64/libmisight.so
+vendor/lib64/libpal_net_if.so
+# libqtigefar depends on libar-pal, which is decommonized
+vendor/lib64/libqtigefar.so;DISABLE_CHECKELF
+vendor/lib64/libresampler.so
+vendor/lib64/libxlog.so
+# vendor.qti.hardware.AGMIPC@1.0-impl depends on libagm, which is decommonized
+vendor/lib64/vendor.qti.hardware.AGMIPC@1.0-impl.so;DISABLE_CHECKELF
 
 # Audio soundfx
 vendor/lib64/soundfx/libasphere.so
@@ -1053,7 +1083,6 @@ vendor/etc/init/qconfig.rc
 vendor/etc/init/vppservice.rc
 vendor/etc/vintf/manifest/vendor.qti.hardware.qconfig@1.0-service.xml
 vendor/etc/vintf/manifest/vendor.qti.hardware.vpp@2.0-service.xml
-vendor/lib64/libmisight.so
 vendor/lib64/libvppcommon.so
 vendor/lib64/libvpphcp.so
 vendor/lib64/libvpphvx.so

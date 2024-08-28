@@ -241,8 +241,8 @@ vendor/lib64/vendor.libdpmfdmgr.so
 vendor/lib64/vendor.libdpmframework.so
 vendor/lib64/vendor.libdpmtcm.so
 vendor/lib64/vendor.libmwqemiptablemgr.so
-vendor/lib64/vendor.qti.hardware.dpmservice@1.0.so
-vendor/lib64/vendor.qti.hardware.dpmservice@1.1.so
+vendor/lib64/vendor.qti.hardware.dpmservice@1.0.so;MODULE=vendor.qti.hardware.dpmservice@1.0-vendor
+vendor/lib64/vendor.qti.hardware.dpmservice@1.1.so;MODULE=vendor.qti.hardware.dpmservice@1.1-vendor
 
 # DRM
 vendor/bin/hw/vendor.qti.hardware.qseecom@1.0-service

@@ -614,16 +614,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>qccvndhal</instance>
         </interface>
     </hal>
-    <!-- eMBMS HAL Service -->
-    <hal format="hidl">
-        <name>vendor.qti.hardware.embmssl</name>
-        <transport>hwbinder</transport>
-        <version>1.1</version>
-        <interface>
-            <name>IEmbms</name>
-            <instance>embmsslServer0</instance>
-        </interface>
-    </hal>
      <!-- DpmService HAL service -->
     <hal format="hidl">
         <name>vendor.qti.hardware.dpmservice</name>

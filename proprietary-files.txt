@@ -304,12 +304,6 @@ vendor/etc/init/vendor.qti.hardware.dsp@1.0-service.rc
 vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy
 vendor/lib64/vendor.qti.hardware.dsp@1.0.so
 
-# eid
-vendor/bin/hw/vendor.qti.hardware.eid@1.0-service
-vendor/etc/init/vendor.qti.hardware.eid@1.0-service.rc
-vendor/lib64/hw/vendor.qti.hardware.eid@1.0-impl.so
-vendor/lib64/vendor.qti.hardware.eid@1.0.so
-
 # EMBMS
 vendor/bin/embmsslServer
 vendor/etc/init/init.embmssl_server.rc

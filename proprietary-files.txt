@@ -640,11 +640,6 @@ vendor/lib64/libsubsystem_control.so
 vendor/bin/init.qti.qcv.sh
 vendor/etc/init/init.qti.qcv.rc
 
-# QGuard
-vendor/bin/qguard
-vendor/etc/init/qguard.rc
-vendor/etc/qguard.json
-
 # QMI
 system/etc/sysconfig/qti_whitelist.xml
 system_ext/etc/sysconfig/qti_telephony_system_packages_config.xml

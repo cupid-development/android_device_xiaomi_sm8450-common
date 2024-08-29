@@ -640,20 +640,6 @@ vendor/lib64/libsubsystem_control.so
 vendor/bin/init.qti.qcv.sh
 vendor/etc/init/init.qti.qcv.rc
 
-# QESDK
-vendor/bin/qesdk-manager
-vendor/bin/sensors-qesdk
-vendor/etc/init/qesdk-manager.rc
-vendor/etc/init/vendor.sensors.qesdk.rc
-vendor/etc/seccomp_policy/qesdk.policy
-vendor/etc/seccomp_policy/sensors-qesdk.policy
-vendor/lib64/libqesdk.so
-vendor/lib64/libqesdk_manager.so
-vendor/lib64/vendor.qti.qesdhal@1.0.so
-vendor/lib64/vendor.qti.qesdhal@1.1-impl.so
-vendor/lib64/vendor.qti.qesdhal@1.1.so
-vendor/lib64/vendor.qti.qesdsys-V1-ndk_platform.so
-
 # QGuard
 vendor/bin/qguard
 vendor/etc/init/qguard.rc

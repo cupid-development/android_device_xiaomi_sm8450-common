@@ -19,9 +19,4 @@
         <name>vendor.qti.esepowermanager</name>
         <transport>hwbinder</transport>
     </hal>
-    <!--  Eid service -->
-    <hal format="hidl" override="true">
-        <name>vendor.qti.hardware.eid</name>
-        <transport>hwbinder</transport>
-    </hal>
 </manifest>

@@ -25,14 +25,4 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <!--  Eid service -->
-    <hal format="hidl" override="true">
-        <name>vendor.qti.hardware.eid</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IEid</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
 </manifest>

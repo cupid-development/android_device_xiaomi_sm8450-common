@@ -71,7 +71,7 @@ function blob_fixup() {
             grep -q "android.hardware.security.rkp-V1-ndk.so" "${2}" || "${PATCHELF_0_17_2}" --add-needed "android.hardware.security.rkp-V1-ndk.so" "${2}"
             ;;
         vendor/etc/init/init.embmssl_server.rc)
-            sed -i -n '/interface/!p' "${2}"
+            sed -i '/interface/d' "${2}"
             ;;
         vendor/etc/media_codecs_c2_audio.xml)
             sed -i '/media_codecs_dolby_audio/d' "${2}"
@@ -83,7 +83,7 @@ function blob_fixup() {
             sed -i '/persist.vendor.radio.redir_party_num/ s/true/false/g' "${2}"
             ;;
         vendor/etc/vintf/manifest/c2_manifest_vendor.xml)
-            sed -ni '/dolby/!p' "${2}"
+            sed -i '/dolby/d' "${2}"
             ;;
     esac
 }

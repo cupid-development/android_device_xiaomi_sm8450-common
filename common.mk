@@ -272,6 +272,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     DialerResXiaomi \
     FrameworksResTarget \
+    FrameworksResUdfpsSensor \
     FrameworksResXiaomi \
     LineageResXiaomi \
     SettingsProviderResXiaomi \

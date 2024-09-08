@@ -1,0 +1,12 @@
+<!--
+     Copyright (C) 2024 The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="android.overlay.udfps_sensor">
+    <overlay android:targetPackage="android"
+                   android:isStatic="true"
+                   android:priority="600"
+                   android:requiredSystemPropertyName="ro.vendor.sensors.xiaomi.udfps"
+                   android:requiredSystemPropertyValue="true"/>
+</manifest>

@@ -1046,8 +1046,7 @@ vendor/lib64/libwfdhdcpcp.so
 vendor/lib64/libwfdhdcpservice_proprietary.so
 vendor/lib64/libwfdmminterface_proprietary.so
 vendor/lib64/libwfdmmservice_proprietary.so
-# libwfdmmsrc_proprietary depends on libwfdaac_vendor, which is a gnu makefile target
-vendor/lib64/libwfdmmsrc_proprietary.so;DISABLE_CHECKELF
+vendor/lib64/libwfdmmsrc_proprietary.so
 vendor/lib64/libwfdmodulehdcpsession.so
 vendor/lib64/libwfdrtsp_vendor.so
 vendor/lib64/libwfdsessionmodule.so

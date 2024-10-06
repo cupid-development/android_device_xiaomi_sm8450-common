@@ -97,10 +97,6 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             sed -i '/dolby/d' "${2}"
             ;;
-        vendor/lib64/libgrpc++_unsecure_prebuilt.so)
-            [ "$2" = "" ] && return 0
-            "${PATCHELF_0_17_2}" --set-soname "libgrpc++_unsecure_prebuilt.so" "${2}"
-            ;;
         *)
             return 1
             ;;

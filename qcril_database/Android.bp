@@ -29,6 +29,7 @@ filegroup {
         "config/12.0_config.sql",
         "config/13.0_config.sql",
         "config/14.0_config.sql",
+        "config/15.0_config.sql",
     ],
 }
 
@@ -78,5 +79,6 @@ prebuilt_etc {
         "12.0_config.sql",
         "13.0_config.sql",
         "14.0_config.sql",
+        "15.0_config.sql",
     ],
 }

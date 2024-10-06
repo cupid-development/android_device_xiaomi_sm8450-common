@@ -60,3 +60,10 @@ prebuilt_etc {
     sub_dir: "qcril_database/upgrade/config",
     vendor: true,
 }
+
+prebuilt_etc {
+    name: "15.0_config.sql",
+    src: "15.0_config.sql",
+    sub_dir: "qcril_database/upgrade/config",
+    vendor: true,
+}

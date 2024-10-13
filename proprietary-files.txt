@@ -574,7 +574,7 @@ system_ext/lib64/vendor.qti.qccvndhal_aidl-V1-ndk.so|ffccfde321f48e390c5af8d546e
 vendor/bin/qcc-trd|146a8d4ba56aebee8056f988159358943dc148c9|a92ef8c6452a8a7c6909b8f185ed959282349bb0
 vendor/etc/init/init.qdmastats.rc|d7ddb87faaedd900f1756064fe756d50efed7ca9
 vendor/lib64/hw/vendor.qti.hardware.qccvndhal@1.0-impl.so|459d506b20124520f5d650a7b30c9a490514a878
-vendor/lib64/libgrpc++_unsecure.so:vendor/lib64/libgrpc++_unsecure_prebuilt.so;FIX_SONAME|e0363df07498ac7f3beb9e6f017d79e2bbc53c9c|5b658d590f94cde9acb71ff47d2b5c5e9566152d
+vendor/lib64/libgrpc++_unsecure.so:vendor/lib64/libgrpc++_unsecure_prebuilt.so;FIX_SONAME|e0363df07498ac7f3beb9e6f017d79e2bbc53c9c|e6363ed5a2a8d2648ab7f9d999491d2ca54d9a18
 vendor/lib64/libqcc_file_agent.so|2062da8684a791c3c8afe57f8be3d2b010337a8a
 vendor/lib64/vendor.qti.hardware.qccsyshal@1.0.so;MODULE_SUFFIX=-vendor|ef866bab2186db1b2c09477e36fef20945fa671e
 vendor/lib64/vendor.qti.hardware.qccsyshal@1.1.so;MODULE_SUFFIX=-vendor|0677ebfe099cdaa6c3776d0bd5318044a4220918

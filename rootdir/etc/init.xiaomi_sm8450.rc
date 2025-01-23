@@ -66,6 +66,10 @@ on boot
     chmod 0660 /sys/class/touch/touch_dev/gesture_double_tap_enabled
     chmod 0660 /sys/class/touch/touch_dev/gesture_double_tap_state
 
+    # High touch polling rate
+    chown system system /sys/devices/virtual/touch/touch_dev/bump_sample_rate
+    chmod 0660 /sys/devices/virtual/touch/touch_dev/bump_sample_rate
+
 on post-fs-data
     # Create folder of camera
     mkdir /data/vendor/camera/offlinelog 0777 cameraserver audio

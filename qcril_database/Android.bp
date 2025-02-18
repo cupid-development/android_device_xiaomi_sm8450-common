@@ -41,13 +41,11 @@ genrule {
         ":rildb_other_sql_files",
         ":rildb_config_sql_files",
     ],
-    tool_files: [
-        "generate_db.sh",
-    ],
     tools: [
+        "generate_qcril_db",
         "sqlite3",
     ],
-    cmd: "$(location generate_db.sh) $(location sqlite3) $(out) $(in)",
+    cmd: "$(location generate_qcril_db) $(location sqlite3) $(out) $(in)",
     out: ["qcrilNr.db"],
 }
 

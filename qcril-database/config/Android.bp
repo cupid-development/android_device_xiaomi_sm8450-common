@@ -6,20 +6,20 @@
 prebuilt_etc {
     name: "15.0_config.sql",
     src: "15.0_config.sql",
-    sub_dir: "qcril_database/upgrade/config",
+    relative_install_path: "qcril_database/upgrade/config",
     vendor: true,
 }
 
 prebuilt_etc {
     name: "15.1_config.sql",
     src: "15.1_config.sql",
-    sub_dir: "qcril_database/upgrade/config",
+    relative_install_path: "qcril_database/upgrade/config",
     vendor: true,
 }
 
 prebuilt_etc {
     name: "15.2_config.sql",
     src: "15.2_config.sql",
-    sub_dir: "qcril_database/upgrade/config",
+    relative_install_path: "qcril_database/upgrade/config",
     vendor: true,
 }

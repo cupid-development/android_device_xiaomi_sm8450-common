@@ -31,7 +31,7 @@ prebuilt_etc {
     name: "qcrilNrDb_vendor",
     filename: "qcrilNr.db",
     src: ":qcril_config_database",
-    sub_dir: "qcril_database",
+    relative_install_path: "qcril_database",
     vendor: true,
     required: [
         "15.0_config.sql",

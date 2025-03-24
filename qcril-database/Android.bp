@@ -22,9 +22,8 @@ genrule {
     ],
     tools: [
         "generate_qcril_db",
-        "sqlite3",
     ],
-    cmd: "$(location generate_qcril_db) $(location sqlite3) $(out) $(in)",
+    cmd: "$(location generate_qcril_db) $(out) $(in)",
     out: ["qcrilNr.db"],
 }
 

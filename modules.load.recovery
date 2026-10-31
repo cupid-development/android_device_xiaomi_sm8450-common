@@ -247,3 +247,5 @@ usb_f_qdss.ko
 videocc-waipio.ko
 zram.ko
 zsmalloc.ko
+xiaomi_touch.ko
+goodix_core.ko

@@ -222,3 +222,5 @@ wcd9xxx_dlkm.ko
 wcd_core_dlkm.ko
 wlan_firmware_service.ko
 wsa883x_dlkm.ko
+xiaomi_touch.ko
+goodix_core.ko

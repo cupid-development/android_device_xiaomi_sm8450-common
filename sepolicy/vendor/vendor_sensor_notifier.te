@@ -15,6 +15,11 @@ allow vendor_sensor_notifier touchfeature_device:chr_file rw_file_perms;
 allow vendor_sensor_notifier vendor_sysfs_displayfeature:file r_file_perms;
 allow vendor_sensor_notifier vendor_sysfs_sensors:file r_file_perms;
 
+# UDALS capture and per-unit calibration (marble/mayfly extension).
+hal_client_domain(vendor_sensor_notifier, hal_graphics_composer)
+hal_client_domain(vendor_sensor_notifier, hal_graphics_allocator)
+r_dir_file(vendor_sensor_notifier, vendor_persist_sensors_file)
+
 # for libssccalapi@2.0
 allow vendor_sensor_notifier self:{ socket qipcrtr_socket} create_socket_perms;
 allowxperm vendor_sensor_notifier self:{ socket qipcrtr_socket} ioctl msm_sock_ipc_ioctls;

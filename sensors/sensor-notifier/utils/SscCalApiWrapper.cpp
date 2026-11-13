@@ -39,12 +39,14 @@ SscCalApiWrapper& SscCalApiWrapper::getInstance() {
 }
 
 void SscCalApiWrapper::initCurrentSensors(bool debug) {
+    std::lock_guard lock(mMutex);
     if (init_current_sensors != NULL) {
         init_current_sensors(debug);
     }
 }
 
 void SscCalApiWrapper::processMsg(_oem_msg* msg) {
+    std::lock_guard lock(mMutex);
     if (process_msg != NULL) {
         LOG(DEBUG) << "sending oem_msg for sensor " << msg->sensorType
                    << " with type: " << msg->notifyType << " and value: " << msg->value;

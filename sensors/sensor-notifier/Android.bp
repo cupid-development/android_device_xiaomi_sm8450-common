@@ -30,7 +30,15 @@ cc_binary {
         "libhidlbase",
         "libutils",
         "android.frameworks.sensorservice@1.0",
-    ],
+    ] + select(soong_config_variable("xiaomi_sm8450_sensor_notifier", "extension_lib"), {
+        "//device/xiaomi/sm8450-common:libsensor-notifier-ext-udals": [
+            "libbinder_ndk",
+            "libjsoncpp",
+            "libnativewindow",
+            "vendor.qti.hardware.display.config-V7-ndk",
+        ],
+        default: [],
+    }),
 
     whole_static_libs: select(soong_config_variable("xiaomi_sm8450_sensor_notifier", "extension_lib"), {
         any @ extension_lib: [

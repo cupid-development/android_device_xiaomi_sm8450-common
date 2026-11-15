@@ -1,0 +1,31 @@
+// SPDX-FileCopyrightText: 2026 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+
+cc_library_static {
+    name: "libxiaomi-udals-compensation",
+    vendor: true,
+    host_supported: true,
+    srcs: ["Compensation.cpp"],
+    shared_libs: ["libjsoncpp"],
+    export_include_dirs: ["."],
+    cflags: ["-Wall", "-Wextra", "-Werror", "-ffp-contract=off"],
+}
+
+cc_library_static {
+    name: "libsensor-notifier-ext-udals",
+    vendor: true,
+    srcs: ["Capture.cpp", "UdalsNotifier.cpp", "SensorNotifierExt.cpp"],
+    whole_static_libs: ["libxiaomi-udals-compensation", "libaidlcommonsupport"],
+    shared_libs: [
+        "android.frameworks.sensorservice@1.0",
+        "libbase",
+        "libbinder_ndk",
+        "libhidlbase",
+        "libjsoncpp",
+        "libnativewindow",
+        "libutils",
+        "vendor.qti.hardware.display.config-V7-ndk",
+    ],
+    header_libs: ["xiaomi_sm8450_sensor_notifier_headers"],
+    cflags: ["-Wall", "-Wextra", "-Werror"],
+}

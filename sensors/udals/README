@@ -1,0 +1,90 @@
+UDALS compensation for marble and mayfly
+
+The implementation runs as the device-selected sensor-notifier extension. It
+replaces the factory-lux RawLightNotifier; it must not run alongside it. CWB,
+sensor activation and reporting belong to UdalsNotifier/Capture. Compensation
+has no Android dependencies and is compiled separately for host validation.
+Timeline pairs sensor events with captures and prior display state, using
+CLOCK_BOOTTIME (the Android sensor timestamp clock).
+
+Model provenance
+
+The JSON calibration tables alone do not describe the stock screen emission
+model. Both stock implementations also contain trained neural networks and
+spatial weights. extract_model.py extracts only these parameters from the
+stock citsensor implementation, through each device's extract-files.py. It
+installs vendor/etc/sensors/udals-model.json as proprietary vendor data. The
+stock service and its executable code are not installed or loaded.
+
+Supported dumps:
+  marble: OS3.0.4.0.VMRMIXM
+  mayfly: OS3.0.3.0.VLTCNXM
+
+The extractor verifies the complete ELF SHA-256 before reading parameters.
+Do not update the accepted hash without revalidating the layout and math.
+
+The active stock paths are:
+  marble: gamma 2.2, three 19x19 grids of weights over 5x5 pixel blocks;
+          four independent 4/128/64/32/1 networks, normalized inputs;
+          calibrated C/R/G/B subtraction and TCS3701 lux conversion.
+  mayfly: gamma 2.2, one 25x25 grid over 5x5 pixel blocks;
+          logarithmic inputs, four-output networks selected at DBV 400/900
+          and by DC mode below/equal to 400; TMD3719 lux conversion.
+
+Both active paths scale predicted channel contributions by the interpolated
+per-unit/reference WHITE table ratio. The RGB tables in marble's JSON are
+not the source of the neural-network predictions. Missing per-unit calibration
+leaves the stock model unscaled. Invalid/inaccessible calibration is reported
+instead of being silently treated as missing. Channel scales are applied
+after subtraction. Per-unit calibration files are never modified.
+
+Stock-specific low-lux corrections, median windows and reporting thresholds
+are retained. DBV is used directly in the normal range and capped at 2047 in
+HBM; the backlight class's max_brightness is not a calibration scale. The
+current kernel has no applied DC-mode node, so normal PWM is selected. If
+dc_mode is exposed in the future it must represent applied panel state.
+
+Capture and timing
+
+AIDL V7 does not return adjusted crop geometry. Capture therefore uses a
+reusable full-resolution RGBA buffer with post-processing enabled, and reads
+only the sensor region on the CPU. This avoids assumptions about crop support,
+alignment or fallback. It costs more writeback bandwidth than a validated ROI
+capture and should be measured on hardware before optimizing the allocation.
+
+There is one outstanding request. Each has its own callback and retains its
+buffer. A timeout does not permit buffer reuse. After compositor death or an
+ambiguous transaction failure the allocation is retired. A live compositor
+that never completes an accepted request cannot be cancelled through V7;
+the client waits rather than queueing more requests against that allocation.
+
+Capture is limited to 5 Hz, with a refresh request to handle static content.
+Sensor sampling uses the stock 50 ms period. Wake samples are suppressed for
+300 ms. Sensor events are matched at/after capture completion, with brightness
+state at least 20 ms older than the sensor event. Sysfs observation timestamps
+approximate panel event time; the current kernel does not expose timestamped
+brightness events. Frames from before a power transition are discarded.
+
+Unlike stock's old-frame fallback, capture data older than one second is not
+used for a new report. No invented zero-bleed value or uncompensated factory
+lux is reported during capture failures. Secure/virtual-display contention,
+power transitions, pixel color order, sensor payloads and readback power cost
+still require end-to-end device validation.
+
+Validation
+
+From the Android root, with the optional Python unicorn package available:
+
+  python3 device/xiaomi/sm8450-common/sensors/udals/tests/validate.py \
+      --dumps /path/to/sm8450
+
+The dump directory contains marble/ and mayfly/. The test compiles the pure
+C++ evaluator on the host, executes the original ARM64 math in Unicorn and
+compares channel predictions and lux. Android allocation, vector getters,
+calibration interpolation, filtering and reporting are stubbed in the oracle;
+the tests separately supply calibration ratios/scales and check interpolation,
+pixel stride/offset/color order, timeline selection and malformed inputs.
+This is not a substitute for a device test of the capture/SSC integration.
+
+Build using breakfast marble (or mayfly), then m sensor-notifier selinux_policy.
+Only marble and mayfly select this extension; Zeus retains LightNotifier.
